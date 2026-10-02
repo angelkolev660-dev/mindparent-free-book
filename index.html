@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="bg">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Безплатна книга „Мамо, Не Знаеш Какво Става В Мен“ | MindParent</title>
+<meta name="description" content="Безплатна книга за майки на момчета между 12 и 18 години. Написана от момче, докато е бил на възрастта на сина ти, и проверена от психолог.">
+<meta property="og:title" content="Безплатна книга „Мамо, Не Знаеш Какво Става В Мен“">
+<meta property="og:description" content="Какво наистина става в главата на сина ти. Безплатно за майки на момчета 12–18 г.">
+<meta property="og:image" content="kniga-korica.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Manrope:wght@400;500;700;800&display=swap">
+<style>
+/* Layout: one centered sales-letter column (like the original free-book page), white background,
+   one coral CTA colour, cards only for the offer and testimonials. */
+:root{
+  /* White page + the navy blue of the book cover: navy buttons, headings and accents */
+  --ink:#0B1820; --text:#1F2A33; --muted:#5C6B74; --bg:#FFFFFF; --soft:#F4F6F7; --card:#FFFFFF; --line:#E2E7EA;
+  --coral:#13344C; --coral-dark:#0B1820; --gold:#8EC0E0; --gold-ink:#13344C; --no:#C0392B; --yes:#2E8B57; --night:#0B1820;
+  --f-display:"Oswald", "Arial Narrow", Impact, sans-serif; --f-body:"Manrope", "Segoe UI", Arial, sans-serif;
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--text);font-family:var(--f-body);font-size:18px;line-height:1.65}
+img{max-width:100%;height:auto;display:block}
+h1,h2,h3{font-family:var(--f-display);color:var(--ink);line-height:1.15;text-transform:uppercase;letter-spacing:.01em;text-wrap:balance;margin:0}
+h1{font-size:clamp(32px,7vw,54px);font-weight:700}
+h2{font-size:clamp(26px,5vw,38px);font-weight:600}
+h3{font-size:22px;font-weight:600}
+p{margin:0}
+.col{max-width:720px;margin:0 auto;padding-inline:16px}
+section{padding-block:56px}
+.soft{background:var(--soft)}
+.stack{display:flex;flex-direction:column;gap:16px}
+.center{text-align:center}
+.hl{color:var(--coral)}
+.muted{color:var(--muted)}
+
+.topbar{background:var(--night);text-align:center;padding:18px 16px 16px;display:grid;gap:6px}
+.topbar .t1{color:#fff;font-weight:800;font-size:clamp(19px,3.4vw,28px);line-height:1.25;text-wrap:balance}
+.topbar .t2{color:var(--gold);font-family:var(--f-display);text-transform:uppercase;letter-spacing:.12em;font-size:clamp(14px,2.4vw,18px)}
+.topbar a{color:#fff}
+
+/* CTA */
+.cta{display:flex;flex-direction:column;align-items:center;gap:8px;margin-top:8px}
+.btn{appearance:none;border:0;cursor:pointer;font:800 17px/1.2 var(--f-body);letter-spacing:.02em;color:#fff;background:var(--coral);
+  min-height:58px;padding:16px 26px;border-radius:12px;width:100%;max-width:480px;box-shadow:0 10px 26px -8px rgba(11,24,32,.45)}
+.btn:hover{background:var(--coral-dark)}
+.btn:focus-visible,input:focus-visible,select:focus-visible,summary:focus-visible,.x:focus-visible{outline:3px solid var(--gold);outline-offset:3px}
+.micro{font-size:13px;color:var(--muted);text-align:center}
+
+/* hero */
+.hero{padding-block:36px 48px;background:var(--bg)}
+.hero .pre{font-size:19px;text-align:center}
+.hero h1{text-align:center}
+.hero .sub{font-style:italic;text-align:center;color:var(--muted);font-size:19px}
+.cover{width:min(320px,78vw);margin:4px auto 0;filter:drop-shadow(0 24px 30px rgba(11,24,32,.35))}
+
+/* offer box */
+.offer{border:2px solid var(--coral);border-radius:16px;padding:22px 20px;background:var(--card);display:flex;flex-direction:column;gap:14px}
+.offer h3{text-align:center}
+.item{display:grid;grid-template-columns:76px 1fr;gap:14px;align-items:start;padding-top:14px;border-top:1px solid var(--line)}
+.item img{width:76px;height:76px;object-fit:cover;object-position:top;border-radius:10px;background:var(--soft)}
+.item .tile{width:76px;height:76px;border-radius:10px;background:var(--night);border:1px solid var(--line);color:var(--gold);display:grid;place-items:center;font-size:30px}
+.item b{color:var(--ink);display:block}
+.item p{font-size:16px;color:var(--muted)}
+.item .v{font-size:14px;font-weight:800;color:var(--ink)}
+.item .v s{color:var(--muted);font-weight:600}
+.sum{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px 16px;border-top:2px solid var(--line);padding-top:12px;font-weight:800;color:var(--ink)}
+.sum .was{font-size:clamp(22px,4.2vw,30px);font-family:var(--f-display);text-transform:uppercase}
+.sum s{color:var(--no);font-weight:700;text-decoration-thickness:3px}
+.sum .free{color:var(--coral);font-family:var(--f-display);font-size:clamp(26px,5vw,36px);text-transform:uppercase}
+.note{background:rgba(19,52,76,.07);border-radius:10px;padding:12px 14px;font-size:15px;text-align:center;color:var(--coral-dark);font-weight:700}
+
+
+.book-row{display:grid;grid-template-columns:120px 1fr;gap:16px;align-items:center;padding-top:14px;border-top:1px solid var(--line)}
+.book-row img{width:120px;height:auto;object-fit:contain}
+.book-row b{color:var(--ink);display:block;font-size:18px}
+.book-row p{font-size:16px;color:var(--muted)}
+.book-row .v{font-size:14px;font-weight:800;color:var(--ink)}
+.book-row .v s,.bonus s{color:var(--muted);font-weight:600}
+.bonus{margin:0;display:grid;grid-template-columns:120px 1fr;gap:14px;align-items:center;padding-top:14px;border-top:1px solid var(--line)}
+.bonus img{width:120px;aspect-ratio:3/2;object-fit:cover;object-position:right center;border-radius:10px}
+.bonus figcaption{display:grid;gap:2px;min-width:0}
+.bonus figcaption b{color:var(--ink);font-size:17px;line-height:1.3}
+.bonus figcaption span{font-size:15px;color:var(--muted)}
+.bonus figcaption em{font-style:normal;font-size:14px;font-weight:800;color:var(--ink)}
+/* lists */
+.checks{list-style:none;margin:0;padding:0;display:grid;gap:10px}
+.checks li{display:grid;grid-template-columns:26px 1fr;gap:8px}
+.checks li::before{content:"✓";color:var(--coral);font-weight:800}
+.fit{display:grid;gap:14px}
+@media(min-width:720px){.fit{grid-template-columns:1fr 1fr}}
+.fit div{border-radius:14px;padding:20px}
+.fit .no{background:rgba(224,107,85,.10);border:1px solid rgba(224,107,85,.3)}.fit .yes{background:rgba(108,192,139,.10);border:1px solid rgba(108,192,139,.3)}
+.fit ul{list-style:none;margin:10px 0 0;padding:0;display:grid;gap:8px;font-size:16px}
+.fit li{display:grid;grid-template-columns:22px 1fr;gap:6px}
+.fit .no li::before{content:"✕";color:var(--no);font-weight:800}
+.fit .yes li::before{content:"✓";color:var(--yes);font-weight:800}
+
+/* proof */
+.proof{display:grid;gap:12px}
+.shot{background:#1E1F22;border-radius:14px;padding:10px;display:grid;place-items:center;box-shadow:0 10px 24px -14px rgba(11,24,32,.6)}
+.shot img{width:auto;max-width:100%;max-height:300px;border-radius:8px}
+.proof-row{display:grid;gap:12px;grid-template-columns:repeat(auto-fit,minmax(min(100%,190px),1fr));align-items:stretch}
+.proof-row .shot img{max-height:380px}
+
+.quote{margin:0;background:var(--card);border-left:4px solid var(--coral);border-radius:0 12px 12px 0;padding:16px 18px;font-family:var(--f-body);font-style:italic;font-size:20px;font-weight:500;color:var(--ink)}
+.quote cite{display:block;margin-top:6px;font-family:var(--f-body);font-style:normal;font-size:14px;color:var(--muted)}
+
+/* urgency */
+.urgent{background:var(--night);color:#fff;border-radius:14px;padding:20px 16px;text-align:center;display:grid;gap:10px}
+.urgent .u1{font-family:var(--f-display);text-transform:uppercase;font-size:clamp(16px,3vw,19px);color:var(--gold);line-height:1.2;letter-spacing:.02em}
+.urgent .u2{font-size:16px;color:#D6DEE3}
+.urgent .u2 b{color:#fff}
+.timer{display:flex;justify-content:center;gap:8px;font-variant-numeric:tabular-nums}
+.timer div{background:#244E6B;border-radius:10px;min-width:64px;padding:8px 6px;display:grid}
+.timer b{font-family:var(--f-display);font-size:30px;line-height:1}
+.timer span{font-size:11px;text-transform:uppercase;letter-spacing:.1em;opacity:.9}
+/* video testimonials */
+.eyebrow{font-size:13px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:var(--coral);text-align:center}
+.h-accent{display:block;color:var(--coral)}
+.vids{display:flex;gap:14px;overflow-x:auto;scroll-snap-type:x mandatory;padding:4px 16px 12px;margin-inline:-16px}
+@media(min-width:640px){.vids{justify-content:center}}
+.vid{margin:0;flex:none;width:min(260px,70vw);aspect-ratio:9/16;border-radius:22px;overflow:hidden;position:relative;background:var(--night);border:1px solid var(--line);scroll-snap-align:center}
+.vid video{width:100%;height:100%;object-fit:cover;display:block}
+.vid figcaption{position:absolute;left:0;right:0;bottom:0;padding:28px 14px 12px;background:linear-gradient(transparent,rgba(0,0,0,.75));color:#fff;font-weight:800;font-size:15px;text-align:center}
+.vid.playing figcaption{display:none}
+.vid .play{position:absolute;inset:0;margin:auto;width:70px;height:70px;border-radius:50%;border:0;background:var(--coral);color:#fff;font-size:24px;cursor:pointer;box-shadow:0 8px 20px -6px rgba(0,0,0,.5);outline:3px solid rgba(255,255,255,.85)}
+.vid.playing .play{display:none}
+.subhead{font-weight:800;color:var(--ink);text-align:center;margin-top:18px}
+/* why free (two boxes) */
+.box-soft{background:#FBF8F3;border:1px solid var(--line);border-radius:22px;padding:30px 24px;display:grid;gap:14px}
+.box-line{border:2px solid var(--coral);border-radius:22px;padding:30px 24px;display:grid;gap:14px}
+.box-soft h2,.box-line h2{text-align:center;text-transform:none}
+.box-line h2{color:var(--coral)}
+.box-soft b,.box-line b{color:var(--ink)}
+/* authors */
+.trust{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.trust div{background:var(--night);color:#fff;border-radius:14px;padding:16px 10px;text-align:center;display:grid;gap:4px}
+.trust b{font-family:var(--f-display);font-size:clamp(24px,5vw,32px);color:var(--gold);line-height:1;text-transform:uppercase}
+.trust span{font-size:13px;line-height:1.35;color:#D6DEE3}
+.person{display:grid;gap:20px;align-items:start;background:var(--soft);border-radius:20px;padding:20px}
+@media(min-width:680px){.person{grid-template-columns:240px 1fr;padding:26px}}
+.person img{width:100%;aspect-ratio:4/5;object-fit:cover;object-position:top;border-radius:14px}
+@media(max-width:679px){.person img{max-width:280px;margin-inline:auto}}
+.person .role{font-size:13px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--coral)}
+.person h3{text-transform:none;font-size:24px}
+.person p{font-size:17px}
+.person b{color:var(--ink)}
+.person .sign{font-weight:800;color:var(--ink);border-left:3px solid var(--coral);padding-left:12px}
+.author{display:grid;gap:16px;align-items:start}
+@media(min-width:640px){.author{grid-template-columns:150px 1fr}}
+.author img{width:150px;height:150px;object-fit:cover;object-position:top;border-radius:50%;background:var(--soft);border:3px solid var(--coral)}
+.author .role{font-size:13px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--coral)}
+
+/* faq */
+.faq{display:grid;gap:10px}
+.faq details{border:1px solid var(--line);border-radius:12px;padding:0 16px;background:var(--card)}
+.faq summary{cursor:pointer;list-style:none;font-weight:800;color:var(--ink);padding:15px 28px 15px 0;position:relative}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";position:absolute;right:0;top:10px;font-size:24px;color:var(--coral)}
+.faq details[open] summary::after{content:"–"}
+.faq details p{padding-bottom:15px;color:var(--muted);font-size:16px}
+
+footer{background:var(--night);color:var(--muted);border-top:1px solid var(--line);font-size:14px;text-align:center;padding:28px 16px 100px}
+footer a{color:var(--muted)}
+
+/* sticky (mobile) */
+.sticky{position:fixed;left:0;right:0;bottom:0;z-index:40;padding:10px 16px calc(10px + env(safe-area-inset-bottom,0px));background:rgba(255,255,255,.96);border-top:1px solid var(--line);display:flex;justify-content:center;transform:translateY(110%);transition:transform .3s}
+.sticky.show{transform:none}
+.sticky .btn{min-height:50px;font-size:16px}
+@media(min-width:900px){.sticky{display:none}}
+
+/* modal */
+.modal{position:fixed;inset:0;z-index:60;display:grid;place-items:center;padding:16px;background:rgba(11,24,32,.72)}
+.dialog{background:#fff;border-radius:26px;width:100%;max-width:440px;max-height:calc(100% - 8px);overflow:auto;padding:28px 26px 24px;position:relative;box-shadow:0 30px 70px -20px rgba(0,0,0,.5);text-align:center}
+.x{position:absolute;top:14px;right:14px;width:42px;height:42px;border-radius:50%;border:1px solid var(--line);background:#fff;color:var(--ink);font-size:18px;cursor:pointer}
+.m-book{width:150px;margin:0 auto 6px;filter:drop-shadow(0 14px 18px rgba(11,24,32,.3))}
+.m-title{font-size:clamp(28px,6vw,34px);line-height:1.1;text-transform:none}
+.m-title span{display:block;color:#2C6A93}
+.m-sub{color:var(--muted);font-size:16px;margin:8px 0 18px}
+.dialog form{display:grid;gap:12px}
+.dialog input{font:inherit;font-size:17px;padding:16px 18px;border:1.5px solid var(--line);border-radius:16px;background:#fff;color:var(--text);width:100%}
+.dialog input:focus{border-color:var(--coral);outline:none;box-shadow:0 0 0 3px rgba(19,52,76,.12)}
+.m-btn{max-width:none;border-radius:999px;min-height:60px;margin-top:6px;text-transform:none;font-size:18px}
+.dialog input[aria-invalid="true"]{border-color:var(--no)}
+.err{color:var(--no);font-size:14px;font-weight:700}
+.done{text-align:center;display:grid;gap:12px;padding-block:8px}
+@media(prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+</style>
+<!-- Facebook Pixel -->
+<script>
+!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s&&s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
+fbq('init','1239139390922230');fbq('track','PageView');
+</script>
+</head>
+<body>
+
+<div class="topbar"><span class="t1">Не мислех, че ще дойде денят, в който ще покажа това публично…</span><span class="t2">Скоро няма да е безплатна</span></div>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="col stack">
+    <p class="pre">Ако си майка на момче между 12 и 18 години и вече си пробвала <b>всичко</b>: разговори, молби, заплахи, обещания…</p>
+    <p class="pre">…но резултатът, за който се бориш, така и не идва,</p>
+    <h1>тази безплатна книга ще ти покаже <span class="hl">какво наистина става в главата му</span></h1>
+    <p class="sub">Работи дори ако мълчи, затваря се в стаята си или изглежда напълно безразличен.</p>
+    <img class="cover" src="kniga-korica.png" alt="Книгата „Мамо, Не Знаеш Какво Става В Мен“" width="640" height="800">
+    <div class="cta">
+      <button class="btn js-open" type="button">ИСКАМ БЕЗПЛАТНАТА КНИГА →</button>
+      <p class="micro">🔒 Без спам · Без ангажимент · Отнема 20 секунди</p>
+    </div>
+  </div>
+</section>
+
+<!-- OFFER -->
+<section class="soft">
+  <div class="col stack">
+    <div class="offer">
+      <h3>Какво получаваш безплатно</h3>
+      <div class="book-row"><img src="kniga-mockup.png" alt="Книгата „Мамо, Не Знаеш Какво Става В Мен“" width="418" height="418" loading="lazy"><div><b>Книгата „Мамо, Не Знаеш Какво Става В Мен“</b><p>Мислите, които синът ти никога няма да ти каже на глас.</p><span class="v">Стойност: <s>18 €</s></span></div></div>
+      <figure class="bonus"><img src="bonus-1.jpg" alt="Бонус 1: Лична онлайн среща с Велизар или Марина" width="1100" height="733" loading="lazy"><figcaption><b>Бонус 1: Лична онлайн среща</b><span>С Велизар, Марина или човек от екипа.</span><em>Стойност: <s>60 €</s></em></figcaption></figure>
+      <figure class="bonus"><img src="bonus-2.jpg" alt="Бонус 2: Лекции и срещи на живо" width="1100" height="733" loading="lazy"><figcaption><b>Бонус 2: Лекции и срещи на живо</b><span>Психолог и родители като теб. Няма да си сама.</span><em>Стойност: <s>47 €</s></em></figcaption></figure>
+      <figure class="bonus"><img src="bonus-3.jpg" alt="Бонус 3: Как да научиш сина си да казва „не“" width="1100" height="733" loading="lazy"><figcaption><b>Бонус 3: Как да научиш сина си да казва „не“</b><span>На забранените вещества и на грешните хора.</span><em>Стойност: <s>25 €</s></em></figcaption></figure>
+      <div class="sum"><span class="was">Обща стойност: <s>150 €</s></span><span class="free">Днес: безплатно</span></div>
+      <div class="urgent" id="urgent">
+        <p class="u1">⚠️ Безплатно само още малко</p>
+        <p class="u2">Когато таймерът стигне нулата, книгата и бонусите ще струват <b>150 €</b>.</p>
+        <div class="timer" id="timer" aria-live="polite"><div><b id="tH">01</b><span>час</span></div><div><b id="tM">07</b><span>мин</span></div><div><b id="tS">00</b><span>сек</span></div></div>
+      </div>
+      <p class="note">⏰ Личната среща е само за първите 35 майки.</p>
+    </div>
+    <div class="cta"><button class="btn js-open" type="button">ИСКАМ БЕЗПЛАТНАТА КНИГА →</button><p class="micro">🔒 Без спам · Без ангажимент · Напълно безплатно</p></div>
+  </div>
+</section>
+
+<!-- TRUTH -->
+<section>
+  <div class="col stack">
+    <h2>Истината е, че…</h2>
+    <p>Повечето „съвети за родители“ обещават бързи решения. Говори повече. Наказвай по-строго. Отнеми телефона.</p>
+    <p>Работят два дни. После става по-лошо. Защото синът ти <b>не се бунтува срещу теб. Той се защитава.</b> И докато не разбереш от какво, всяка твоя дума ще звучи в главата му като нападка.</p>
+    <h2 style="margin-top:16px">Но ти не си виновна</h2>
+    <p>Никой не те е подготвил за момента, в който думите ти спират да действат. Интернет е пълен с противоречиви статии и „експерти“, които говорят сложно.</p>
+    <p>Тази книга подрежда картината спокойно и човешки. Без викане, без наказания и без безкрайни лекции.</p>
+  </div>
+</section>
+
+<!-- INSIDE -->
+<section class="soft">
+  <div class="col stack">
+    <h2>Какво ще откриеш в книгата</h2>
+    <ul class="checks">
+      <li>Защо ти отговаря само с „нормално“ и какъв въпрос да зададеш, за да ти каже повече.</li>
+      <li>Защо колкото повече настояваш за ученето, толкова по-малко учи.</li>
+      <li>Какво всъщност търси в телефона до 2 през нощта и защо отнемането му влошава нещата.</li>
+      <li>Фразата, която майките казват с добро намерение, а момчетата чуват като „разочарована съм от теб“.</li>
+      <li>Защо приятелите изведнъж са по-важни от теб и как да не станеш врагът.</li>
+      <li>Как да говориш с него за „лесните пари“ от YouTube, без да те изключи.</li>
+    </ul>
+    <div class="cta"><button class="btn js-open" type="button">ИСКАМ БЕЗПЛАТНАТА КНИГА →</button></div>
+  </div>
+</section>
+
+<!-- FIT -->
+<section>
+  <div class="col stack">
+    <div class="fit">
+      <div class="no"><h3>Не е за теб, ако…</h3><ul>
+        <li>Търсиш вълшебна фраза, която оправя всичко за една вечер.</li>
+        <li>Искаш някой друг да „оправи“ сина ти вместо теб.</li>
+        <li>Ще я свалиш и никога няма да я отвориш.</li>
+      </ul></div>
+      <div class="yes"><h3>За теб е, ако…</h3><ul>
+        <li>Имаш момче между 12 и 18 години.</li>
+        <li>Усещаш, че го губиш, и не знаеш как да го върнеш.</li>
+        <li>Писна ти да викаш и после да се чувстваш виновна.</li>
+      </ul></div>
+    </div>
+  </div>
+</section>
+
+<!-- PROOF -->
+<section class="soft">
+  <div class="col stack">
+    <p class="eyebrow">⭐ Реални резултати</p>
+    <h2 class="center">Не приемай всичко като чиста монета.<span class="h-accent">Виж какво казват майките</span></h2>
+    <p class="center muted">Видеа и съобщения от майки, които вече минаха по този път.</p>
+    <div class="vids" id="vids">
+      <figure class="vid"><video src="video-1.mp4" poster="poster-1.jpg" preload="none" playsinline></video><button class="play" type="button" aria-label="Пусни видеото на Александър">▶</button><figcaption>Александър, 17 г.</figcaption></figure>
+      <figure class="vid"><video src="video-2.mp4" poster="poster-2.jpg" preload="none" playsinline></video><button class="play" type="button" aria-label="Пусни видеото на майката на Христо">▶</button><figcaption>Майката на Христо (18 г.)</figcaption></figure>
+    </div>
+    <p class="subhead">💬 И какво ни пишат всеки ден</p>
+    <div class="proof">
+      <div class="shot"><img src="otziv-01.png" alt="Съобщение от майка" loading="lazy"></div>
+      <div class="shot"><img src="otziv-02.png" alt="Съобщение от майка" loading="lazy"></div>
+      <div class="shot"><img src="otziv-06.png" alt="Съобщение от майка" loading="lazy"></div>
+      <div class="shot"><img src="otziv-04.png" alt="Съобщение от майка" loading="lazy"></div>
+      <div class="shot"><img src="otziv-05.png" alt="Съобщение от майка" loading="lazy"></div>
+      <div class="shot"><img src="otziv-03.jpg" alt="Съобщение от майка" loading="lazy"></div>
+      <div class="shot"><img src="otziv-08.png" alt="Съобщение от майка" loading="lazy"></div>
+      <div class="proof-row">
+        <div class="shot"><img src="otziv-07.png" alt="Съобщение от майка" loading="lazy"></div>
+        <div class="shot"><img src="otziv-09.png" alt="Съобщение от майка" loading="lazy"></div>
+        <div class="shot"><img src="otziv-10.png" alt="Съобщение от майка" loading="lazy"></div>
+      </div>
+    </div>
+    <div class="cta"><button class="btn js-open" type="button">ИСКАМ БЕЗПЛАТНАТА КНИГА →</button></div>
+  </div>
+</section>
+
+<!-- AUTHORS -->
+<section>
+  <div class="col stack" style="gap:30px">
+    <p class="eyebrow">Вече е време да ти се представим</p>
+    <h2 class="center" style="margin-top:-14px">Кои стоят зад книгата</h2>
+    <div class="trust">
+      <div><b>15 г.</b><span>практика като психолог</span></div>
+      <div><b>на 18</b><span>Велизар издава първата си книга</span></div>
+      <div><b>10–18 г.</b><span>момчетата, с които работим всеки ден</span></div>
+    </div>
+    <article class="person">
+      <img src="velizar.jpg" alt="Велизар, основател на MindParent" width="600" height="600" loading="lazy">
+      <div class="stack" style="gap:12px">
+        <span class="role">Основател на MindParent</span>
+        <h3>👋 Здравей, аз съм Велизар</h3>
+        <p>Работя с момчета между 10 и 18 години. С такива, които отказват да учат, нямат мотивация и растат в среда, която не им помага да разгърнат потенциала си.</p>
+        <p><b>Причината да работя с тях не е теория и не е професия. Причината е, че познавам този път отвътре.</b></p>
+        <p>Започнах да работя на 15 и минах през различни професии. Учех се от грешките си ден след ден. Видях как средата, липсата на разбиране и поредицата от провали могат да затворят едно момче. Но видях и друго: че дори след лоши избори посоката може да се промени.</p>
+        <p>Днес превръщам тези уроци в ясни стъпки за момчетата и за майките им.</p>
+        <p class="sign">За мен това не е работа. Това е лична отговорност и обещание.</p>
+      </div>
+    </article>
+    <article class="person">
+      <img src="marina-panayotova.jpg" alt="Психолог Марина Панайотова" width="600" height="800" loading="lazy">
+      <div class="stack" style="gap:12px">
+        <span class="role">Психолог · 15 години практика</span>
+        <h3>👋 Здравей, казвам се Марина Панайотова</h3>
+        <p>Аз съм психолог, но преди всичко човек, който вярва, че младите имат огромен потенциал, стига някой да ги срещне по правилния начин.</p>
+        <p>Работя с момчета и момичета между 13 и 18 години. Дълго слушах обяснението „това е пубертет“. Но с годините виждах все по-ясно, че <b>поведението им не е каприз и не е бунт „просто ей така“</b>. Това е реакция на свят, който иска твърде много от тях.</p>
+        <p>Затова спрях да давам готови рецепти. Работя по начин, който не пречупва детето, а го изгражда. А родителят не се чувства виновен или безсилен, а разбира какво се случва отвътре.</p>
+        <p class="sign">Видях как момчета, смятани за „трудни“, се връщат към себе си. И как отношенията вкъщи се успокояват.</p>
+      </div>
+    </article>
+  </div>
+</section>
+
+<!-- WHY FREE + FAQ -->
+<section>
+  <div class="col stack">
+    <div class="box-soft">
+      <h2>Защо е безплатна?</h2>
+      <p>Честно: защото това е най-бързият начин да стигнем до майките, които наистина искат да си върнат сина.</p>
+      <p>Част от тях после искат да работим заедно лично. Оттам печелим, не от книгата. Вътре има всичко нужно, за да започнеш промяната и сама.</p>
+    </div>
+    <div class="box-line">
+      <h2>Най-трудната стъпка вече е свършена</h2>
+      <p>Повечето майки не се провалят. Те просто чакат „да му мине“. Защото не знаят <b>какво става в главата му</b>, <b>какво да му кажат</b> и <b>кога да замълчат</b>.</p>
+      <p>Книгата подрежда точно това наготово. Затова единственото, което може да те спре, вече не е времето, нито парите, <b>а само дали наистина искаш да си го върнеш</b>.</p>
+      <p>Вътре ще видиш света от неговата страна на вратата.</p>
+    </div>
+    <div class="cta"><button class="btn js-open" type="button">📘 ВЗЕМИ КНИГАТА БЕЗПЛАТНО →</button></div>
+    <h2 style="margin-top:28px">Често задавани въпроси</h2>
+    <div class="faq">
+      <details><summary>Ами ако синът ми изобщо не говори с мен?</summary><p>Точно за такива случаи е. Не е нужно той да участва. Започваш от себе си, а промяната в него идва след това.</p></details>
+      <details><summary>Трябва ли той да я чете?</summary><p>Не. Книгата е за теб, за да знаеш какво става в главата му и как да реагираш.</p></details>
+      <details><summary>Нямам време. Колко е дълга?</summary><p>Чете се за една-две вечери и може на части.</p></details>
+      <details><summary>Ще ми продавате ли нещо после?</summary><p>Може да получиш покана за допълнителна подкрепа, но книгата е завършена сама по себе си. Няма задължение.</p></details>
+      <details><summary>Как ще я получа?</summary><p>Веднага на имейла, който въведеш. Ако не я видиш, провери папка „Промоции“ или „Спам“.</p></details>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL -->
+<section>
+  <div class="col stack center">
+    <h2>Стигна до края. Това значи, че не си се отказала от него.</h2>
+    <p class="muted">Остава една малка крачка и тя е безплатна.</p>
+    <img class="cover" src="kniga-korica.png" alt="" width="640" height="800" loading="lazy" style="width:min(240px,60vw)">
+    <div class="cta"><button class="btn js-open" type="button">ИСКАМ БЕЗПЛАТНАТА КНИГА →</button><p class="micro">🔒 Без спам · Без ангажимент · Отнема 20 секунди</p></div>
+  </div>
+</section>
+
+<footer>
+  <p>© 2026 MindParent. Всички права запазени.</p>
+  <p><a href="https://mindparent.com/terms" target="_blank" rel="noopener">Общи условия</a> · <a href="https://mindparent.com/privacy" target="_blank" rel="noopener">Поверителност</a> · <a href="https://mindparent.com/cookies" target="_blank" rel="noopener">Бисквитки</a></p>
+</footer>
+
+<div class="sticky" id="sticky"><button class="btn js-open" type="button">ИСКАМ БЕЗПЛАТНАТА КНИГА →</button></div>
+
+<div class="modal" id="modal" hidden role="dialog" aria-modal="true" aria-labelledby="mTitle">
+  <div class="dialog">
+    <button class="x" type="button" id="mClose" aria-label="Затвори">✕</button>
+    <div id="mForm">
+      <img class="m-book" src="kniga-mockup.png" alt="" width="418" height="418">
+      <h3 id="mTitle" class="m-title">Вземи книгата<span>безплатно</span></h3>
+      <p class="m-sub">Въведи данните си и я получаваш веднага</p>
+      <form id="leadForm" novalidate>
+        <input id="fName" name="name" type="text" autocomplete="given-name" placeholder="Твоето име" aria-label="Твоето име">
+        <input id="fPhone" name="phone" type="tel" autocomplete="tel" inputmode="tel" placeholder="Твоят телефон" aria-label="Твоят телефон">
+        <input id="fEmail" name="email" type="email" autocomplete="email" inputmode="email" placeholder="Твоят имейл адрес" aria-label="Твоят имейл адрес">
+        <p class="err" id="fErr" hidden></p>
+        <button class="btn m-btn" type="submit" id="fBtn">📘 Вземи безплатно →</button>
+        <p class="micro">🔒 Без спам · Без ангажимент · Напълно безплатно</p>
+      </form>
+    </div>
+    <div class="done" id="mDone" hidden>
+      <h3>Готово! 📘</h3>
+      <p>Провери имейла си (и папка „Промоции“). Книгата е на път.</p>
+      <button class="btn" type="button" id="mOk">Затвори</button>
+    </div>
+  </div>
+</div>
+
+<script>
+/* FORM_ACTION_URL: адресът за изпращане (MailerLite / ConvertBuilder / Zapier). Полета: name, phone, email.
+   Празно = само показва „Готово!“ (за тест). */
+var FORM_ACTION_URL = "";
+/* Страницата „Благодаря“, към която отива човек след формата */
+var THANK_YOU_URL = "blagodarya.html";
+
+document.querySelectorAll('img').forEach(function(i){i.addEventListener('error',function(){if(i.closest('.proof'))i.remove();else i.style.visibility='hidden'})});
+
+var modal=document.getElementById('modal'),sticky=document.getElementById('sticky'),last=null;
+function openM(){last=document.activeElement;document.getElementById('mForm').hidden=false;document.getElementById('mDone').hidden=true;modal.hidden=false;sticky.classList.remove('show');document.body.style.overflow='hidden';setTimeout(function(){document.getElementById('fName').focus()},30)}
+function closeM(){modal.hidden=true;document.body.style.overflow='';onScroll();if(last)last.focus()}
+document.querySelectorAll('.js-open').forEach(function(b){b.addEventListener('click',openM)});
+document.getElementById('mClose').addEventListener('click',closeM);
+document.getElementById('mOk').addEventListener('click',closeM);
+modal.addEventListener('click',function(e){if(e.target===modal)closeM()});
+document.addEventListener('keydown',function(e){if(!modal.hidden&&e.key==='Escape')closeM()});
+
+document.getElementById('leadForm').addEventListener('submit',function(e){
+  e.preventDefault();
+  var n=document.getElementById('fName'),m=document.getElementById('fEmail'),err=document.getElementById('fErr'),btn=document.getElementById('fBtn');
+  n.removeAttribute('aria-invalid');m.removeAttribute('aria-invalid');err.hidden=true;
+  if(!n.value.trim()){n.setAttribute('aria-invalid','true');err.textContent='Напиши името си.';err.hidden=false;n.focus();return}
+  if(!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(m.value.trim())){m.setAttribute('aria-invalid','true');err.textContent='Провери имейла. Изглежда има грешка в него.';err.hidden=false;m.focus();return}
+  var ph=document.getElementById('fPhone');ph.removeAttribute('aria-invalid');
+  if(ph.value.replace(/\D/g,'').length<8){ph.setAttribute('aria-invalid','true');err.textContent='Провери телефона.';err.hidden=false;ph.focus();return}
+  var data={name:n.value.trim(),phone:ph.value.trim(),email:m.value.trim()};
+  function ok(){try{window.fbq&&fbq('track','Lead')}catch(_){}setTimeout(function(){location.href=THANK_YOU_URL},300)}
+  if(!FORM_ACTION_URL){ok();return}
+  btn.disabled=true;btn.textContent='Изпращам…';
+  fetch(FORM_ACTION_URL,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(data)})
+   .then(function(r){if(!r.ok)throw 0;ok()})
+   .catch(function(){err.textContent='Нещо се обърка. Опитай пак след малко.';err.hidden=false})
+   .finally(function(){btn.disabled=false;btn.textContent='📘 Вземи безплатно →'});
+});
+
+
+/* Таймер: 1 ч. 7 мин. за всеки посетител. Пази се при презареждане (в браузъра на посетителя). */
+var TIMER_MINUTES = 67;
+(function(){var key='mp_offer_end',end=0;
+ try{end=parseInt(localStorage.getItem(key),10)||0}catch(_){}
+ if(!end){end=Date.now()+TIMER_MINUTES*60000;try{localStorage.setItem(key,String(end))}catch(_){}}
+ function pad(n){return String(n).padStart(2,'0')}
+ function tick(){var s=Math.max(0,Math.floor((end-Date.now())/1000));
+  document.getElementById('tH').textContent=pad(Math.floor(s/3600));document.getElementById('tM').textContent=pad(Math.floor(s%3600/60));document.getElementById('tS').textContent=pad(s%60)}
+ tick();setInterval(tick,1000)})();
+/* video cards */
+(function(){var box=document.getElementById('vids');
+ box.querySelectorAll('.vid').forEach(function(c){var v=c.querySelector('video'),b=c.querySelector('.play');
+  b.addEventListener('click',function(){box.querySelectorAll('video').forEach(function(o){if(o!==v){o.pause()}});v.controls=true;v.play();c.classList.add('playing')});
+  v.addEventListener('ended',function(){c.classList.remove('playing');v.controls=false})})})();
+var hero=document.querySelector('.hero');
+function onScroll(){if(!modal.hidden)return;var past=hero.getBoundingClientRect().bottom<0;var end=(innerHeight+scrollY)>=document.body.scrollHeight-200;sticky.classList.toggle('show',past&&!end)}
+addEventListener('scroll',onScroll,{passive:true});onScroll();
+</script>
+</body>
+</html>
