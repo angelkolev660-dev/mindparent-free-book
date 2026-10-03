@@ -1,0 +1,346 @@
+<!doctype html>
+<html lang="bg">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Статистика — book.mindparent.com</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Manrope:wght@400;500;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#0B1820; --text:#1F2A33; --muted:#5C6B74; --faint:#8A98A1;
+  --bg:#F4F6F7; --card:#FFFFFF; --line:#E2E7EA; --row:#F8FAFB;
+  --navy:#13344C; --sky:#8EC0E0; --sky-soft:#E8F2F9;
+  --bad:#C0392B; --bad-soft:#FBECEA;
+  --f-display:"Oswald","Arial Narrow",Impact,sans-serif;
+  --f-body:"Manrope","Segoe UI",Arial,sans-serif;
+  color-scheme:light;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+[hidden]{display:none!important}
+body{background:var(--bg);color:var(--text);font-family:var(--f-body);font-size:15px;line-height:1.5;padding:28px 16px 64px}
+.wrap{max-width:1000px;margin:0 auto}
+
+header{margin-bottom:22px}
+h1{font-family:var(--f-display);font-weight:700;font-size:clamp(24px,5vw,32px);text-transform:uppercase;letter-spacing:.01em;color:var(--ink);line-height:1.15}
+h1 span{color:var(--navy);background:var(--sky-soft);padding:0 8px;border-radius:6px;white-space:nowrap}
+.sub{color:var(--muted);font-size:13px;margin-top:6px}
+
+.demo{background:#FFF8E6;border:1px solid #F1D48A;color:#6B5212;padding:12px 14px;border-radius:12px;font-size:13px;margin-bottom:18px}
+
+.range{display:flex;gap:8px;margin-bottom:14px;flex-wrap:wrap}
+.range button{background:var(--card);border:1px solid var(--line);color:var(--navy);padding:8px 16px;border-radius:100px;font:700 13px var(--f-body);cursor:pointer;transition:border-color .15s,background .15s}
+.range button:hover{border-color:var(--navy)}
+.range button.on{background:var(--navy);border-color:var(--navy);color:#fff}
+
+.picker{display:flex;gap:10px;align-items:center;flex-wrap:wrap;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:12px 14px;margin-bottom:22px}
+.picker label{font-size:12px;color:var(--muted);display:flex;align-items:center;gap:7px;font-weight:700}
+.picker input[type=date]{background:var(--bg);border:1px solid var(--line);color:var(--text);padding:8px 10px;border-radius:9px;font:500 13px var(--f-body)}
+.picker input[type=date]:focus{outline:none;border-color:var(--navy)}
+#apply{background:var(--navy);color:#fff;border:0;padding:9px 20px;border-radius:9px;font:800 13px var(--f-body);cursor:pointer}
+#apply:hover{background:var(--ink)}
+.hint{font-size:12px;color:var(--faint)}
+.hint.bad{color:var(--bad)}
+button:focus-visible,input:focus-visible{outline:3px solid var(--sky);outline-offset:2px}
+
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin-bottom:24px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px 18px}
+.card .lbl{font-size:11px;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);font-weight:700;margin-bottom:8px}
+.card .val{font-family:var(--f-display);font-size:32px;font-weight:600;line-height:1;color:var(--ink);font-variant-numeric:tabular-nums}
+.card.hi{background:var(--navy);border-color:var(--navy)}
+.card.hi .lbl{color:var(--sky)}
+.card.hi .val{color:#fff}
+
+.panel{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:20px;margin-bottom:24px}
+h2{font-family:var(--f-display);font-size:15px;text-transform:uppercase;letter-spacing:.08em;color:var(--ink);font-weight:600;margin:0 0 14px}
+.step{margin-bottom:14px}
+.step:last-child{margin-bottom:0}
+.step-top{display:flex;justify-content:space-between;gap:12px;font-size:14px;margin-bottom:6px}
+.step-top b{font-weight:700;color:var(--ink)}
+.step-top i{font-style:normal;color:var(--muted);font-variant-numeric:tabular-nums;white-space:nowrap}
+.bar{height:10px;background:var(--bg);border-radius:100px;overflow:hidden}
+.bar div{height:100%;background:var(--navy);border-radius:100px;transition:width .4s}
+.step:last-child .bar div{background:var(--sky)}
+.drop{font-size:12px;color:var(--bad);margin-top:4px}
+
+.tbl{overflow-x:auto;background:var(--card);border:1px solid var(--line);border-radius:14px;margin-bottom:24px}
+table{width:100%;border-collapse:collapse;font-size:14px}
+th{background:var(--row);text-align:left;padding:11px 12px;font-size:11px;text-transform:uppercase;letter-spacing:.05em;color:var(--muted);font-weight:800;white-space:nowrap}
+th.r,td.num,td.rate{text-align:right}
+td{padding:11px 12px;border-top:1px solid var(--line);font-variant-numeric:tabular-nums}
+td:first-child{white-space:nowrap}
+td.name{max-width:320px;overflow-wrap:anywhere;white-space:normal}
+td.rate{font-weight:800;color:var(--navy)}
+td .camp{display:block;font-size:12px;color:var(--faint)}
+tbody tr:hover{background:var(--row)}
+.msg{padding:28px 20px;text-align:center;color:var(--muted);font-size:14px}
+.msg code{display:inline-block;margin-top:10px;background:var(--bg);border:1px solid var(--line);border-radius:8px;padding:8px 10px;font-size:12px;color:var(--ink);word-break:break-all;text-align:left}
+
+.err{background:var(--bad-soft);border:1px solid #F0C4BE;color:var(--bad);padding:14px;border-radius:12px;font-size:13px;margin-bottom:20px}
+.note{font-size:12px;color:var(--faint);line-height:1.65;border-top:1px solid var(--line);padding-top:16px}
+
+@media (max-width:600px){
+  body{padding-top:20px}
+  .card{padding:14px}
+  .card .val{font-size:26px}
+  .card.hi{order:-1;grid-column:1/-1}
+  .card.hi .val{font-size:34px}
+  table{font-size:13px}
+  th,td{padding:9px 6px}
+  th{font-size:10px;letter-spacing:.02em}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <h1>Статистика <span>book.mindparent.com</span></h1>
+    <p class="sub" id="updated">Зареждане…</p>
+  </header>
+
+  <div class="demo" id="demo" hidden>
+    <b>Демо данни.</b> Страницата още не е свързана със Supabase. Попълни <code>SUPABASE_URL</code> и <code>SUPABASE_KEY</code> най-долу във файла.
+  </div>
+
+  <div class="range">
+    <button data-d="1">Днес</button>
+    <button data-d="7">7 дни</button>
+    <button data-d="30" class="on">30 дни</button>
+    <button data-d="90">90 дни</button>
+    <button data-d="365">1 година</button>
+    <button data-d="all">Всичко</button>
+  </div>
+
+  <div class="picker">
+    <label>От <input type="date" id="ot"></label>
+    <label>До <input type="date" id="do"></label>
+    <button id="apply" type="button">Покажи</button>
+    <span class="hint" id="pickerHint"></span>
+  </div>
+
+  <div id="error"></div>
+
+  <div class="cards" id="cards"></div>
+
+  <div class="panel" id="funnel"></div>
+
+  <h2>По дни</h2>
+  <div class="tbl" id="daily"></div>
+
+  <h2>Източници на трафик</h2>
+  <div class="tbl" id="sources"></div>
+
+  <h2>По реклами</h2>
+  <div class="tbl" id="ads"></div>
+
+  <p class="note">
+    Посещение се брои след 2 секунди на страницата и се отсяват известни ботове.
+    Броят е на уникални сесии, не на презареждания.
+    Лийд се брои, когато човек стигне до страницата „Благодаря“.
+    Числата може да се различават леко от Meta, защото част от посетителите блокират пиксела.
+  </p>
+</div>
+
+<script>
+/* === НАСТРОЙКА: същите две стойности като в mp-track.js === */
+var SUPABASE_URL = 'https://YOUR-PROJECT.supabase.co';
+var SUPABASE_KEY = 'YOUR_PUBLISHABLE_KEY';
+/* ========================================================== */
+
+var DEMO = SUPABASE_URL.indexOf('YOUR-PROJECT') > -1 || SUPABASE_KEY.indexOf('YOUR_') === 0;
+var AD_PARAMS = 'utm_source={{site_source_name}}&utm_medium=paid&utm_campaign={{campaign.name}}&utm_content={{ad.name}}';
+
+function rpc(fn, params){
+  if (DEMO) return Promise.resolve(demoData(fn, params));
+  var headers = {'Content-Type':'application/json','apikey':SUPABASE_KEY};
+  if (SUPABASE_KEY.indexOf('sb_') !== 0) headers['Authorization'] = 'Bearer ' + SUPABASE_KEY;
+  return fetch(SUPABASE_URL.replace(/\/+$/,'') + '/rest/v1/rpc/' + fn, {
+    method:'POST', headers:headers, body:JSON.stringify(params)
+  }).then(function(r){
+    if (r.ok) return r.json();
+    return r.text().then(function(t){ throw new Error(fn + ': ' + r.status + ' ' + t); });
+  });
+}
+
+/* --- помощни --- */
+function esc(s){ return String(s == null ? '' : s).replace(/[&<>"']/g, function(c){ return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]; }); }
+function isoDate(d){ return d.getFullYear() + '-' + String(d.getMonth()+1).padStart(2,'0') + '-' + String(d.getDate()).padStart(2,'0'); }
+function parseDay(s){ var p = String(s).slice(0,10).split('-'); return new Date(+p[0], +p[1]-1, +p[2]); }
+function n(v){ return Number(v || 0).toLocaleString('bg-BG'); }
+function pct(v){ return v == null ? '—' : Number(v).toLocaleString('bg-BG', {maximumFractionDigits:2}) + '%'; }
+var MONTHS = ['яну','фев','мар','апр','май','юни','юли','авг','сеп','окт','ное','дек'];
+function dayLabel(s, withYear){
+  var d = parseDay(s);
+  return d.getDate() + ' ' + MONTHS[d.getMonth()] + (withYear ? ' ' + d.getFullYear() : '');
+}
+function el(id){ return document.getElementById(id); }
+
+/* --- рисуване --- */
+function drawCards(t){
+  el('cards').innerHTML =
+    '<div class="card"><div class="lbl">Посетители</div><div class="val">' + n(t.posetiteli) + '</div></div>' +
+    '<div class="card"><div class="lbl">Отворили формата</div><div class="val">' + n(t.otvoreni_formi) + '</div></div>' +
+    '<div class="card"><div class="lbl">Лийдове</div><div class="val">' + n(t.leadove) + '</div></div>' +
+    '<div class="card hi"><div class="lbl">Opt-in rate</div><div class="val">' + pct(t.opt_in_rate) + '</div></div>' +
+    '<div class="card"><div class="lbl">От форма към лийд</div><div class="val">' + pct(t.forma_rate) + '</div></div>';
+}
+
+function drawFunnel(t){
+  var base = Number(t.posetiteli || 0);
+  var steps = [
+    ['Влезли на сайта',    t.posetiteli],
+    ['Отворили формата',   t.otvoreni_formi],
+    ['Започнали да пишат', t.zapochnali],
+    ['Записали се',        t.leadove]
+  ];
+  var h = '<h2>Фунел</h2>';
+  steps.forEach(function(s, i){
+    var v = Number(s[1] || 0);
+    var w = base ? Math.min(100, v / base * 100) : 0;
+    var prev = i > 0 ? Number(steps[i-1][1] || 0) : null;
+    var lost = prev ? Math.round((prev - v) / prev * 100) : null;
+    h += '<div class="step"><div class="step-top"><b>' + s[0] + '</b><i>' + n(v) + ' · ' +
+         w.toLocaleString('bg-BG', {minimumFractionDigits:1, maximumFractionDigits:1}) + '%</i></div>' +
+         '<div class="bar"><div style="width:' + w + '%"></div></div>' +
+         (lost !== null && lost > 0 ? '<div class="drop">↓ отпадат ' + lost + '%</div>' : '') + '</div>';
+  });
+  el('funnel').innerHTML = h;
+}
+
+function empty(id, extra){ el(id).innerHTML = '<div class="msg">Няма данни за периода.' + (extra || '') + '</div>'; }
+
+function drawDaily(rows){
+  if (!rows.length) return empty('daily');
+  var h = '<table><thead><tr><th>Дата</th><th class="r">Посетители</th><th class="r">Форма</th>' +
+          '<th class="r">Лийдове</th><th class="r">Opt-in</th></tr></thead><tbody>';
+  rows.forEach(function(r){
+    h += '<tr><td>' + esc(dayLabel(r.den)) + '</td><td class="num">' + n(r.posetiteli) + '</td>' +
+         '<td class="num">' + n(r.otvoreni_formi) + '</td><td class="num">' + n(r.leadove) + '</td>' +
+         '<td class="rate">' + pct(r.opt_in_rate) + '</td></tr>';
+  });
+  el('daily').innerHTML = h + '</tbody></table>';
+}
+
+function drawSources(rows){
+  if (!rows.length) return empty('sources');
+  var h = '<table><thead><tr><th>Източник</th><th class="r">Посетители</th><th class="r">Лийдове</th>' +
+          '<th class="r">Opt-in</th></tr></thead><tbody>';
+  rows.forEach(function(r){
+    h += '<tr><td class="name">' + esc(r.iztochnik) + '</td><td class="num">' + n(r.posetiteli) + '</td>' +
+         '<td class="num">' + n(r.leadove) + '</td><td class="rate">' + pct(r.opt_in_rate) + '</td></tr>';
+  });
+  el('sources').innerHTML = h + '</tbody></table>';
+}
+
+function drawAds(rows){
+  if (!rows.length) {
+    return empty('ads', '<br>Добави този ред в рекламите в Meta (Реклама → Проследяване → URL параметри):<br><code>' + esc(AD_PARAMS) + '</code>');
+  }
+  var h = '<table><thead><tr><th>Реклама</th><th class="r">Посетители</th><th class="r">Лийдове</th>' +
+          '<th class="r">Opt-in</th></tr></thead><tbody>';
+  rows.forEach(function(r){
+    h += '<tr><td class="name">' + esc(r.reklama) +
+         (r.kampaniya && r.kampaniya !== '—' ? '<span class="camp">' + esc(r.kampaniya) + '</span>' : '') + '</td>' +
+         '<td class="num">' + n(r.posetiteli) + '</td><td class="num">' + n(r.leadove) + '</td>' +
+         '<td class="rate">' + pct(r.opt_in_rate) + '</td></tr>';
+  });
+  el('ads').innerHTML = h + '</tbody></table>';
+}
+
+/* --- зареждане --- */
+var current = null;
+function load(ot, do_, quiet){
+  current = [ot, do_];
+  el('error').innerHTML = '';
+  if (!quiet) el('updated').textContent = 'Зареждане…';
+  var p = {ot_data: ot, do_data: do_};
+  Promise.all([
+    rpc('mp_stats_obshto_period', p),
+    rpc('mp_stats_po_dni_period', p),
+    rpc('mp_stats_iztochnici_period', p),
+    rpc('mp_stats_reklami_period', p)
+  ]).then(function(res){
+    if (current[0] !== ot || current[1] !== do_) return; // вече е избран друг период
+    var t = Array.isArray(res[0]) ? (res[0][0] || {}) : (res[0] || {});
+    drawCards(t); drawFunnel(t); drawDaily(res[1] || []); drawSources(res[2] || []); drawAds(res[3] || []);
+    var period = ot === do_ ? dayLabel(ot, true) : dayLabel(ot, true) + ' — ' + dayLabel(do_, true);
+    el('updated').textContent = period + '  ·  обновено ' + new Date().toLocaleTimeString('bg-BG');
+  }).catch(function(e){
+    el('error').innerHTML = '<div class="err"><b>Грешка при зареждане.</b><br>' + esc(e.message) +
+      '<br><br>Ако пише, че функцията не съществува, пусни файла <b>supabase-mindparent.sql</b> в Supabase → SQL Editor.</div>';
+    el('updated').textContent = '—';
+  });
+}
+
+var otEl = el('ot'), doEl = el('do'), hint = el('pickerHint');
+
+function loadDays(days){
+  var do_ = new Date(), ot = new Date();
+  if (days === 'all') ot = new Date(2020, 0, 1);
+  else ot.setDate(ot.getDate() - (days - 1));
+  otEl.value = isoDate(ot); doEl.value = isoDate(do_);
+  hint.textContent = ''; hint.classList.remove('bad');
+  load(isoDate(ot), isoDate(do_));
+}
+
+document.querySelectorAll('.range button').forEach(function(b){
+  b.addEventListener('click', function(){
+    document.querySelectorAll('.range button').forEach(function(x){ x.classList.remove('on'); });
+    b.classList.add('on');
+    loadDays(b.dataset.d === 'all' ? 'all' : +b.dataset.d);
+  });
+});
+
+el('apply').addEventListener('click', function(){
+  var ot = otEl.value, do_ = doEl.value;
+  if (!ot || !do_) { hint.textContent = 'Попълни и двете дати.'; hint.classList.add('bad'); return; }
+  if (ot > do_) { hint.textContent = 'Началната дата е след крайната.'; hint.classList.add('bad'); return; }
+  hint.textContent = ''; hint.classList.remove('bad');
+  document.querySelectorAll('.range button').forEach(function(x){ x.classList.remove('on'); });
+  load(ot, do_);
+});
+[otEl, doEl].forEach(function(i){ i.addEventListener('keydown', function(e){ if (e.key === 'Enter') el('apply').click(); }); });
+otEl.max = doEl.max = isoDate(new Date());
+
+// Обновява се само на всяка минута, докато страницата е отворена.
+setInterval(function(){
+  if (document.visibilityState !== 'visible' || !current) return;
+  var on = document.querySelector('.range button.on');
+  if (on) loadDays(on.dataset.d === 'all' ? 'all' : +on.dataset.d); else load(current[0], current[1], true);
+}, 60000);
+
+el('demo').hidden = !DEMO;
+loadDays(30);
+
+/* --- демо данни (само докато не е свързано със Supabase) --- */
+function demoData(fn, p){
+  function rnd(seed){ var x = Math.sin(seed) * 10000; return x - Math.floor(x); }
+  var start = parseDay(p.ot_data), end = parseDay(p.do_data), today = new Date(); today.setHours(0,0,0,0);
+  var first = new Date(today); first.setDate(first.getDate() - 44);
+  if (start < first) start = first;
+  var days = [];
+  for (var d = new Date(end); d >= start; d.setDate(d.getDate() - 1)) {
+    var s = d.getTime() / 864e5, v = Math.round(140 + rnd(s) * 220);
+    var f = Math.round(v * (0.38 + rnd(s + 1) * 0.14)), z = Math.round(f * (0.62 + rnd(s + 2) * 0.12));
+    var l = Math.round(z * (0.78 + rnd(s + 3) * 0.12));
+    days.push({den: isoDate(d), posetiteli: v, otvoreni_formi: f, zapochnali: z, leadove: l, opt_in_rate: +(l / v * 100).toFixed(2)});
+  }
+  var T = days.reduce(function(a, r){ a.posetiteli += r.posetiteli; a.otvoreni_formi += r.otvoreni_formi; a.zapochnali += r.zapochnali; a.leadove += r.leadove; return a; },
+                      {posetiteli:0, otvoreni_formi:0, zapochnali:0, leadove:0});
+  T.opt_in_rate = T.posetiteli ? +(T.leadove / T.posetiteli * 100).toFixed(2) : null;
+  T.forma_rate = T.otvoreni_formi ? +(T.leadove / T.otvoreni_formi * 100).toFixed(2) : null;
+  if (fn === 'mp_stats_obshto_period') return [T];
+  if (fn === 'mp_stats_po_dni_period') return days;
+  function split(list){ return list.map(function(x){ var v = Math.round(T.posetiteli * x[1]), l = Math.round(T.leadove * x[2]);
+    return {name: x[0], camp: x[3], v: v, l: l, r: v ? +(l / v * 100).toFixed(2) : null}; }); }
+  if (fn === 'mp_stats_iztochnici_period') return split([['fb',.62,.68],['ig',.24,.25],['an',.09,.03],['директно',.05,.04]])
+    .map(function(x){ return {iztochnik:x.name, posetiteli:x.v, leadove:x.l, opt_in_rate:x.r}; });
+  if (fn === 'mp_stats_reklami_period') return split([['Банер – синът мълчи',.41,.47,'Книга – студена'],['Видео Велизар',.33,.34,'Книга – студена'],['Банер – телефонът',.18,.14,'Книга – ретаргет']])
+    .map(function(x){ return {reklama:x.name, kampaniya:x.camp, posetiteli:x.v, leadove:x.l, opt_in_rate:x.r}; });
+  return [];
+}
+</script>
+</body>
+</html>
