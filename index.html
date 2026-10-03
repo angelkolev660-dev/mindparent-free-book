@@ -417,11 +417,27 @@ fbq('init','1239139390922230');fbq('track','PageView');
 </div>
 
 <script>
-/* FORM_ACTION_URL: адресът за изпращане (MailerLite / ConvertBuilder / Zapier). Полета: name, phone, email.
-   Празно = само показва „Готово!“ (за тест). */
+/* Лийдовете се записват в Supabase (проект mentorska → схема mindparent → таблица leads). */
+var SUPABASE_URL = "https://flrhlmqzbrxxryglopzx.supabase.co";
+var SUPABASE_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImZscmhsbXF6YnJ4eHJ5Z2xvcHp4Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3Nzg3ODU5NTksImV4cCI6MjA5NDM2MTk1OX0.6FgZBNcIVx4KlnznPl8fPrctcxM4c106Sft9KwUxdFo";
+/* FORM_ACTION_URL: по желание и втори адрес (MailerLite / Zapier). Полета: name, phone, email. Празно = само Supabase. */
 var FORM_ACTION_URL = "";
 /* Страницата „Благодаря“, към която отива човек след формата */
 var THANK_YOU_URL = "blagodarya.html";
+
+function saveLead(d){
+  function ss(k){try{return window.sessionStorage.getItem(k)}catch(_){return null}}
+  function q(k){var x=new RegExp('[?&]'+k+'=([^&#]*)').exec(location.search);if(!x)return '';try{return decodeURIComponent(x[1].replace(/\+/g,' '))}catch(_){return x[1]}}
+  var h={'Content-Type':'application/json','apikey':SUPABASE_KEY};
+  if(SUPABASE_KEY.indexOf('sb_')!==0)h['Authorization']='Bearer '+SUPABASE_KEY;
+  return fetch(SUPABASE_URL+'/rest/v1/rpc/mp_lead',{method:'POST',headers:h,body:JSON.stringify({
+    p_ime:d.name,p_email:d.email,p_telefon:d.phone,
+    p_session:ss('mp_sid'),
+    p_source:ss('mp_src')||q('utm_source')||null,
+    p_campaign:ss('mp_cmp')||q('utm_campaign')||null,
+    p_ad:ss('mp_ad')||q('utm_content')||null
+  })}).then(function(r){if(!r.ok)throw new Error('lead '+r.status)});
+}
 
 document.querySelectorAll('img').forEach(function(i){i.addEventListener('error',function(){if(i.closest('.proof'))i.remove();else i.style.visibility='hidden'})});
 
@@ -444,12 +460,12 @@ document.getElementById('leadForm').addEventListener('submit',function(e){
   if(ph.value.replace(/\D/g,'').length<8){ph.setAttribute('aria-invalid','true');err.textContent='Провери телефона.';err.hidden=false;ph.focus();return}
   var data={name:n.value.trim(),phone:ph.value.trim(),email:m.value.trim()};
   function ok(){try{window.fbq&&fbq('track','Lead')}catch(_){}setTimeout(function(){location.href=THANK_YOU_URL},300)}
-  if(!FORM_ACTION_URL){ok();return}
   btn.disabled=true;btn.textContent='Изпращам…';
-  fetch(FORM_ACTION_URL,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(data)})
-   .then(function(r){if(!r.ok)throw 0;ok()})
-   .catch(function(){err.textContent='Нещо се обърка. Опитай пак след малко.';err.hidden=false})
-   .finally(function(){btn.disabled=false;btn.textContent='📘 Вземи безплатно →'});
+  var jobs=[saveLead(data)];
+  if(FORM_ACTION_URL)jobs.push(fetch(FORM_ACTION_URL,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(data)}).then(function(r){if(!r.ok)throw 0}));
+  Promise.all(jobs)
+   .then(ok)
+   .catch(function(){err.textContent='Нещо се обърка. Опитай пак след малко.';err.hidden=false;btn.disabled=false;btn.textContent='📘 Вземи безплатно →'});
 });
 
 
@@ -471,6 +487,6 @@ var hero=document.querySelector('.hero');
 function onScroll(){if(!modal.hidden)return;var past=hero.getBoundingClientRect().bottom<0;var end=(innerHeight+scrollY)>=document.body.scrollHeight-200;sticky.classList.toggle('show',past&&!end)}
 addEventListener('scroll',onScroll,{passive:true});onScroll();
 </script>
-<script src="mp-track.js" defer></script>
+<script src="mp-site.js" defer></script>
 </body>
 </html>
