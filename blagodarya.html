@@ -58,6 +58,8 @@ footer{text-align:center;font-size:13px;color:var(--muted);padding-bottom:30px}
 <script>
 !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s&&s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
 fbq('init','1239139390922230');fbq('track','PageView');
+/* Lead: само когато човек стигне тук след попълнена форма (?lid=...), веднъж на попълване */
+(function(){var m=location.search.match(/[?&]lid=([^&]+)/);if(!m)return;var id=decodeURIComponent(m[1]),k='mp_lead_'+id;try{if(sessionStorage.getItem(k))return;sessionStorage.setItem(k,'1')}catch(_){}fbq('track','Lead',{},{eventID:id})})();
 </script>
 </head>
 <body>
