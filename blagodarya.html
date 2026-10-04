@@ -53,6 +53,8 @@ footer{text-align:center;font-size:13px;color:var(--muted);padding-bottom:30px}
 .auto{font-size:14px;color:var(--muted)}
 .auto b{color:var(--viber)}
 .auto button{background:none;border:0;padding:0 0 0 6px;font:inherit;font-weight:700;color:var(--link);text-decoration:underline;cursor:pointer}
+.lead-copy{font-size:18px;font-weight:700;color:var(--ink);margin:-6px 0 0}
+#bookMain{justify-self:center}
 </style>
 <!-- Facebook Pixel -->
 <script>
@@ -68,36 +70,19 @@ fbq('init','1239139390922230');fbq('track','PageView');
   <div class="card">
     <div class="check" aria-hidden="true">✓</div>
     <h1>Благодаря ти за <span>доверието!</span></h1>
+    <p class="lead-copy">Може да свалиш книгата от бутончето по-долу 👇</p>
+    <a class="btn btn-book btn-big" id="bookMain" href="PDF%20MindParent.pdf" download="Mamo-ne-znaesh-kakvo-stava-v-men.pdf">📘 Свали книгата от тук</a>
 
     <div class="step">
-      <p class="eyebrow">Последна стъпка</p>
-      <h2>Влез в нашата Viber група за майки</h2>
-      <p>Там ще получаваш безплатни бонуси, съвети и покани за срещите на живо с Велизар и Марина.</p>
-      <a class="btn btn-viber btn-big" id="viberMain" href="#" target="_blank" rel="noopener">💬 Влез във Viber групата →</a>
-      <p class="auto" id="auto">Отваряме групата автоматично след <b id="sec">5</b> сек. <button type="button" id="stay">Остани тук</button></p>
-    </div>
-
-    <!-- Видео от Велизар: сложи го като velizar-welcome.mp4. Ако го няма, блокът се скрива сам. -->
-    <div class="watch" id="watch">
-      <p class="eyebrow">⚡ Гледай това преди всичко друго</p>
-      <h2>Как да прочетеш книгата, така че <span>синът ти да усети разликата</span> още тази седмица</h2>
-      <p>В следващите няколко минути Велизар ти казва откъде да започнеш и какво да направиш още тази вечер. Изгледай до края. Има нещо специално за теб 👇</p>
-      <div class="player">
-        <video id="vid" src="velizar-welcome.mp4" poster="velizar.jpg" autoplay muted loop playsinline preload="metadata"></video>
-        <button class="sound" id="sound" type="button">🔊 Натисни за звук</button>
-      </div>
-      <p class="hint">🔊 Включи звука · Гледай до края</p>
+      <p class="eyebrow">По желание</p>
+      <h2>Присъедини се към Viber групата за майки</h2>
+      <p>Безплатни съвети, бонуси и покани за срещите на живо с Велизар и Марина.</p>
+      <a class="btn btn-viber btn-big" id="viberMain" href="#" target="_blank" rel="noopener">💬 Присъедини се към групата</a>
     </div>
 
     <div class="copy">
       <p>Убеден съм, че книгата ще ти даде <b>яснота какво става в главата на сина ти</b> и откъде да започнеш.</p>
       <p>Велизар или човек от екипа ще ти се обади <span class="hl">до 12 часа</span>, за да провери дали си я получила и да ти даде още един <b>специален бонус</b>.</p>
-    </div>
-
-    <div class="btns">
-      <a class="btn btn-book" id="bookLink" href="#" target="_blank" rel="noopener">📘 Изтегли книгата оттук</a>
-      <a class="btn btn-viber" id="viberLink" href="#" target="_blank" rel="noopener">💬 Влез във Viber групата</a>
-      <p class="micro">Напълно безплатно · Полезни съвети за майки всеки ден</p>
     </div>
   </div>
 </main>
@@ -105,33 +90,8 @@ fbq('init','1239139390922230');fbq('track','PageView');
 
 <script>
 /* === НАСТРОЙКА === */
-var BOOK_URL  = "";   // линк към книгата (PDF в Drive и т.н.)
 var VIBER_URL = "https://invite.viber.com/?g2=AQBCbLjUwa5%2FQlc%2FdduUoI6ivxRbiycRmzXKkA%2B8WXJ%2BDPPDG3xbh6L6NwuYbvLE";   // линк за покана към Viber групата
-var AUTO_SECONDS = 5;  // след колко секунди да отвори групата сама (0 = изключено)
-
-document.getElementById('bookLink').href = BOOK_URL || '#';
-document.getElementById('viberLink').href = VIBER_URL || '#';
-document.getElementById('viberMain').href = VIBER_URL || '#';
-if(!BOOK_URL) document.getElementById('bookLink').hidden = true;
-
-/* Автоматично отваряне на Viber групата */
-(function(){
-  var auto=document.getElementById('auto'),sec=document.getElementById('sec'),n=AUTO_SECONDS,t;
-  if(!VIBER_URL||!n){auto.hidden=true;return}
-  sec.textContent=n;
-  t=setInterval(function(){n--;sec.textContent=n;if(n<=0){clearInterval(t);auto.hidden=true;location.href=VIBER_URL}},1000);
-  function stop(){clearInterval(t);auto.hidden=true}
-  document.getElementById('stay').addEventListener('click',stop);
-  document.getElementById('viberMain').addEventListener('click',stop);
-})();
-
-(function(){
-  var v=document.getElementById('vid'),b=document.getElementById('sound'),w=document.getElementById('watch');
-  v.addEventListener('error',function(){w.hidden=true});
-  setTimeout(function(){if(v.networkState===3&&v.readyState===0)w.hidden=true},2500);
-  b.addEventListener('click',function(){v.muted=false;v.loop=false;v.currentTime=0;v.controls=true;v.play();b.hidden=true});
-})();
+document.getElementById('viberMain').href = VIBER_URL;
 </script>
-<script src="mp-site.js" defer></script>
 </body>
 </html>
