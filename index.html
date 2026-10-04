@@ -466,7 +466,7 @@ document.getElementById('leadForm').addEventListener('submit',function(e){
   if(ph.value.replace(/\D/g,'').length<8){ph.setAttribute('aria-invalid','true');err.textContent='Провери телефона.';err.hidden=false;ph.focus();return}
   var leadId=mpEventId();
   var data={event:'Lead',event_id:leadId,name:n.value.trim(),phone:ph.value.trim(),email:m.value.trim(),page_url:location.href,fbp:mpCookie('_fbp'),fbc:mpCookie('_fbc')};
-  function ok(){try{window.fbq&&fbq('track','Lead',{},{eventID:leadId})}catch(_){}setTimeout(function(){location.href=THANK_YOU_URL},300)}
+  function ok(){/* Lead се отчита на последната стъпка: страницата „Благодаря“ (същото eventID като сървърното събитие) */location.href=THANK_YOU_URL+(THANK_YOU_URL.indexOf('?')<0?'?':'&')+'lid='+encodeURIComponent(leadId)}
   btn.disabled=true;btn.textContent='Изпращам…';
   var jobs=[saveLead(data)];
   if(FORM_ACTION_URL)jobs.push(fetch(FORM_ACTION_URL,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(data)}).then(function(r){if(!r.ok)throw 0}));
