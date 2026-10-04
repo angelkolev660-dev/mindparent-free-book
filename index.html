@@ -195,7 +195,13 @@ footer a{color:var(--muted)}
 <!-- Facebook Pixel -->
 <script>
 !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s&&s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
-fbq('init','1239139390922230');fbq('track','PageView');
+fbq('init','1239139390922230');
+/* Conversions API: същите събития се пращат и от сървъра (Supabase), с едно и също eventID, за да не се броят двойно */
+window.MP_CAPI_URL='https://bwdgjmqkmgmmjskwlkjp.supabase.co/functions/v1/fb-events';
+window.mpEventId=function(){return 'e'+Date.now().toString(36)+Math.random().toString(36).slice(2,10)};
+window.mpCookie=function(n){var m=document.cookie.match('(?:^|; )'+n+'=([^;]*)');return m?decodeURIComponent(m[1]):''};
+window.mpCapi=function(ev,extra){var b=Object.assign({event:ev,page_url:location.href,fbp:mpCookie('_fbp'),fbc:mpCookie('_fbc')||((location.search.match(/[?&]fbclid=([^&]+)/)||[])[1]?'fb.1.'+Date.now()+'.'+location.search.match(/[?&]fbclid=([^&]+)/)[1]:'')},extra||{});return fetch(MP_CAPI_URL,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(b),keepalive:true})};
+(function(){var id=mpEventId();fbq('track','PageView',{},{eventID:id});setTimeout(function(){try{mpCapi('PageView',{event_id:id}).catch(function(){})}catch(_){}},800)})();
 </script>
 </head>
 <body>
@@ -421,7 +427,7 @@ fbq('init','1239139390922230');fbq('track','PageView');
 var SUPABASE_URL = "https://flrhlmqzbrxxryglopzx.supabase.co";
 var SUPABASE_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImZscmhsbXF6YnJ4eHJ5Z2xvcHp4Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3Nzg3ODU5NTksImV4cCI6MjA5NDM2MTk1OX0.6FgZBNcIVx4KlnznPl8fPrctcxM4c106Sft9KwUxdFo";
 /* FORM_ACTION_URL: по желание и втори адрес (MailerLite / Zapier). Полета: name, phone, email. Празно = само Supabase. */
-var FORM_ACTION_URL = "";
+var FORM_ACTION_URL = window.MP_CAPI_URL; /* записва лийда в Supabase и праща Lead към Conversions API */
 /* Страницата „Благодаря“, към която отива човек след формата */
 var THANK_YOU_URL = "blagodarya.html";
 
@@ -458,8 +464,9 @@ document.getElementById('leadForm').addEventListener('submit',function(e){
   if(!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(m.value.trim())){m.setAttribute('aria-invalid','true');err.textContent='Провери имейла. Изглежда има грешка в него.';err.hidden=false;m.focus();return}
   var ph=document.getElementById('fPhone');ph.removeAttribute('aria-invalid');
   if(ph.value.replace(/\D/g,'').length<8){ph.setAttribute('aria-invalid','true');err.textContent='Провери телефона.';err.hidden=false;ph.focus();return}
-  var data={name:n.value.trim(),phone:ph.value.trim(),email:m.value.trim()};
-  function ok(){try{window.fbq&&fbq('track','Lead')}catch(_){}setTimeout(function(){location.href=THANK_YOU_URL},300)}
+  var leadId=mpEventId();
+  var data={event:'Lead',event_id:leadId,name:n.value.trim(),phone:ph.value.trim(),email:m.value.trim(),page_url:location.href,fbp:mpCookie('_fbp'),fbc:mpCookie('_fbc')};
+  function ok(){try{window.fbq&&fbq('track','Lead',{},{eventID:leadId})}catch(_){}setTimeout(function(){location.href=THANK_YOU_URL},300)}
   btn.disabled=true;btn.textContent='Изпращам…';
   var jobs=[saveLead(data)];
   if(FORM_ACTION_URL)jobs.push(fetch(FORM_ACTION_URL,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(data)}).then(function(r){if(!r.ok)throw 0}));
