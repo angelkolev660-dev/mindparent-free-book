@@ -172,6 +172,11 @@ footer a{color:var(--muted)}
 .fcap:empty{display:none}
 .soft .vslot .ph{background:#fff}
 @media(max-width:560px){.fgrid{grid-template-columns:repeat(2,1fr);gap:12px}}
+.vpair{display:grid;grid-template-columns:1fr 1fr;gap:16px;align-items:start}
+.vpair .vert{max-width:none;margin:0}
+.proof-photo{max-width:360px;margin:0 auto 22px}
+.proof-photo .photo img{aspect-ratio:3/4}
+@media(max-width:560px){.vpair{gap:10px}.vpair .cap{font-size:12.5px}}
 @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
 </style>
 <!-- Facebook Pixel -->
@@ -237,9 +242,12 @@ fbq('init','1239139390922230');fbq('track','PageView');
 
     <div class="step">
       <div class="eyebrow">Стъпка 4 от 4</div>
-      <h3>Чуй какво казват майките, които вече минаха оттук</h3>
-      <p class="desc">Звъннахме на майки, прочели книгата, и ги попитахме какво се промени. <b>Две минути</b>, които ще ти покажат какво да очакваш.</p>
-      <div class="vert"><video controls preload="none" playsinline poster="poster-mayki.jpg"><source src="video-mayki.mp4" type="video/mp4"></video></div>
+      <h3>Чуй какво казват майките и момчетата, които вече минаха оттук</h3>
+      <p class="desc">Звъннахме на майки, прочели книгата, и на момчета, минали през програмата ни. Чуй <b>от двете страни на вратата</b> какво се промени.</p>
+      <div class="vpair">
+        <div><div class="vert"><video controls preload="none" playsinline poster="poster-mayki.jpg"><source src="video-mayki.mp4" type="video/mp4"></video></div><p class="cap">Майките, прочели книгата</p></div>
+        <div><div class="vert"><video controls preload="none" playsinline poster="poster-aleks.jpg"><source src="video-aleks.mp4" type="video/mp4"></video></div><p class="cap">Алекс, който пребори себе си</p></div>
+      </div>
     </div>
   </div>
 </section>
@@ -388,15 +396,9 @@ fbq('init','1239139390922230');fbq('track','PageView');
     <div class="eyebrow">Резултати</div>
     <h2>Какво казват майките и момчетата</h2>
     <p class="lead">Истински съобщения и разговори след книгата и срещите. Без режисура.</p>
-    <div class="proof-top">
-      <div>
-        <div class="vert"><video controls preload="none" playsinline poster="poster-aleks.jpg"><source src="video-aleks.mp4" type="video/mp4"></video></div>
-        <p class="cap">Алекс, който пребори себе си</p>
-      </div>
-      <div>
-        <div class="photo"><img src="snimka-mayka-sin.jpg" alt="Майка и син на вечеря" loading="lazy"></div>
-        <p class="cap">Отново на една маса</p>
-      </div>
+    <div class="proof-photo">
+      <div class="photo"><img src="snimka-mayka-sin.jpg" alt="Майка и син на вечеря" loading="lazy"></div>
+      <p class="cap">Отново на една маса</p>
     </div>
 
     <div class="sub-h">Какво ни писаха след срещата</div>
