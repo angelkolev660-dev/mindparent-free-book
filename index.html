@@ -191,6 +191,10 @@ footer a{color:var(--muted)}
 .err{color:var(--no);font-size:14px;font-weight:700}
 .done{text-align:center;display:grid;gap:12px;padding-block:8px}
 @media(prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+.drive-vid{display:grid;gap:10px;margin-top:6px}
+.dv-title{font-weight:800;color:var(--ink);text-align:center}
+.dv-frame{position:relative;aspect-ratio:16/9;max-width:100%;border-radius:16px;overflow:hidden;background:var(--night);box-shadow:0 14px 30px -16px rgba(11,24,32,.5)}
+.dv-frame iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
 </style>
 <!-- Facebook Pixel -->
 <script>
@@ -299,6 +303,10 @@ window.mpCapi=function(ev,extra){var b=Object.assign({event:ev,page_url:location
     <div class="vids" id="vids">
       <figure class="vid"><video src="video-1.mp4" poster="poster-1.jpg" preload="none" playsinline></video><button class="play" type="button" aria-label="Пусни видеото на Александър">▶</button><figcaption>Александър, 17 г.</figcaption></figure>
       <figure class="vid"><video src="video-2.mp4" poster="poster-2.jpg" preload="none" playsinline></video><button class="play" type="button" aria-label="Пусни видеото на майката на Христо">▶</button><figcaption>Майката на Христо (18 г.)</figcaption></figure>
+    </div>
+    <div class="drive-vid">
+      <p class="dv-title">🎥 Родители разказват какво се промени при тях</p>
+      <div class="dv-frame"><iframe src="https://drive.google.com/file/d/1rfNZSsDgnIt3h-ZNFEuMZF15957KNpJv/preview" allow="autoplay; fullscreen" allowfullscreen loading="lazy" title="Видео отзиви от родители"></iframe></div>
     </div>
     <p class="subhead">💬 И какво ни пишат всеки ден</p>
     <div class="proof">
