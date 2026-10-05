@@ -1,0 +1,534 @@
+<!doctype html>
+<html lang="bg">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<title>Срещата ти е запазена | MindParent</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Manrope:wght@400;500;700;800&display=swap" rel="stylesheet">
+<style>
+/* Layout: една централна колона като book.mindparent.com — бял фон, тъмносиньо от корицата на книгата, светлосин акцент */
+:root{
+  --ink:#0B1820; --text:#1F2A33; --muted:#5C6B74; --bg:#FFFFFF; --soft:#F4F6F7; --line:#E2E7EA;
+  --navy:#13344C; --navy-dark:#0B1820; --sky:#8EC0E0; --sky-soft:rgba(142,192,224,.18); --yes:#2E8B57; --shot:#1E1F22;
+  --f-display:"Oswald","Arial Narrow",Impact,sans-serif; --f-body:"Manrope","Segoe UI",Arial,sans-serif;
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--text);font-family:var(--f-body);font-size:17px;line-height:1.65;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img,video{max-width:100%;display:block}
+h1,h2,h3,h4{font-family:var(--f-display);color:var(--ink);line-height:1.15;text-transform:uppercase;letter-spacing:.01em;text-wrap:balance;margin:0}
+p{margin:0}
+a{color:var(--navy)}
+.col{max-width:720px;margin:0 auto;padding-inline:16px}
+section{padding-block:52px}
+section + section{border-top:1px solid var(--line)}
+.soft{background:var(--soft)}
+.eyebrow{font-size:13px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--navy);margin-bottom:8px}
+h2{font-size:clamp(26px,5vw,36px);font-weight:600;margin-bottom:14px}
+.lead{color:var(--muted);margin-bottom:26px}
+.lead b{color:var(--ink)}
+
+/* top bar */
+.topbar{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:var(--navy-dark);color:#fff;text-align:center;padding:14px 16px}
+.topbar b{font-family:var(--f-display);letter-spacing:.14em;text-transform:uppercase;font-weight:600;font-size:16px}
+.topbar b span{color:var(--sky)}
+
+/* hero */
+.hero{padding-block:44px 40px;text-align:center;background:linear-gradient(180deg,var(--sky-soft),var(--bg) 70%)}
+.check{width:72px;height:72px;border-radius:50%;background:var(--navy);display:grid;place-items:center;margin:0 auto 20px;box-shadow:0 14px 30px -10px rgba(11,24,32,.55)}
+.check svg{width:34px;height:34px}
+.tag{display:inline-flex;align-items:center;gap:8px;background:#fff;border:1px solid var(--sky);color:var(--navy);font-size:12px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;padding:7px 16px;border-radius:100px;margin-bottom:18px}
+.dot{width:7px;height:7px;border-radius:50%;background:var(--yes);animation:blink 1.4s infinite}
+@keyframes blink{50%{opacity:.3}}
+.hero h1{font-size:clamp(30px,6.4vw,48px);font-weight:700;margin-bottom:14px}
+.hero h1 em{font-style:normal;color:var(--navy);box-shadow:inset 0 -.32em 0 var(--sky-soft)}
+.hero p{max-width:540px;margin:0 auto;color:var(--muted);font-size:18px}
+.hero p b{color:var(--ink)}
+.when{display:inline-grid;grid-auto-flow:column;gap:18px;margin-top:22px;background:#fff;border:2px solid var(--navy);border-radius:14px;padding:12px 20px;font-weight:800;color:var(--ink)}
+.when span{display:flex;align-items:center;gap:8px}
+
+/* steps */
+.step{padding-block:34px;border-top:1px solid var(--line)}
+.step:first-child{border-top:0;padding-top:8px}
+.step h3{font-size:clamp(22px,4vw,27px);font-weight:600;margin-bottom:10px}
+.step .desc{color:var(--muted);margin-bottom:20px}
+.step .desc b{color:var(--ink)}
+.cal-fields{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:14px}
+.cal-fields label{display:grid;gap:4px;font-size:13px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.08em}
+.cal-fields input{font:700 16px var(--f-body);color:var(--ink);padding:12px 12px;border:1.5px solid var(--line);border-radius:10px;background:#fff;min-width:0;width:100%}
+.btns{display:flex;flex-wrap:wrap;gap:12px}
+.btn{appearance:none;border:0;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;gap:10px;font:800 16px/1.2 var(--f-body);color:#fff;background:var(--navy);min-height:54px;padding:14px 24px;border-radius:12px;text-decoration:none;box-shadow:0 10px 24px -10px rgba(11,24,32,.5)}
+.btn:hover{background:var(--navy-dark)}
+.btn.ghost{background:#fff;color:var(--navy);border:2px solid var(--navy);box-shadow:none}
+.btn.ghost:hover{background:var(--soft)}
+.btn[aria-disabled="true"]{opacity:.45;pointer-events:none}
+.hint{font-size:14px;color:var(--muted);margin-top:10px}
+.mail-note{display:flex;gap:14px;align-items:center;background:var(--soft);border-radius:14px;padding:16px}
+.mail-note img{width:70px;flex-shrink:0;filter:drop-shadow(0 8px 12px rgba(11,24,32,.3))}
+.mail-note p{font-size:15px;color:var(--muted)}
+.mail-note b{color:var(--ink)}
+.vert{max-width:330px;margin:0 auto;border-radius:16px;overflow:hidden;background:#000;box-shadow:0 18px 40px -18px rgba(11,24,32,.6)}
+.vert video{width:100%;aspect-ratio:9/16;object-fit:cover;background:#000}
+.cap{text-align:center;font-size:14px;color:var(--muted);margin-top:10px;font-weight:700}
+
+/* what happens */
+.parts{display:grid;gap:12px}
+.part{display:grid;grid-template-columns:44px 1fr;gap:14px;background:#fff;border:1px solid var(--line);border-radius:14px;padding:18px}
+.part .n{width:44px;height:44px;border-radius:50%;background:var(--navy);color:#fff;font-family:var(--f-display);font-size:20px;display:grid;place-items:center}
+.part h4{font-size:18px;font-weight:600;margin-bottom:4px}
+.part p{font-size:15.5px;color:var(--muted)}
+.after{margin-top:22px;color:var(--muted)}
+.after b{color:var(--ink)}
+
+/* checklist */
+.checklist{display:grid;border:1px solid var(--line);border-radius:14px;overflow:hidden;background:#fff}
+.ci{appearance:none;border:0;background:none;font:inherit;color:var(--text);text-align:left;cursor:pointer;display:grid;grid-template-columns:24px 1fr;gap:14px;align-items:center;padding:15px 16px;border-top:1px solid var(--line)}
+.ci:first-child{border-top:0}
+.ci:focus-visible,.btn:focus-visible,summary:focus-visible,input:focus-visible{outline:3px solid var(--sky);outline-offset:2px}
+.box{width:24px;height:24px;border-radius:7px;border:2px solid var(--navy);display:grid;place-items:center;transition:background .2s}
+.box svg{width:14px;height:14px;opacity:0}
+.ci.done .box{background:var(--navy)}
+.ci.done .box svg{opacity:1}
+.ci.done .lbl{color:var(--muted);text-decoration:line-through}
+.progress{display:flex;align-items:center;gap:12px;margin-top:14px;font-size:14px;color:var(--muted);font-variant-numeric:tabular-nums}
+.bar{flex:1;height:8px;border-radius:8px;background:var(--line);overflow:hidden}
+.bar i{display:block;height:100%;width:0;background:var(--navy);transition:width .3s}
+
+/* faq */
+.faq{display:grid;gap:10px}
+details{background:#fff;border:1px solid var(--line);border-radius:12px}
+summary{cursor:pointer;list-style:none;padding:16px 46px 16px 18px;font-weight:800;color:var(--ink);position:relative}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";position:absolute;right:18px;top:50%;transform:translateY(-50%);font-size:24px;font-weight:500;color:var(--navy)}
+details[open] summary::after{content:"–"}
+details p{padding:0 18px 18px;color:var(--muted);font-size:16px}
+
+/* gifts */
+.gifts{display:grid;gap:12px}
+@media(min-width:640px){.gifts{grid-template-columns:repeat(3,1fr)}}
+.gift{background:var(--navy-dark);color:#D6DEE3;border-radius:14px;padding:18px}
+.gift .k{font-family:var(--f-display);text-transform:uppercase;letter-spacing:.1em;color:var(--sky);font-size:14px;margin-bottom:6px}
+.gift h4{color:#fff;font-size:18px;font-weight:600;margin-bottom:6px}
+.gift p{font-size:14.5px}
+
+/* team */
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:22px}
+.stat{text-align:center;background:#fff;border:1px solid var(--line);border-radius:12px;padding:14px 6px}
+.stat b{display:block;font-family:var(--f-display);font-size:clamp(20px,4vw,26px);color:var(--navy);font-weight:600;line-height:1.1}
+.stat span{font-size:12.5px;color:var(--muted);line-height:1.3;display:block;margin-top:4px}
+.people{display:grid;gap:16px}
+.person{display:grid;grid-template-columns:140px 1fr;gap:18px;align-items:start;background:#fff;border:1px solid var(--line);border-radius:16px;padding:18px}
+.person img{width:140px;aspect-ratio:4/5;object-fit:cover;object-position:top;border-radius:12px}
+.person .role{font-size:13px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.person h3{font-size:22px;font-weight:600;margin:2px 0 8px}
+.person p{font-size:15.5px;color:var(--muted)}
+.person p + p{margin-top:8px}
+.person p b{color:var(--ink)}
+
+/* proof */
+.proof-top{display:grid;gap:14px;grid-template-columns:1fr 1fr;align-items:start;margin-bottom:22px}
+.proof-top .vert{max-width:none;margin:0}
+.photo{border-radius:16px;overflow:hidden;box-shadow:0 18px 40px -18px rgba(11,24,32,.6)}
+.photo img{width:100%;aspect-ratio:9/16;object-fit:cover}
+.shots{display:grid;gap:12px}
+.shot{background:var(--shot);border-radius:14px;padding:10px;display:grid;place-items:center}
+.shot img{width:auto;max-width:100%;max-height:420px;border-radius:8px}
+.shot-row{display:grid;gap:12px;grid-template-columns:repeat(auto-fit,minmax(min(100%,200px),1fr));align-items:stretch}
+.sub-h{font-family:var(--f-display);text-transform:uppercase;font-size:20px;color:var(--ink);margin:30px 0 12px;font-weight:600}
+
+/* end */
+.end{text-align:center;padding-block:56px 48px;background:var(--navy-dark);color:#D6DEE3}
+.end h2{color:#fff;margin-bottom:10px}
+.end p{max-width:520px;margin:0 auto}
+footer{text-align:center;padding:26px 16px 40px;font-size:13px;color:var(--muted);background:var(--soft)}
+footer p{max-width:560px;margin:8px auto 0}
+footer a{color:var(--muted)}
+
+@media(max-width:560px){
+  body{font-size:16px}
+  .person{grid-template-columns:1fr}
+  .person img{width:100%;max-width:260px;aspect-ratio:1/1;margin:0 auto}
+  .proof-top{grid-template-columns:1fr}
+  .proof-top .vert{max-width:330px;margin:0 auto}
+  .photo{max-width:330px;margin:0 auto}
+  .when{grid-auto-flow:row;gap:6px}
+}
+/* video slots (празни, докато не се качи файлът) */
+.vslot{border-radius:16px;overflow:hidden;background:#000;max-width:100%}
+.vslot.wide{aspect-ratio:16/9;box-shadow:0 18px 40px -18px rgba(11,24,32,.6)}
+.vslot.tall{aspect-ratio:9/16}
+.vslot video{width:100%;height:100%;object-fit:cover;display:block;background:#000}
+.vslot .ph{height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;color:var(--muted);background:var(--soft);border:2px dashed var(--sky);border-radius:16px;font-size:14px;font-weight:700;text-align:center;padding:10px}
+.vslot .ph svg{width:44px;height:44px;color:var(--navy);opacity:.55}
+.vslot.ready{border:0}
+.fgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:8px}
+.fcard{display:grid;gap:8px;align-content:start;min-width:0}
+.fcap{font-size:14px;font-weight:700;color:var(--ink);text-align:center;line-height:1.35}
+.fcap:empty{display:none}
+.soft .vslot .ph{background:#fff}
+@media(max-width:560px){.fgrid{grid-template-columns:repeat(2,1fr);gap:12px}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
+</style>
+<!-- Facebook Pixel -->
+<script>
+!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s&&s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
+fbq('init','1239139390922230');fbq('track','PageView');
+</script>
+</head>
+<body>
+
+<div class="topbar"><b>Mind<span>Parent</span></b></div>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="col">
+    <div class="check"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>
+    <div class="tag"><span class="dot"></span>Срещата ти е запазена</div>
+    <h1>Личната ти <em>онлайн среща</em> е потвърдена</h1>
+    <p>Записа се за безплатната среща с екипа на MindParent. Остава само да се появиш. <b>На тази страница е всичко</b>, което ти трябва, за да дойдеш подготвена.</p>
+    <div class="when" id="when" hidden><span>📅 <span id="whenDate"></span></span><span>🕒 <span id="whenTime"></span></span><span>💻 Zoom</span></div>
+  </div>
+</section>
+
+<!-- STEPS -->
+<section>
+  <div class="col">
+    <div class="eyebrow">4 кратки стъпки преди срещата</div>
+    <h2>Направи ги сега, докато се сещаш</h2>
+
+    <div class="step">
+      <div class="eyebrow">Стъпка 1 от 4</div>
+      <h3>Гледай това кратко видео</h3>
+      <p class="desc">Преди срещата отдели 2 минути. Велизар ти казва <b>какво да очакваш</b> и как да извлечеш максимума от разговора.</p>
+      <!-- ВИДЕО: качи файла като video-velizar.mp4 (и по желание корица poster-velizar.jpg) в същата папка. Появява се само. -->
+      <div class="vslot wide" data-src="video-velizar.mp4" data-poster="poster-velizar.jpg">
+        <div class="ph"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polygon points="10 8 16 12 10 16" fill="currentColor"/></svg><span>Видеото идва скоро</span></div>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="eyebrow">Стъпка 2 от 4</div>
+      <h3>Сложи си напомняне в календара</h3>
+      <p class="desc">Животът с тийнейджър у дома е напрегнат и часът лесно се забравя. <b>Добави срещата в календара си сега.</b></p>
+      <div class="cal-fields" id="calFields">
+        <label for="fDate">Дата на срещата<input type="date" id="fDate"></label>
+        <label for="fTime">Час<input type="time" id="fTime" step="300"></label>
+      </div>
+      <div class="btns">
+        <a class="btn" id="gcal" href="#" target="_blank" rel="noopener" aria-disabled="true">📅 Добави в Google Календар</a>
+        <a class="btn ghost" id="ics" href="#" download="sreshta-mindparent.ics" aria-disabled="true">Apple / Outlook (.ics)</a>
+      </div>
+      <p class="hint" id="calHint">Избери датата и часа, които ти изпратихме във Viber.</p>
+    </div>
+
+    <div class="step">
+      <div class="eyebrow">Стъпка 3 от 4</div>
+      <h3>Прочети първите страници на книгата</h3>
+      <div class="mail-note">
+        <img src="kniga-korica.png" onerror="this.hidden=true" alt="Корицата на книгата „Мамо, Не Знаеш Какво Става В Мен“">
+        <p>Книгата <b>„Мамо, Не Знаеш Какво Става В Мен“</b> вече е в имейла ти. Ако не я виждаш, провери папките „Промоции“ и „Спам“. Не е нужно да я завършиш. Дори първите страници ще ти помогнат да дойдеш с по-ясни въпроси.</p>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="eyebrow">Стъпка 4 от 4</div>
+      <h3>Чуй какво казват майките, които вече минаха оттук</h3>
+      <p class="desc">Звъннахме на майки, прочели книгата, и ги попитахме какво се промени. <b>Две минути</b>, които ще ти покажат какво да очакваш.</p>
+      <div class="vert"><video controls preload="none" playsinline poster="poster-mayki.jpg"><source src="video-mayki.mp4" type="video/mp4"></video></div>
+    </div>
+  </div>
+</section>
+
+<!-- WHAT HAPPENS -->
+<section class="soft">
+  <div class="col">
+    <div class="eyebrow">Какво следва</div>
+    <h2>Какво ще се случи на срещата</h2>
+    <p class="lead">Срещата е около <b>30 минути</b> в Zoom. Няма да е лекция. Ще говорим само за теб и сина ти.</p>
+    <div class="parts">
+      <div class="part"><div class="n">1</div><div><h4>Разказваш ни какво се случва у дома</h4><p>Как реагира синът ти, кога избухва или се затваря, за какво се карате най-често. Без осъждане и без „трябваше да…“.</p></div></div>
+      <div class="part"><div class="n">2</div><div><h4>Разбираме какво стои зад поведението му</h4><p>В повечето случаи той не се бунтува срещу теб, а се защитава. Ще видим от какво точно и защо думите ти стигат до него като нападка.</p></div></div>
+      <div class="part"><div class="n">3</div><div><h4>Тръгваш си с първите конкретни стъпки</h4><p>Какво да кажеш, какво да спреш да казваш и кога е по-добре да замълчиш. Неща, които можеш да опиташ още същата вечер.</p></div></div>
+    </div>
+    <p class="after">Майките, с които работим, имат едно общо нещо. В един момент са спрели да чакат „да му мине“ и са потърсили отговори. <b>Ти вече направи това.</b></p>
+  </div>
+</section>
+
+<!-- CHECKLIST -->
+<section>
+  <div class="col">
+    <div class="eyebrow">Подготовка</div>
+    <h2>Преди срещата</h2>
+    <p class="lead">Отметни нещата, които вече си направила. Отметките се пазят на това устройство.</p>
+    <div class="checklist" id="checklist">
+      <button type="button" class="ci" data-key="quiet"><span class="box"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span><span class="lbl">Ще съм на тихо място, където никой няма да ме прекъсва</span></button>
+      <button type="button" class="ci" data-key="zoom"><span class="box"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span><span class="lbl">Имам Zoom на телефона или лаптопа и добър интернет</span></button>
+      <button type="button" class="ci" data-key="calendar"><span class="box"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span><span class="lbl">Добавих срещата в календара си</span></button>
+      <button type="button" class="ci" data-key="video"><span class="box"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span><span class="lbl">Гледах краткото видео (Стъпка 1)</span></button>
+      <button type="button" class="ci" data-key="book"><span class="box"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span><span class="lbl">Прочетох първите страници на книгата</span></button>
+      <button type="button" class="ci" data-key="situation"><span class="box"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span><span class="lbl">Записах си 1–2 ситуации от последната седмица, които ме тревожат</span></button>
+      <button type="button" class="ci" data-key="question"><span class="box"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span><span class="lbl">Знам кой е въпросът, на който най-много искам отговор</span></button>
+    </div>
+    <div class="progress"><div class="bar"><i id="barFill"></i></div><span id="progressText">0 от 7</span></div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="soft">
+  <div class="col">
+    <div class="eyebrow">Въпроси</div>
+    <h2>Често задавани въпроси</h2>
+    <p class="lead">Велизар и Марина отговарят лично на въпросите, които майките ни задават най-често. Гледай тези, които те интересуват.</p>
+    <!-- ВИДЕО ВЪПРОСИ: качи faq-video-1.mp4 … faq-video-6.mp4 (и корици faq-poster-1.jpg …) и напиши въпроса в <div class="fcap"></div> под всяко видео. -->
+    <div class="fgrid">
+      <div class="fcard">
+        <div class="vslot tall" data-src="faq-video-1.mp4" data-poster="faq-poster-1.jpg">
+          <div class="ph"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polygon points="10 8 16 12 10 16" fill="currentColor"/></svg><span>Скоро</span></div>
+        </div>
+        <div class="fcap"></div>
+      </div>
+      <div class="fcard">
+        <div class="vslot tall" data-src="faq-video-2.mp4" data-poster="faq-poster-2.jpg">
+          <div class="ph"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polygon points="10 8 16 12 10 16" fill="currentColor"/></svg><span>Скоро</span></div>
+        </div>
+        <div class="fcap"></div>
+      </div>
+      <div class="fcard">
+        <div class="vslot tall" data-src="faq-video-3.mp4" data-poster="faq-poster-3.jpg">
+          <div class="ph"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polygon points="10 8 16 12 10 16" fill="currentColor"/></svg><span>Скоро</span></div>
+        </div>
+        <div class="fcap"></div>
+      </div>
+      <div class="fcard">
+        <div class="vslot tall" data-src="faq-video-4.mp4" data-poster="faq-poster-4.jpg">
+          <div class="ph"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polygon points="10 8 16 12 10 16" fill="currentColor"/></svg><span>Скоро</span></div>
+        </div>
+        <div class="fcap"></div>
+      </div>
+      <div class="fcard">
+        <div class="vslot tall" data-src="faq-video-5.mp4" data-poster="faq-poster-5.jpg">
+          <div class="ph"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polygon points="10 8 16 12 10 16" fill="currentColor"/></svg><span>Скоро</span></div>
+        </div>
+        <div class="fcap"></div>
+      </div>
+      <div class="fcard">
+        <div class="vslot tall" data-src="faq-video-6.mp4" data-poster="faq-poster-6.jpg">
+          <div class="ph"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polygon points="10 8 16 12 10 16" fill="currentColor"/></svg><span>Скоро</span></div>
+        </div>
+        <div class="fcap"></div>
+      </div>
+    </div>
+    <div class="sub-h">Кратки отговори</div>
+    <div class="faq">
+      <details><summary>Трябва ли синът ми да присъства?</summary><p>Не. Срещата е за теб. Започваме от теб, защото промяната у дома тръгва от начина, по който ти реагираш. Ако по-късно синът ти поиска да поговори с Велизар, ще ви кажем как.</p></details>
+      <details><summary>Ами ако синът ми изобщо не говори с мен?</summary><p>Точно за такива случаи е срещата. Не е нужно той да участва или да знае за нея. Ще ти покажем откъде да започнеш, дори ако в момента те игнорира или се държи грубо.</p></details>
+      <details><summary>Кой ще води срещата?</summary><p>Велизар, психологът Марина Панайотова или човек от екипа на MindParent. Всички работят всеки ден с момчета между 10 и 18 години и с техните майки.</p></details>
+      <details><summary>Колко продължава и какво ми трябва?</summary><p>Около 30 минути. Трябва ти телефон или лаптоп със Zoom и тихо място. Линкът ще изпратим във Viber групата малко преди началото.</p></details>
+      <details><summary>Ще ми продавате ли нещо?</summary><p>Срещата е безплатна и си струва сама по себе си. Ако видим, че можем да помогнем на теб и сина ти и след нея, ще ти разкажем как работим. Решението е изцяло твое и няма задължение.</p></details>
+      <details><summary>Ами ако не мога да вляза в уговорения час?</summary><p>Пиши ни във Viber групата възможно най-рано и ще потърсим друг час. Местата за лични срещи са ограничени, затова те молим да не пропускаш часа без да ни кажеш.</p></details>
+    </div>
+  </div>
+</section>
+
+<!-- GIFTS -->
+<section>
+  <div class="col">
+    <div class="eyebrow">🎁 Вече са твои</div>
+    <h2>Какво получи заедно със срещата</h2>
+    <p class="lead">Освен личния разговор, ето какво вече е твое:</p>
+    <div class="gifts">
+      <div class="gift"><div class="k">Книгата</div><h4>„Мамо, Не Знаеш Какво Става В Мен“</h4><p>Мислите, които синът ти никога няма да ти каже на глас.</p></div>
+      <div class="gift"><div class="k">Бонус</div><h4>Лекции и срещи на живо</h4><p>С психолог и родители като теб. Няма да си сама.</p></div>
+      <div class="gift"><div class="k">Бонус</div><h4>Как да научиш сина си да казва „не“</h4><p>На забранените вещества и на грешните хора.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- TEAM -->
+<section class="soft">
+  <div class="col">
+    <div class="eyebrow">С кого ще говориш</div>
+    <h2>Хората зад MindParent</h2>
+    <div class="stats">
+      <div class="stat"><b>15 г.</b><span>практика като психолог</span></div>
+      <div class="stat"><b>На 18</b><span>Велизар издава първата си книга</span></div>
+      <div class="stat"><b>10–18 г.</b><span>момчетата, с които работим всеки ден</span></div>
+    </div>
+    <div class="people">
+      <div class="person">
+        <img src="velizar-portret.jpg" alt="Велизар, основател на MindParent">
+        <div>
+          <div class="role">Основател на MindParent</div>
+          <h3>Велизар</h3>
+          <p>Работя с момчета между 10 и 18 години. С такива, които отказват да учат, нямат мотивация и растат в среда, която не им помага. <b>Познавам този път отвътре.</b></p>
+          <p>Започнах да работя на 15 и минах през различни професии и грешки. Днес превръщам тези уроци в ясни стъпки за момчетата и за майките им.</p>
+        </div>
+      </div>
+      <div class="person">
+        <img src="marina-nagrada.jpg" alt="Психолог Марина Панайотова с награда">
+        <div>
+          <div class="role">Психолог · 15 години практика</div>
+          <h3>Марина Панайотова</h3>
+          <p>Работя с момчета и момичета между 13 и 18 години. <b>Поведението им не е каприз и не е бунт „просто ей така“.</b> Това е реакция на свят, който иска твърде много от тях.</p>
+          <p>Работя по начин, който не пречупва детето, а го изгражда. А родителят разбира какво се случва отвътре, вместо да се чувства виновен.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROOF -->
+<section>
+  <div class="col">
+    <div class="eyebrow">Резултати</div>
+    <h2>Какво казват майките и момчетата</h2>
+    <p class="lead">Истински съобщения и разговори след книгата и срещите. Без режисура.</p>
+    <div class="proof-top">
+      <div>
+        <div class="vert"><video controls preload="none" playsinline poster="poster-aleks.jpg"><source src="video-aleks.mp4" type="video/mp4"></video></div>
+        <p class="cap">Алекс, който пребори себе си</p>
+      </div>
+      <div>
+        <div class="photo"><img src="snimka-mayka-sin.jpg" alt="Майка и син на вечеря" loading="lazy"></div>
+        <p class="cap">Отново на една маса</p>
+      </div>
+    </div>
+
+    <div class="sub-h">Какво ни писаха след срещата</div>
+    <div class="shots">
+      <div class="shot"><img src="otziv-sreshta-1.png" alt="Отзив от майка след книгата и срещата" loading="lazy"></div>
+      <div class="shot"><img src="otziv-sreshta-2.png" alt="Благодарствено писмо от семейство Василеви" loading="lazy"></div>
+      <div class="shot"><img src="otziv-sreshta-6.png" alt="Съобщение до Велизар: Хареса ми, поздравявам те" loading="lazy"></div>
+      <div class="shot-row">
+        <div class="shot"><img src="otziv-sreshta-4.png" alt="Отзив от майка: срещата беше интересна и ползотворна" loading="lazy"></div>
+        <div class="shot"><img src="otziv-sreshta-5.png" alt="Отзив от майка за разговора" loading="lazy"></div>
+      </div>
+      <div class="shot-row">
+        <div class="shot"><img src="otziv-sreshta-3.jpg" alt="Съобщение от майка, която чете книгата" loading="lazy"></div>
+        <div class="shot"><img src="otziv-sreshta-7.png" alt="Съобщение: накара ме да видя нещата от друга гледна точка" loading="lazy"></div>
+      </div>
+      <div class="shot"><img src="otziv-sreshta-8.png" alt="Съобщение след срещата" loading="lazy"></div>
+    </div>
+
+    <div class="sub-h">Чатът след една от срещите на живо</div>
+    <div class="shot-row">
+      <div class="shot"><img src="otziv-sreshta-9.png" alt="Коментари на родители в чата на среща на живо" loading="lazy"></div>
+      <div class="shot"><img src="otziv-sreshta-10.png" alt="Още коментари на родители в чата" loading="lazy"></div>
+    </div>
+  </div>
+</section>
+
+<section class="end">
+  <div class="col">
+    <h2>Ще се видим скоро 👋</h2>
+    <p>Стигна до края на страницата. Това значи, че не си се отказала от него. Очакваме те на срещата.</p>
+  </div>
+</section>
+
+<footer>
+  <div>© 2026 MindParent. Всички права запазени.</div>
+  <p>Срещата и материалите имат образователен характер и не заменят индивидуална психологическа или медицинска помощ. Резултатите при всяко семейство са различни.</p>
+  <p><a href="https://mindparent.com/terms">Общи условия</a> · <a href="https://mindparent.com/privacy">Поверителност</a> · <a href="https://mindparent.com/cookies">Бисквитки</a></p>
+</footer>
+
+<script>
+/* ─── Среща ───────────────────────────────────────────────
+   Датата и часът могат да дойдат от линка, напр.:
+   potvarzhdenie.html?data=2026-10-12&chas=18:30
+   Ако ги няма, майката ги избира сама в Стъпка 2. */
+var MEETING_MINUTES = 30;
+var EVENT_TITLE = 'Лична онлайн среща с MindParent';
+var EVENT_DETAILS = 'Zoom линкът ще бъде изпратен във Viber групата малко преди началото.';
+var EVENT_LOCATION = 'Онлайн (Zoom)';
+
+(function(){
+  var fDate = document.getElementById('fDate'), fTime = document.getElementById('fTime');
+  var gcal = document.getElementById('gcal'), ics = document.getElementById('ics'), hint = document.getElementById('calHint');
+  var icsUrl = null;
+
+  function param(k){ var m = new RegExp('[?&]'+k+'=([^&#]*)').exec(location.search); try{ return m ? decodeURIComponent(m[1]) : ''; }catch(e){ return ''; } }
+  var pd = param('data'), pt = param('chas');
+  if(/^\d{4}-\d{2}-\d{2}$/.test(pd)) fDate.value = pd;
+  if(/^\d{1,2}:\d{2}$/.test(pt)) fTime.value = (pt.length === 4 ? '0' + pt : pt);
+
+  function pad(n){ return String(n).padStart(2,'0'); }
+  function utc(d){ return d.getUTCFullYear()+pad(d.getUTCMonth()+1)+pad(d.getUTCDate())+'T'+pad(d.getUTCHours())+pad(d.getUTCMinutes())+'00Z'; }
+  var months = ['януари','февруари','март','април','май','юни','юли','август','септември','октомври','ноември','декември'];
+
+  function update(){
+    var ok = fDate.value && fTime.value;
+    gcal.setAttribute('aria-disabled', ok ? 'false' : 'true');
+    ics.setAttribute('aria-disabled', ok ? 'false' : 'true');
+    document.getElementById('when').hidden = !ok;
+    hint.hidden = !!ok;
+    if(!ok) return;
+    var p = fDate.value.split('-'), t = fTime.value.split(':');
+    var start = new Date(+p[0], +p[1]-1, +p[2], +t[0], +t[1]);
+    var end = new Date(start.getTime() + MEETING_MINUTES*60000);
+    document.getElementById('whenDate').textContent = start.getDate() + ' ' + months[start.getMonth()];
+    document.getElementById('whenTime').textContent = fTime.value + ' ч.';
+    gcal.href = 'https://calendar.google.com/calendar/render?action=TEMPLATE&text=' + encodeURIComponent(EVENT_TITLE) +
+      '&dates=' + utc(start) + '/' + utc(end) + '&details=' + encodeURIComponent(EVENT_DETAILS) + '&location=' + encodeURIComponent(EVENT_LOCATION);
+    var body = ['BEGIN:VCALENDAR','VERSION:2.0','PRODID:-//MindParent//BG','BEGIN:VEVENT','UID:' + utc(start) + '@mindparent.com','DTSTAMP:' + utc(new Date()),
+      'DTSTART:' + utc(start),'DTEND:' + utc(end),'SUMMARY:' + EVENT_TITLE,'DESCRIPTION:' + EVENT_DETAILS,'LOCATION:' + EVENT_LOCATION,
+      'BEGIN:VALARM','TRIGGER:-PT60M','ACTION:DISPLAY','DESCRIPTION:' + EVENT_TITLE,'END:VALARM','END:VEVENT','END:VCALENDAR'].join('\r\n');
+    if(icsUrl) URL.revokeObjectURL(icsUrl);
+    icsUrl = URL.createObjectURL(new Blob([body], {type:'text/calendar'}));
+    ics.href = icsUrl;
+  }
+  fDate.addEventListener('input', update); fTime.addEventListener('input', update);
+  update();
+})();
+
+/* ─── Чеклист (пази се в браузъра) ─────────────────────── */
+(function(){
+  var KEY = 'mp_sreshta_checklist', state = {};
+  try{ state = JSON.parse(localStorage.getItem(KEY)) || {}; }catch(e){ state = {}; }
+  var items = document.querySelectorAll('.ci');
+  function upd(){
+    var done = document.querySelectorAll('.ci.done').length;
+    document.getElementById('progressText').textContent = done + ' от ' + items.length;
+    document.getElementById('barFill').style.width = (done / items.length * 100) + '%';
+  }
+  items.forEach(function(it){
+    var k = it.dataset.key;
+    if(state[k]) it.classList.add('done');
+    it.setAttribute('aria-pressed', state[k] ? 'true' : 'false');
+    it.addEventListener('click', function(){
+      var on = it.classList.toggle('done');
+      it.setAttribute('aria-pressed', on ? 'true' : 'false');
+      state[k] = on;
+      try{ localStorage.setItem(KEY, JSON.stringify(state)); }catch(e){}
+      upd();
+    });
+  });
+  upd();
+})();
+
+/* Видео слотове: показва видеото, ако файлът е качен; иначе остава празното място */
+document.querySelectorAll('.vslot[data-src]').forEach(function(slot){
+  var v = document.createElement('video');
+  v.controls = true; v.playsInline = true; v.preload = 'metadata';
+  v.setAttribute('playsinline','');
+  var probe = new Image();
+  probe.onload = function(){ v.poster = slot.dataset.poster; };
+  probe.src = slot.dataset.poster;
+  v.addEventListener('loadedmetadata', function(){
+    slot.innerHTML = ''; slot.appendChild(v); slot.classList.add('ready');
+    v.addEventListener('play', function(){ document.querySelectorAll('video').forEach(function(o){ if(o !== v) o.pause(); }); });
+  }, {once:true});
+  v.src = slot.dataset.src;
+});
+
+/* Пускане само на едно видео наведнъж */
+document.querySelectorAll('video').forEach(function(v){
+  v.addEventListener('play', function(){ document.querySelectorAll('video').forEach(function(o){ if(o !== v) o.pause(); }); });
+});
+</script>
+</body>
+</html>
