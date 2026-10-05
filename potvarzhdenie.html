@@ -166,12 +166,16 @@ footer a{color:var(--muted)}
 .vslot .ph{height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;color:var(--muted);background:var(--soft);border:2px dashed var(--sky);border-radius:16px;font-size:14px;font-weight:700;text-align:center;padding:10px}
 .vslot .ph svg{width:44px;height:44px;color:var(--navy);opacity:.55}
 .vslot.ready{border:0}
-.fgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:8px}
+.fgrid{display:grid;grid-template-columns:1fr 1fr;gap:20px 16px;margin-bottom:8px}
 .fcard{display:grid;gap:8px;align-content:start;min-width:0}
 .fcap{font-size:14px;font-weight:700;color:var(--ink);text-align:center;line-height:1.35}
 .fcap:empty{display:none}
+.fvid{aspect-ratio:16/9;border-radius:14px;overflow:hidden;background:#000;box-shadow:0 14px 30px -16px rgba(11,24,32,.6)}
+.fvid video{width:100%;height:100%;object-fit:cover;display:block}
+.fgrid .fcard:first-child{grid-column:1/-1}
+.fgrid .fcard:first-child .fcap{font-size:16px}
 .soft .vslot .ph{background:#fff}
-@media(max-width:560px){.fgrid{grid-template-columns:repeat(2,1fr);gap:12px}}
+@media(max-width:560px){.fgrid{grid-template-columns:1fr;gap:18px}}
 .vpair{display:grid;grid-template-columns:1fr 1fr;gap:16px;align-items:start}
 .vpair .vert{max-width:none;margin:0}
 .proof-photo{max-width:360px;margin:0 auto 22px}
@@ -291,44 +295,36 @@ fbq('init','1239139390922230');fbq('track','PageView');
   <div class="col">
     <div class="eyebrow">Въпроси</div>
     <h2>Често задавани въпроси</h2>
-    <p class="lead">Велизар и Марина отговарят лично на въпросите, които майките ни задават най-често. Гледай тези, които те интересуват.</p>
-    <!-- ВИДЕО ВЪПРОСИ: качи faq-video-1.mp4 … faq-video-6.mp4 (и корици faq-poster-1.jpg …) и напиши въпроса в <div class="fcap"></div> под всяко видео. -->
+    <p class="lead">Велизар отговаря лично на въпросите, които майките ни задават най-често. Гледай тези, които те интересуват.</p>
+    <!-- ВИДЕО ВЪПРОСИ: ново видео = копирай един .fcard, смени номера на файла (faq-video-8.mp4 / faq-poster-8.jpg) и текста на въпроса. -->
     <div class="fgrid">
       <div class="fcard">
-        <div class="vslot tall" data-src="faq-video-1.mp4" data-poster="faq-poster-1.jpg">
-          <div class="ph"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polygon points="10 8 16 12 10 16" fill="currentColor"/></svg><span>Скоро</span></div>
-        </div>
-        <div class="fcap"></div>
+        <div class="fvid"><video controls preload="none" playsinline poster="faq-poster-1.jpg"><source src="faq-video-1.mp4" type="video/mp4"></video></div>
+        <div class="fcap">Какво се случва след 4-те месеца? Ще се върне ли в старото състояние?</div>
       </div>
       <div class="fcard">
-        <div class="vslot tall" data-src="faq-video-2.mp4" data-poster="faq-poster-2.jpg">
-          <div class="ph"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polygon points="10 8 16 12 10 16" fill="currentColor"/></svg><span>Скоро</span></div>
-        </div>
-        <div class="fcap"></div>
+        <div class="fvid"><video controls preload="none" playsinline poster="faq-poster-2.jpg"><source src="faq-video-2.mp4" type="video/mp4"></video></div>
+        <div class="fcap">Какво ако синът ми откаже да участва в програмата?</div>
       </div>
       <div class="fcard">
-        <div class="vslot tall" data-src="faq-video-3.mp4" data-poster="faq-poster-3.jpg">
-          <div class="ph"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polygon points="10 8 16 12 10 16" fill="currentColor"/></svg><span>Скоро</span></div>
-        </div>
-        <div class="fcap"></div>
+        <div class="fvid"><video controls preload="none" playsinline poster="faq-poster-3.jpg"><source src="faq-video-3.mp4" type="video/mp4"></video></div>
+        <div class="fcap">Работи ли за сериозни случаи: наркотици, полиция, бягане от вкъщи?</div>
       </div>
       <div class="fcard">
-        <div class="vslot tall" data-src="faq-video-4.mp4" data-poster="faq-poster-4.jpg">
-          <div class="ph"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polygon points="10 8 16 12 10 16" fill="currentColor"/></svg><span>Скоро</span></div>
-        </div>
-        <div class="fcap"></div>
+        <div class="fvid"><video controls preload="none" playsinline poster="faq-poster-4.jpg"><source src="faq-video-4.mp4" type="video/mp4"></video></div>
+        <div class="fcap">Колко бързо ще видя първите реални резултати у дома?</div>
       </div>
       <div class="fcard">
-        <div class="vslot tall" data-src="faq-video-5.mp4" data-poster="faq-poster-5.jpg">
-          <div class="ph"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polygon points="10 8 16 12 10 16" fill="currentColor"/></svg><span>Скоро</span></div>
-        </div>
-        <div class="fcap"></div>
+        <div class="fvid"><video controls preload="none" playsinline poster="faq-poster-5.jpg"><source src="faq-video-5.mp4" type="video/mp4"></video></div>
+        <div class="fcap">Защо това ще работи, когато психолози вече не сработиха?</div>
       </div>
       <div class="fcard">
-        <div class="vslot tall" data-src="faq-video-6.mp4" data-poster="faq-poster-6.jpg">
-          <div class="ph"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polygon points="10 8 16 12 10 16" fill="currentColor"/></svg><span>Скоро</span></div>
-        </div>
-        <div class="fcap"></div>
+        <div class="fvid"><video controls preload="none" playsinline poster="faq-poster-6.jpg"><source src="faq-video-6.mp4" type="video/mp4"></video></div>
+        <div class="fcap">Работи ли за самотни майки без подкрепа?</div>
+      </div>
+      <div class="fcard">
+        <div class="fvid"><video controls preload="none" playsinline poster="faq-poster-7.jpg"><source src="faq-video-7.mp4" type="video/mp4"></video></div>
+        <div class="fcap">Колко време седмично ще ми отнеме?</div>
       </div>
     </div>
     <div class="sub-h">Кратки отговори</div>
