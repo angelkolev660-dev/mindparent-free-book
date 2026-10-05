@@ -162,6 +162,7 @@ footer a{color:var(--muted)}
 .vslot{border-radius:16px;overflow:hidden;background:#000;max-width:100%}
 .vslot.wide{aspect-ratio:16/9;box-shadow:0 18px 40px -18px rgba(11,24,32,.6)}
 .vslot.tall{aspect-ratio:9/16}
+.vslot iframe{width:100%;height:100%;border:0;display:block}
 .vslot video{width:100%;height:100%;object-fit:cover;display:block;background:#000}
 .vslot .ph{height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;color:var(--muted);background:var(--soft);border:2px dashed var(--sky);border-radius:16px;font-size:14px;font-weight:700;text-align:center;padding:10px}
 .vslot .ph svg{width:44px;height:44px;color:var(--navy);opacity:.55}
@@ -212,12 +213,11 @@ fbq('init','1239139390922230');fbq('track','PageView');
 
     <div class="step">
       <div class="eyebrow">Стъпка 1 от 4</div>
-      <h3>Гледай това кратко видео</h3>
-      <p class="desc">Преди срещата отдели 2 минути. Велизар ти казва <b>какво да очакваш</b> и как да извлечеш максимума от разговора.</p>
-      <!-- ВИДЕО: качи файла като video-velizar.mp4 (и по желание корица poster-velizar.jpg) в същата папка. Появява се само. -->
-      <div class="vslot wide" data-src="video-velizar.mp4" data-poster="poster-velizar.jpg">
-        <div class="ph"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polygon points="10 8 16 12 10 16" fill="currentColor"/></svg><span>Видеото идва скоро</span></div>
-      </div>
+      <h3>Гледай това видео преди срещата</h3>
+      <p class="desc">Родители, които вече минаха по този път, разказват какво се промени у дома. <b>Изгледай го докрай</b>, за да дойдеш на срещата с ясна представа какво е възможно и при вас.</p>
+      <!-- ВИДЕО от Google Drive. За друго видео смени ID-то в линка (…/file/d/ID/preview). Файлът трябва да е споделен „Всеки с връзката“. -->
+      <div class="vslot wide drive"><iframe src="https://drive.google.com/file/d/1rfNZSsDgnIt3h-ZNFEuMZF15957KNpJv/preview" title="Видео: родители разказват какво се промени" allow="autoplay; fullscreen" allowfullscreen loading="lazy"></iframe></div>
+    </div>
     </div>
 
     <div class="step">
@@ -281,7 +281,7 @@ fbq('init','1239139390922230');fbq('track','PageView');
       <button type="button" class="ci" data-key="quiet"><span class="box"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span><span class="lbl">Ще съм на тихо място, където никой няма да ме прекъсва</span></button>
       <button type="button" class="ci" data-key="zoom"><span class="box"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span><span class="lbl">Имам Zoom на телефона или лаптопа и добър интернет</span></button>
       <button type="button" class="ci" data-key="calendar"><span class="box"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span><span class="lbl">Добавих срещата в календара си</span></button>
-      <button type="button" class="ci" data-key="video"><span class="box"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span><span class="lbl">Гледах краткото видео (Стъпка 1)</span></button>
+      <button type="button" class="ci" data-key="video"><span class="box"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span><span class="lbl">Изгледах видеото докрай (Стъпка 1)</span></button>
       <button type="button" class="ci" data-key="book"><span class="box"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span><span class="lbl">Прочетох първите страници на книгата</span></button>
       <button type="button" class="ci" data-key="situation"><span class="box"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span><span class="lbl">Записах си 1–2 ситуации от последната седмица, които ме тревожат</span></button>
       <button type="button" class="ci" data-key="question"><span class="box"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span><span class="lbl">Знам кой е въпросът, на който най-много искам отговор</span></button>
