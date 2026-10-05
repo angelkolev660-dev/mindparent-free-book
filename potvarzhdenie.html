@@ -213,10 +213,12 @@ fbq('init','1239139390922230');fbq('track','PageView');
 
     <div class="step">
       <div class="eyebrow">Стъпка 1 от 4</div>
-      <h3>Гледай това видео преди срещата</h3>
-      <p class="desc">Това е най-важната стъпка. <b>Изгледай видеото докрай</b>, за да дойдеш на срещата с ясна представа за нашия подход и да извлечеш максимума от разговора.</p>
-      <!-- ВИДЕО от Google Drive. За друго видео смени ID-то в линка (…/file/d/ID/preview). Файлът трябва да е споделен „Всеки с връзката“. -->
-      <div class="vslot wide drive"><iframe src="https://drive.google.com/file/d/1rfNZSsDgnIt3h-ZNFEuMZF15957KNpJv/preview" title="Видео преди срещата" allow="autoplay; fullscreen" allowfullscreen loading="lazy"></iframe></div>
+      <h3>Гледай това кратко видео</h3>
+      <p class="desc">Преди срещата отдели 2 минути. Велизар ти казва <b>какво да очакваш</b> и как да извлечеш максимума от разговора.</p>
+      <!-- ВИДЕО: качи файла като video-velizar.mp4 (и по желание корица poster-velizar.jpg) в същата папка. Появява се само. -->
+      <div class="vslot wide" data-src="video-velizar.mp4" data-poster="poster-velizar.jpg">
+        <div class="ph"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polygon points="10 8 16 12 10 16" fill="currentColor"/></svg><span>Видеото идва скоро</span></div>
+      </div>
     </div>
 
     <div class="step">
@@ -236,11 +238,10 @@ fbq('init','1239139390922230');fbq('track','PageView');
 
     <div class="step">
       <div class="eyebrow">Стъпка 3 от 4</div>
-      <h3>Прочети първите страници на книгата</h3>
-      <div class="mail-note">
-        <img src="kniga-korica.png" onerror="this.hidden=true" alt="Корицата на книгата „Мамо, Не Знаеш Какво Става В Мен“">
-        <p>Книгата <b>„Мамо, Не Знаеш Какво Става В Мен“</b> вече е в имейла ти. Ако не я виждаш, провери папките „Промоции“ и „Спам“. Не е нужно да я завършиш. Дори първите страници ще ти помогнат да дойдеш с по-ясни въпроси.</p>
-      </div>
+      <h3>Гледай това видео докрай</h3>
+      <p class="desc">Това е най-важната стъпка. <b>Изгледай видеото докрай</b>, за да дойдеш на срещата с ясна представа за нашия подход и да извлечеш максимума от разговора.</p>
+      <!-- ВИДЕО от Google Drive. За друго видео смени ID-то в линка (…/file/d/ID/preview). Файлът трябва да е споделен „Всеки с връзката“. -->
+      <div class="vslot wide drive"><iframe src="https://drive.google.com/file/d/1rfNZSsDgnIt3h-ZNFEuMZF15957KNpJv/preview" title="Видео преди срещата" allow="autoplay; fullscreen" allowfullscreen loading="lazy"></iframe></div>
     </div>
 
     <div class="step">
@@ -280,8 +281,8 @@ fbq('init','1239139390922230');fbq('track','PageView');
       <button type="button" class="ci" data-key="quiet"><span class="box"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span><span class="lbl">Ще съм на тихо място, където никой няма да ме прекъсва</span></button>
       <button type="button" class="ci" data-key="zoom"><span class="box"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span><span class="lbl">Имам Zoom на телефона или лаптопа и добър интернет</span></button>
       <button type="button" class="ci" data-key="calendar"><span class="box"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span><span class="lbl">Добавих срещата в календара си</span></button>
-      <button type="button" class="ci" data-key="video"><span class="box"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span><span class="lbl">Изгледах видеото докрай (Стъпка 1)</span></button>
-      <button type="button" class="ci" data-key="book"><span class="box"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span><span class="lbl">Прочетох първите страници на книгата</span></button>
+      <button type="button" class="ci" data-key="video"><span class="box"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span><span class="lbl">Гледах краткото видео от Велизар (Стъпка 1)</span></button>
+      <button type="button" class="ci" data-key="video3"><span class="box"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span><span class="lbl">Изгледах видеото от Стъпка 3 докрай</span></button>
       <button type="button" class="ci" data-key="situation"><span class="box"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span><span class="lbl">Записах си 1–2 ситуации от последната седмица, които ме тревожат</span></button>
       <button type="button" class="ci" data-key="question"><span class="box"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span><span class="lbl">Знам кой е въпросът, на който най-много искам отговор</span></button>
     </div>
