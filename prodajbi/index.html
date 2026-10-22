@@ -1,0 +1,1335 @@
+<!doctype html>
+<html lang="bg">
+<head><meta charset="utf-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Sales за MindParent</title>
+<meta name="description" content="Търсим 3 души с опит в продажбите. Водиш онлайн срещи с майки, които сетърите вече са записали. Получаваш 10% от всяка продажба. Работиш от вкъщи.">
+<meta property="og:title" content="MindParent търси хора за продажби">
+<meta property="og:description" content="Водиш записани онлайн срещи и получаваш 10% от всяка продажба. Работа от вкъщи.">
+<meta property="og:image" content="https://book.mindparent.com/kniga-korica.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Manrope:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap">
+<style>
+/* ================= НАСТРОЙКИ =================
+   Всичко визуално идва от тези токени.
+   Цветовете са от лид магнита book.mindparent.com (navy на корицата). */
+:root{
+  --paper:#FFFFFF;
+  --paper-2:#F4F6F7;
+  --ink:#0B1820;
+  --ink-2:#1F2A33;
+  --muted:#5C6B74;
+  --line:#E2E7EA;
+  --accent:#13344C;
+  --accent-deep:#0B1820;
+  --accent-soft:#E7F0F7;
+  --sky:#8EC0E0;
+  --night:#0B1820;
+  --night-2:#13344C;
+  --night-line:#244E6B;
+  --night-text:#C9D8E3;
+  --night-dim:#8AA2B3;
+  --good:#2E8B57;
+  --good-soft:#E3F3EA;
+  --warn:#B7791F;
+  --warn-soft:#FBF1DE;
+  --bad:#C0392B;
+  --bad-soft:#FBE7E4;
+  --display:"Oswald", "Arial Narrow", Impact, sans-serif;
+  --body:"Manrope", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  --mono:"JetBrains Mono", ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
+  --r:14px;
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{animation:none!important;transition:none!important}}
+body{margin:0;background:var(--paper);color:var(--ink);font:16px/1.6 var(--body);-webkit-font-smoothing:antialiased}
+img{max-width:100%}
+[hidden]{display:none!important}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--sky);outline-offset:2px;border-radius:6px}
+
+.wrap{max-width:1120px;margin:0 auto;padding-inline:20px}
+.narrow{max-width:760px}
+.eyebrow{font:700 12px/1 var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--accent)}
+h1,h2,h3{font-family:var(--display);text-wrap:balance;margin:0;letter-spacing:.01em;text-transform:uppercase}
+h2{font-size:clamp(28px,4vw,44px);line-height:1.12;font-weight:600}
+h3{font-size:20px;line-height:1.3;font-weight:600}
+p{margin:0}
+.lead{font-size:clamp(17px,1.6vw,19px);color:var(--ink-2);max-width:62ch}
+.section{padding-block:clamp(64px,9vw,112px)}
+.section-head{display:grid;gap:14px;margin-bottom:40px;max-width:760px}
+.tnum{font-variant-numeric:tabular-nums}
+
+/* ---------- бутони ---------- */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;font:700 16px/1 var(--body);padding:18px 26px;border-radius:999px;border:2px solid transparent;cursor:pointer;text-decoration:none;transition:transform .15s ease, background .15s ease}
+.btn:hover{transform:translateY(-1px)}
+.btn-primary{background:var(--accent);color:#fff}
+.btn-primary:hover{background:var(--accent-deep)}
+.btn-ghost{background:transparent;color:var(--ink);border-color:var(--ink)}
+.btn-ghost.on-dark{color:#fff;border-color:#fff}
+.btn[disabled]{opacity:.5;cursor:not-allowed;transform:none}
+
+/* ---------- горна лента ---------- */
+.topbar{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:rgba(255,255,255,.92);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.topbar .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;height:64px}
+.brand{font:700 20px/1 var(--display);letter-spacing:.04em;text-decoration:none;text-transform:uppercase}
+.brand span{color:var(--sky)}
+.topbar .btn{padding:12px 18px;font-size:14px}
+
+/* ---------- hero ---------- */
+.hero{padding-block:clamp(48px,7vw,88px) clamp(40px,6vw,72px);border-bottom:1px solid var(--line)}
+.hero-grid{display:grid;grid-template-columns:1.3fr .9fr;gap:clamp(32px,5vw,64px);align-items:center}
+.hero h1{font-size:clamp(32px,4.6vw,56px);line-height:1.08;font-weight:700;margin-top:18px}
+.hero h1 em{font-style:normal;color:var(--accent);background:linear-gradient(transparent 62%, var(--accent-soft) 62%)}
+.hero .lead{margin-top:22px}
+.hero-cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:30px}
+.hero-note{margin-top:14px;font-size:14px;color:var(--muted)}
+.seats{display:flex;align-items:center;gap:10px;margin-top:18px;font:600 14px/1.3 var(--body);color:var(--ink-2)}
+.seats-dots{display:flex;gap:6px}
+.seats-dots i{width:14px;height:14px;border-radius:50%;background:var(--accent);display:block}
+
+/* календар в hero: реален „лист“ на sales човека */
+.callsheet{background:var(--night);color:#fff;border-radius:18px;padding:22px;font-family:var(--mono);font-size:13px;box-shadow:0 30px 60px -30px rgba(11,24,32,.55)}
+.callsheet-head{display:flex;justify-content:space-between;align-items:center;color:var(--night-text);font-size:11px;letter-spacing:.12em;text-transform:uppercase;padding-bottom:14px;border-bottom:1px dashed var(--night-line)}
+.callsheet-head b{color:var(--sky)}
+.call-row{display:grid;grid-template-columns:48px 1fr auto;gap:10px;align-items:center;padding:11px 0;border-bottom:1px dashed var(--night-line)}
+.call-row:last-of-type{border-bottom:0}
+.call-row .t{color:var(--night-dim)}
+.call-row .who{color:#fff;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.call-row .who small{display:block;color:var(--night-dim);font-size:11px}
+.tag{font:700 10px/1 var(--mono);letter-spacing:.08em;text-transform:uppercase;padding:6px 8px;border-radius:6px;white-space:nowrap}
+.tag-book{background:var(--sky);color:var(--night)}
+.tag-show{background:#2E6B45;color:#DDF5E5}
+.tag-no{background:var(--night-2);color:var(--night-text)}
+.tag-won{background:#fff;color:var(--night)}
+.callsheet-foot{display:flex;justify-content:space-between;margin-top:14px;padding-top:14px;border-top:1px solid var(--night-line);color:var(--night-text)}
+.callsheet-foot b{color:#fff;font-size:15px}
+
+/* ---------- ключови факти ---------- */
+.facts{display:grid;grid-template-columns:1fr 1fr;border-bottom:1px solid var(--line)}
+.fact-group{display:grid;grid-template-rows:auto 1fr;border-right:1px solid var(--line)}
+.fact-group:last-child{border-right:0}
+.fact-group h2{font:600 15px/1 var(--display);letter-spacing:.14em;text-transform:uppercase;padding:22px 24px 16px;border-bottom:1px solid var(--line)}
+.fact-group:first-child h2{color:var(--accent)}
+.fact-pair{display:grid;grid-template-columns:1fr 1fr}
+.fact{padding:24px 24px 28px;border-right:1px solid var(--line);display:grid;gap:8px;align-content:start;min-width:0;overflow-wrap:anywhere}
+.fact-group,.fact-pair{min-width:0}
+.fact:last-child{border-right:0}
+.fact b{font:700 clamp(26px,2.8vw,36px)/1.1 var(--display);letter-spacing:.01em;text-transform:uppercase}
+.tagline{margin-top:26px;font:700 clamp(19px,2vw,24px)/1.3 var(--display);text-transform:uppercase;letter-spacing:.02em;color:var(--ink);padding-left:16px;border-left:4px solid var(--sky);text-wrap:balance}
+.tagline span{color:var(--accent)}
+.fact b.o{color:var(--accent)}
+.fact span{font-size:14px;color:var(--muted);line-height:1.45}
+
+/* ---------- кои сме ние ---------- */
+.about-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.about-card{border:1px solid var(--line);border-radius:var(--r);padding:26px;display:grid;gap:10px;align-content:start}
+.about-card .k{font:700 11px/1 var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--accent)}
+.about-card p{font-size:15.5px;color:var(--ink-2)}
+.growth{margin-top:16px;border-radius:var(--r);background:var(--accent);color:#fff;padding:clamp(24px,4vw,40px);display:grid;grid-template-columns:1.1fr 1.4fr;gap:clamp(24px,4vw,48px);align-items:center}
+.growth h3{font:700 clamp(24px,2.8vw,34px)/1.15 var(--display)}
+.growth p{margin-top:12px;font-size:16px;color:var(--night-text);max-width:46ch}
+.growth-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.gstat{background:rgba(255,255,255,.08);border:1px solid rgba(142,192,224,.35);border-radius:12px;padding:18px 16px;display:grid;gap:6px;align-content:start}
+.gstat b{font:700 clamp(26px,2.8vw,34px)/1.1 var(--display);color:var(--sky)}
+.gstat > span{font-size:13.5px;color:var(--night-text);line-height:1.4}
+
+/* ---------- какво е sales ---------- */
+.two{display:grid;grid-template-columns:1fr 1fr;gap:clamp(28px,5vw,64px);align-items:start}
+.pipeline{display:grid;gap:0;border:1px solid var(--line);border-radius:var(--r);overflow:hidden}
+.pipe{display:grid;grid-template-columns:72px 1fr;gap:16px;padding:20px 22px;border-bottom:1px solid var(--line);background:var(--paper)}
+.pipe:last-child{border-bottom:0}
+.pipe.you{background:var(--accent-soft)}
+.pipe .who{font:700 11px/1.2 var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--muted);padding-top:3px}
+.pipe.you .who{color:var(--accent)}
+.pipe h3{font-size:18px}
+.pipe p{font-size:15px;color:var(--ink-2);margin-top:4px}
+
+/* ---------- фуния / ден в числа ---------- */
+.dark{background:var(--night);color:#fff}
+.dark .lead{color:var(--night-text)}
+.dark .eyebrow{color:var(--sky)}
+.funnel{display:grid;gap:12px;margin-top:8px}
+.bar{display:grid;grid-template-columns:minmax(150px,220px) 1fr;gap:18px;align-items:center}
+.bar-label{font-size:15px;color:var(--night-text);line-height:1.35}
+.bar-label small{display:block;color:var(--night-dim);font-size:12px;font-family:var(--mono)}
+.bar-track{height:58px;display:flex;align-items:center}
+.bar-fill{height:100%;border-radius:10px;display:flex;align-items:center;padding-inline:18px;font:700 24px/1 var(--display);background:var(--night-2);border:1px solid var(--night-line);white-space:nowrap}
+.bar-fill.hot{background:var(--sky);border-color:var(--sky);color:var(--night)}
+.bar-fill.white{background:#fff;color:var(--night);border-color:#fff}
+.funnel-note{margin-top:22px;font-size:14px;color:var(--night-dim);max-width:70ch}
+
+/* ---------- заплащане ---------- */
+.pay-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.card{border:1px solid var(--line);border-radius:var(--r);padding:28px;background:var(--paper)}
+.card.soft{background:var(--paper-2);border-color:transparent}
+.pay-math{display:grid;gap:10px;margin-top:18px;font-family:var(--mono);font-size:15px}
+.pay-math div{display:flex;justify-content:space-between;gap:12px;padding:12px 0;border-bottom:1px dashed var(--line)}
+.pay-math div:last-child{border-bottom:0}
+.pay-math b{font-weight:700;color:var(--accent);white-space:nowrap}
+.calc{display:grid;gap:20px;margin-top:8px}
+.calc label{display:grid;gap:10px;font-weight:600;font-size:15px}
+.calc-row{display:flex;justify-content:space-between;align-items:baseline;gap:12px}
+.calc-row output{font:700 15px/1 var(--mono);color:var(--accent)}
+input[type=range]{width:100%;accent-color:var(--accent)}
+.calc-out{display:grid;gap:4px;padding:22px;border-radius:12px;background:var(--night);color:#fff}
+.calc-out span{font-size:13px;color:var(--night-text)}
+.calc-out b{font:700 clamp(34px,4.4vw,48px)/1.05 var(--display);color:#fff}
+.calc-out small{font-size:12px;color:var(--night-dim);line-height:1.45}
+
+/* ---------- ден ---------- */
+.day{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border-top:2px solid var(--ink)}
+.day-item{padding:24px 24px 28px 0;border-bottom:1px solid var(--line);display:grid;gap:8px;align-content:start}
+.day-item:not(:nth-child(3n)){padding-right:28px}
+.day-item .time{font:700 12px/1 var(--mono);letter-spacing:.1em;color:var(--accent)}
+.day-item p{font-size:15px;color:var(--ink-2)}
+
+/* ---------- кого търсим ---------- */
+.fit{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.fit ul{list-style:none;margin:18px 0 0;padding:0;display:grid;gap:12px}
+.fit li{display:grid;grid-template-columns:26px 1fr;gap:10px;font-size:15.5px;line-height:1.5}
+.fit li::before{content:"";width:22px;height:22px;border-radius:50%;margin-top:1px;background-position:center;background-repeat:no-repeat;background-size:12px}
+.fit .yes li::before{background-color:var(--good-soft);background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12'%3E%3Cpath d='M2 6.5l2.5 2.5L10 3.5' fill='none' stroke='%232E8B57' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E")}
+.fit .no li::before{background-color:var(--bad-soft);background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12'%3E%3Cpath d='M3 3l6 6M9 3l-6 6' fill='none' stroke='%23C0392B' stroke-width='2' stroke-linecap='round'/%3E%3C/svg%3E")}
+.fit .no{background:var(--paper-2);border-color:transparent}
+
+/* ---------- FAQ ---------- */
+.faq{display:grid;border-top:1px solid var(--line)}
+.faq details{border-bottom:1px solid var(--line)}
+.faq summary{list-style:none;cursor:pointer;padding:22px 44px 22px 0;font:700 17px/1.4 var(--body);position:relative}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";position:absolute;right:4px;top:16px;font:500 28px/1 var(--display);color:var(--accent);transition:transform .2s}
+.faq details[open] summary::after{transform:rotate(45deg)}
+.faq details p{padding:0 0 22px;color:var(--ink-2);max-width:68ch}
+
+/* ================= ФОРМА ================= */
+.apply{background:var(--paper-2)}
+.form-shell{background:var(--paper);border-radius:20px;border:1px solid var(--line);overflow:hidden;max-width:820px;margin:0 auto}
+.progress{padding:22px 28px;border-bottom:1px solid var(--line);display:grid;gap:12px}
+.progress-top{display:flex;justify-content:space-between;gap:12px;font-size:14px;font-weight:600}
+.progress-top span:last-child{font-family:var(--mono);color:var(--muted);font-weight:500}
+.progress-track{height:6px;background:var(--line);border-radius:99px;overflow:hidden}
+.progress-fill{height:100%;background:var(--accent);width:0;transition:width .3s ease}
+form fieldset{border:0;margin:0;padding:30px 28px 8px;display:grid;gap:26px}
+form legend{padding:0;margin-bottom:6px}
+.legend-title{font:600 26px/1.2 var(--display);text-transform:uppercase;letter-spacing:.01em}
+.legend-sub{font-size:15px;color:var(--muted);margin-top:6px;font-family:var(--body)}
+.q{display:grid;gap:10px}
+.q > .q-label, .q > label.q-label{font-weight:700;font-size:15.5px;line-height:1.4}
+.q-label .req{color:var(--accent)}
+.q-hint{font-size:13.5px;color:var(--muted);margin-top:-4px}
+.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:18px 20px}
+input[type=text],input[type=email],input[type=tel],input[type=number],input[type=url],input[type=password],select,textarea{width:100%;font:500 16px/1.4 var(--body);color:var(--ink);background:var(--paper);border:1.5px solid var(--line);border-radius:12px;padding:14px 16px;transition:border-color .15s}
+textarea{min-height:120px;resize:vertical}
+input:focus,select:focus,textarea:focus{outline:none;border-color:var(--accent);box-shadow:0 0 0 4px var(--accent-soft)}
+.opts{display:grid;gap:8px}
+.opts.cols-2{grid-template-columns:1fr 1fr}
+.opt{display:grid;grid-template-columns:22px 1fr;gap:12px;align-items:start;padding:14px 16px;border:1.5px solid var(--line);border-radius:12px;cursor:pointer;font-size:15px;line-height:1.45;background:var(--paper);transition:border-color .15s, background .15s}
+.opt:hover{border-color:#C5D1D8}
+.opt input{accent-color:var(--accent);width:18px;height:18px;margin:2px 0 0}
+.opt:has(input:checked){border-color:var(--accent);background:var(--accent-soft)}
+.scale{display:grid;grid-template-columns:repeat(5,1fr);gap:8px}
+.scale.ten{grid-template-columns:repeat(10,1fr)}
+.scale label{display:grid;place-items:center;padding:12px 0;border:1.5px solid var(--line);border-radius:10px;font:700 15px/1 var(--mono);cursor:pointer;position:relative}
+.scale input{position:absolute;opacity:0;inset:0;cursor:pointer}
+.scale label:has(input:checked){background:var(--accent);border-color:var(--accent);color:#fff}
+.scale label:has(input:focus-visible){outline:3px solid var(--sky);outline-offset:2px}
+.scale-ends{display:flex;justify-content:space-between;font-size:12.5px;color:var(--muted)}
+.counter{font:500 12px/1 var(--mono);color:var(--muted);text-align:right}
+.counter.ok{color:var(--good)}
+.q.invalid input,.q.invalid select,.q.invalid textarea,.q.invalid .opt,.q.invalid .scale label{border-color:var(--bad)}
+.err{font-size:13.5px;color:var(--bad);font-weight:600}
+.form-nav{display:flex;justify-content:space-between;gap:12px;padding:22px 28px 28px;border-top:1px solid var(--line);margin-top:26px;flex-wrap:wrap}
+.form-nav .btn{padding:16px 24px}
+.hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
+.notice{border-radius:12px;padding:14px 16px;font-size:14.5px;line-height:1.5}
+.notice.warn{background:var(--warn-soft);color:#7A5210}
+.notice.bad{background:var(--bad-soft);color:#8E2A20}
+.done{padding:48px 28px;display:grid;gap:16px;text-align:left}
+.done h3{font-size:28px}
+.done .big{width:60px;height:60px;border-radius:50%;background:var(--accent);display:grid;place-items:center}
+
+footer{padding-block:36px;border-top:1px solid var(--line);font-size:13.5px;color:var(--muted)}
+footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+
+/* ================= АДМИН ================= */
+.admin{min-height:100vh;background:var(--paper-2);padding-block:28px 60px}
+.admin-top{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;margin-bottom:22px}
+.admin-top h1{font-size:28px;font-weight:700}
+.login{max-width:420px;margin:12vh auto 0;background:var(--paper);border:1px solid var(--line);border-radius:18px;padding:30px;display:grid;gap:16px}
+.stats{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;margin-bottom:18px}
+.stat{background:var(--paper);border:1px solid var(--line);border-radius:12px;padding:16px;display:grid;gap:4px}
+.stat span{font-size:12.5px;color:var(--muted)}
+.stat b{font:700 30px/1 var(--display)}
+.toolbar{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin-bottom:14px}
+.toolbar input,.toolbar select{width:auto;padding:10px 14px;font-size:14px}
+.toolbar input{flex:1 1 220px}
+.chips{display:flex;gap:6px;flex-wrap:wrap}
+.chip{border:1.5px solid var(--line);background:var(--paper);border-radius:999px;padding:8px 14px;font:700 13px/1 var(--body);cursor:pointer}
+.chip[aria-pressed=true]{background:var(--ink);border-color:var(--ink);color:#fff}
+.table-wrap{overflow-x:auto;background:var(--paper);border:1px solid var(--line);border-radius:14px}
+table{border-collapse:collapse;width:100%;min-width:980px;font-size:14px}
+th{text-align:left;font:700 11px/1.2 var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--muted);padding:14px 12px;border-bottom:1px solid var(--line);background:var(--paper);position:sticky;top:0;cursor:pointer;white-space:nowrap}
+th[data-sort]:hover{color:var(--ink)}
+td{padding:12px;border-bottom:1px solid var(--line);vertical-align:middle}
+tbody tr{cursor:pointer}
+tbody tr:hover{background:var(--paper-2)}
+.score{font:700 15px/1 var(--mono)}
+.tier{display:inline-block;font:700 11px/1 var(--mono);letter-spacing:.06em;padding:6px 8px;border-radius:6px;white-space:nowrap}
+.tier-A{background:var(--good-soft);color:var(--good)}
+.tier-B{background:var(--warn-soft);color:#8A5B12}
+.tier-C{background:#ECEFF1;color:var(--muted)}
+.tier-X{background:var(--bad-soft);color:var(--bad)}
+.flags{font-size:12.5px;color:var(--bad);max-width:240px;line-height:1.35}
+.status-pill{font-size:12.5px;font-weight:700;padding:5px 10px;border-radius:999px;background:#ECEFF1;white-space:nowrap}
+.demo-badge{font:700 11px/1 var(--mono);letter-spacing:.1em;background:var(--warn-soft);color:#7A5210;padding:8px 10px;border-radius:8px}
+.drawer-bg{position:fixed;inset:0;background:rgba(11,24,32,.45);z-index:40}
+.drawer{position:fixed;top:0;right:0;bottom:0;width:min(620px,100%);background:var(--paper);z-index:41;overflow-y:auto;padding:26px 24px calc(40px + env(safe-area-inset-bottom,0px));box-shadow:-20px 0 40px -20px rgba(0,0,0,.3)}
+.drawer-head{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;margin-bottom:18px}
+.drawer h2{font-size:26px}
+.kv{display:grid;gap:0;border-top:1px solid var(--line)}
+.kv div{display:grid;grid-template-columns:170px 1fr;gap:14px;padding:11px 0;border-bottom:1px solid var(--line);font-size:14px}
+.kv dt{color:var(--muted);font-weight:600}
+.kv dd{margin:0;white-space:pre-wrap;word-break:break-word}
+.drawer-actions{display:grid;gap:10px;margin:18px 0;padding:16px;border-radius:12px;background:var(--paper-2)}
+.close-x{background:none;border:1.5px solid var(--line);border-radius:10px;width:40px;height:40px;cursor:pointer;font-size:20px;flex:none}
+
+/* ================= адаптивност ================= */
+@media (max-width:900px){
+  .hero-grid,.two,.pay-grid,.fit{grid-template-columns:1fr}
+  .facts{grid-template-columns:1fr}
+  .about-cards,.growth{grid-template-columns:1fr}
+  .fact-group{border-right:0}
+  .fact-group:first-child{border-bottom:1px solid var(--line)}
+  .day{grid-template-columns:1fr 1fr}
+  .day-item:not(:nth-child(3n)){padding-right:0}
+  .day-item:nth-child(odd){padding-right:24px}
+  .stats{grid-template-columns:repeat(3,1fr)}
+}
+@media (max-width:600px){
+  .wrap{padding-inline:16px}
+  .topbar .brand{font-size:17px}
+  .fact-group h2{padding-inline:4px}
+  .growth-stats{grid-template-columns:1fr}
+  .fact{padding:20px 14px 22px 4px}
+  .fact-pair .fact:last-child{padding-left:14px}
+  .day,.grid-2,.opts.cols-2{grid-template-columns:1fr}
+  .day-item:nth-child(odd){padding-right:0}
+  .bar{grid-template-columns:1fr;gap:6px}
+  .bar-track{height:48px}
+  .bar-fill{font-size:20px}
+  form fieldset,.progress,.form-nav{padding-inline:18px}
+  .scale.ten{grid-template-columns:repeat(5,1fr)}
+  .stats{grid-template-columns:1fr 1fr}
+  .kv div{grid-template-columns:1fr;gap:2px}
+  .card{padding:22px}
+  .pipe{grid-template-columns:1fr;gap:6px}
+}
+</style>
+<!-- Meta Pixel (MindParent). Тук пращаме само PageView и собствени събития,
+     не „Lead“, за да не се смесват кандидатите с майките от лид магнита. -->
+<script>
+!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
+fbq('init','1239139390922230');
+fbq('track','PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=1239139390922230&ev=PageView&noscript=1"/></noscript>
+<!-- End Meta Pixel -->
+</head>
+<body>
+
+<!-- =====================================================================
+     ПУБЛИЧНА СТРАНИЦА
+     ===================================================================== -->
+<div id="publicView">
+
+<header class="topbar">
+  <div class="wrap">
+    <a class="brand" href="#top">Mind<span>Parent</span></a>
+    <a class="btn btn-primary" href="#apply">Кандидатствай</a>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <div class="eyebrow">Търсим 3 души · Работа от вкъщи</div>
+        <h1>Търсим 3 души за продажби от вкъщи: водиш онлайн срещи с майки и <em>печелиш 10% от всяка продажба</em></h1>
+        <p class="lead">Майки на момчета между 12 и 18 години искат помощ за сина си. Нашите сетъри вече са им записали среща. Ти провеждаш срещата онлайн и продаваш програмата. <b>Получаваш 150&nbsp;€ за всяка майка, която купи.</b></p>
+        <p class="tagline">Ти не търсиш клиенти. Ти водиш срещи <span>и печелиш от всяка продажба</span></p>
+        <div class="hero-cta">
+          <a class="btn btn-primary" href="#apply">Искам да кандидатствам</a>
+          <a class="btn btn-ghost" href="#pay">Колко мога да изкарам?</a>
+        </div>
+        <div class="seats">
+          <div class="seats-dots" aria-hidden="true"><i></i><i></i><i></i></div>
+          3 свободни места · Срещите са записани · Работиш от вкъщи
+        </div>
+      </div>
+
+      <aside class="callsheet" aria-label="Пример за един работен ден">
+        <div class="callsheet-head"><span>Твоят календар · вторник</span><b>● работиш</b></div>
+        <div class="call-row"><span class="t">10:30</span><span class="who">Мария Г.<small>син на 14 г. · не иска да учи</small></span><span class="tag tag-show">дойде</span></div>
+        <div class="call-row"><span class="t">11:30</span><span class="who">Десислава П.<small>не влезе в срещата</small></span><span class="tag tag-no">нов час</span></div>
+        <div class="call-row"><span class="t">13:00</span><span class="who">Ивелина К.<small>син на 16 г. · затворен в стаята</small></span><span class="tag tag-show">дойде</span></div>
+        <div class="call-row"><span class="t">15:00</span><span class="who">Габриела С.<small>иска да помисли до петък</small></span><span class="tag tag-book">мисли</span></div>
+        <div class="call-row"><span class="t">15:48</span><span class="who">Ивелина К.<small>програма за 1500 €</small></span><span class="tag tag-won">купи</span></div>
+        <div class="callsheet-foot"><span>ти получаваш</span><b class="tnum">+150 €</b></div>
+      </aside>
+    </div>
+  </section>
+
+  <!-- ФАКТИ -->
+  <div class="wrap">
+    <div class="facts">
+      <div class="fact-group">
+        <h2>Какво получаваш</h2>
+        <div class="fact-pair">
+          <div class="fact"><b class="o">10%</b><span>от всяка продажба. Това са 150&nbsp;€ за всяка майка, която купи програмата за 1500&nbsp;€.</span></div>
+          <div class="fact"><b>Готови срещи</b><span>Не звъниш на студено. Сетърите ти записват срещите.</span></div>
+        </div>
+      </div>
+      <div class="fact-group">
+        <h2>Какво търсим</h2>
+        <div class="fact-pair">
+          <div class="fact"><b>Минимум 4&nbsp;часа</b><span>на ден, 5 дни в седмицата. Ти избираш кога, между 10:00 и 19:00.</span></div>
+          <div class="fact"><b>Опит</b><span>в директни продажби. Как продаваме ние, ще те научим.</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- КОИ СМЕ НИЕ -->
+  <section class="section" id="about">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="eyebrow">Кои сме ние</div>
+        <h2>Помагаме на майки да си върнат връзката със сина си</h2>
+        <p class="lead">MindParent работи с момчета между 10 и 18 години и с техните майки. С момчета, които отказват да учат, затварят се в себе си или са загубили посока. Показваме на майката какво наистина става в главата на сина ѝ и как да реагира, без викане и без наказания.</p>
+      </div>
+      <div class="about-cards">
+        <div class="about-card"><span class="k">Сфера</span><h3>Родителство и психология</h3><p>Работим лично и онлайн. Зад програмата стоят психолог и човек, който е минал по този път сам.</p></div>
+        <div class="about-card"><span class="k">Клиенти</span><h3>Майки на момчета 12–18 г.</h3><p>Усещат, че губят сина си, и не знаят как да го върнат. Вече са пробвали разговори, молби и наказания.</p></div>
+        <div class="about-card"><span class="k">Програмата</span><h3>Лична работа с екипа</h3><p>Майката получава лична подкрепа от Велизар, психолога Марина Панайотова и екипа. Програмата струва 1500&nbsp;€.</p></div>
+      </div>
+      <div class="growth">
+        <div>
+          <h3>Растем бързо. Затова търсим хора.</h3>
+          <p>Все повече майки искат да говорят с нас. Сетърите записват срещи всеки ден, но няма кой да ги проведе. Тук идваш ти. Влизаш сега и растеш заедно с нас.</p>
+        </div>
+        <div class="growth-stats">
+          <div class="gstat"><b class="tnum">300+</b><span>майки изтеглиха безплатната книга само за последните седмици</span></div>
+          <div class="gstat"><b class="tnum">15 г.</b><span>практика като психолог стои зад програмата</span></div>
+          <div class="gstat"><b class="tnum">10–18 г.</b><span>момчетата, с които работим всеки ден</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- КАКВО Е SALES -->
+  <section class="section">
+    <div class="wrap two">
+      <div class="section-head" style="margin-bottom:0">
+        <div class="eyebrow">Работата с прости думи</div>
+        <h2>Ти не звъниш на студено. Ти продаваш.</h2>
+        <p class="lead">Майките вече познават Велизар. Изтеглили са безплатната книга „Мамо, Не Знаеш Какво Става В Мен“ и са гледали видеото му. Нашите сетъри им се обаждат и им записват среща.</p>
+        <p class="lead">Ти провеждаш срещата онлайн. Изслушваш майката, разбираш какво става със сина ѝ и ѝ предлагаш програмата, ако е подходяща за нея.</p>
+        <p class="lead">Тази работа се казва <b>sales</b> или <b>closer</b>. На български: човекът, който води разговора до продажба.</p>
+      </div>
+      <div class="pipeline" aria-label="Кой какво прави">
+        <div class="pipe"><span class="who">Майката</span><div><h3>Изтегля книгата и гледа видеото</h3><p>Оставя телефона си. Вече знае кой е Велизар.</p></div></div>
+        <div class="pipe"><span class="who">Сетърът</span><div><h3>Обажда ѝ се и записва среща</h3><p>Пита я какво я тревожи и записва час в твоя календар.</p></div></div>
+        <div class="pipe you"><span class="who">Ти</span><div><h3>Провеждаш онлайн срещата</h3><p>Около 45 минути в Zoom. Слушаш, питаш и показваш пътя.</p></div></div>
+        <div class="pipe you"><span class="who">Ти</span><div><h3>Продаваш програмата</h3><p>Програмата за лична работа с MindParent струва 1500&nbsp;€.</p></div></div>
+        <div class="pipe you"><span class="who">Ти</span><div><h3>Получаваш своите 10%</h3><p>Това са 150&nbsp;€ за всяка майка, която купи.</p></div></div>
+        <div class="pipe you"><span class="who">Всеки месец</span><div><h3>Няма горна граница</h3><p>Колкото повече продаваш, толкова повече изкарваш. Без таван.</p></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ДЕН В ЧИСЛА -->
+  <section class="section dark">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="eyebrow">Един добър работен ден</div>
+        <h2>4 часа работа. 1 продажба. 150&nbsp;€ за теб.</h2>
+        <p class="lead">Ето как изглежда един добър ден, когато работиш сериозно. Това е пример, а не обещание. Колкото по-добре продаваш, толкова повече изкарваш.</p>
+      </div>
+      <div class="funnel" role="list">
+        <div class="bar" role="listitem"><div class="bar-label">Срещи в календара ти<small>записани от сетърите</small></div><div class="bar-track"><div class="bar-fill tnum" style="width:100%">4–5</div></div></div>
+        <div class="bar" role="listitem"><div class="bar-label">Майки, които идват<small>сетърите им напомнят</small></div><div class="bar-track"><div class="bar-fill tnum" style="width:75%">3–4</div></div></div>
+        <div class="bar" role="listitem"><div class="bar-label">Купуват програмата<small>поне една майка на ден</small></div><div class="bar-track"><div class="bar-fill hot tnum" style="width:30%">1</div></div></div>
+        <div class="bar" role="listitem"><div class="bar-label">Ти получаваш<small>10% от 1500 €</small></div><div class="bar-track"><div class="bar-fill white tnum" style="width:max(46%, 190px)">150&nbsp;€</div></div></div>
+      </div>
+      <p class="funnel-note">Една продажба на ден, 5 дни в седмицата, прави около 3&nbsp;200&nbsp;€ на месец.</p>
+    </div>
+  </section>
+
+  <!-- ЗАПЛАЩАНЕ -->
+  <section class="section" id="pay">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="eyebrow">Как получаваш пари</div>
+        <h2>Плащаме за резултат. Няма горна граница.</h2>
+        <p class="lead">Тук няма фиксирана заплата. Получаваш 10% от всяка продажба. Колкото повече майки купят, толкова повече получаваш.</p>
+      </div>
+      <div class="pay-grid">
+        <div class="card soft">
+          <h3>Сметката е проста</h3>
+          <div class="pay-math tnum">
+            <div><span>Майка купува програмата за 1500 €</span><b>150 € за теб</b></div>
+            <div><span>5 продажби за една седмица</span><b>750 € за теб</b></div>
+            <div><span>20 продажби за един месец</span><b>3 000 € за теб</b></div>
+          </div>
+          <p style="margin-top:18px;font-size:14.5px;color:var(--muted)">Получаваш комисионната, след като майката е платила. Точните условия ги подписваме в договор.</p>
+        </div>
+
+        <div class="card">
+          <h3>Сметни сам</h3>
+          <div class="calc" style="margin-top:18px">
+            <label for="cSales">
+              <span class="calc-row"><span>Колко майки купуват от твоите срещи за 1 седмица</span><output id="cSalesOut" class="tnum">5</output></span>
+              <input type="range" id="cSales" min="0" max="10" step="1" value="5">
+            </label>
+            <div class="calc-out" aria-live="polite">
+              <span>Толкова може да изкараш за 1 месец</span>
+              <b class="tnum" id="cTotal">3 248 €</b>
+              <small id="cExplain">Пример, а не обещание.</small>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ДЕН -->
+  <section class="section" style="padding-top:0">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="eyebrow">Как минава денят</div>
+        <h2>Ти избираш кога. Важното е да са минимум 4 часа.</h2>
+        <p class="lead">Работиш от вкъщи или откъдето искаш, стига да е тихо. Избираш си 4 часа между 10:00 и 19:00 и сетърите записват срещи в тях. Работиш поне 5 дни в седмицата.</p>
+      </div>
+      <div class="day">
+        <div class="day-item"><span class="time">ПОЛУЧАВАШ КАЛЕНДАР</span><h3>Срещите идват при теб</h3><p>Сетърите записват майки в свободните ти часове. Не търсиш клиенти сам.</p></div>
+        <div class="day-item"><span class="time">ПОДГОТВЯШ СЕ</span><h3>Четеш бележките</h3><p>Преди срещата виждаш на колко години е синът и какво тревожи майката.</p></div>
+        <div class="day-item"><span class="time">ВОДИШ СРЕЩАТА</span><h3>Говориш по ясна структура</h3><p>Ние ти даваме как да водиш срещата. Слушаш, питаш и показваш как помагаме.</p></div>
+        <div class="day-item"><span class="time">ПРОДАВАШ</span><h3>Затваряш продажбата</h3><p>Изпращаш линк за плащане още на срещата. Ако иска да помисли, уговаряте кога да се чуете.</p></div>
+        <div class="day-item"><span class="time">ОТБЕЛЯЗВАШ</span><h3>Записваш какво е станало</h3><p>Дойде ли, купи ли, кога ще се чуете. Така виждаш колко си изкарал.</p></div>
+        <div class="day-item"><span class="time">СТАВАШ ПО-ДОБЪР</span><h3>Учиш се всяка седмица</h3><p>Велизар и екипът преглеждат срещите ти и ти казват какво да подобриш.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- КОГО ТЪРСИМ -->
+  <section class="section" style="padding-top:0">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="eyebrow">Кого търсим</div>
+        <h2>Трябва ти опит в продажбите. И желание.</h2>
+        <p class="lead">Ще те научим как продаваме ние. Но не можем да те научим да си сериозен и да ти пука за човека срещу теб. Това зависи само от теб.</p>
+      </div>
+      <div class="fit">
+        <div class="card yes">
+          <h3>Кандидатствай, ако:</h3>
+          <ul>
+            <li>Имаш опит в директни продажби: по телефона, на живо или онлайн</li>
+            <li>Си на 18 или повече години</li>
+            <li>Имаш по 4 свободни часа на ден, 5 дни в седмицата, между 10:00 и 19:00</li>
+            <li>Говориш спокойно и умееш да слушаш</li>
+            <li>Искаш да изкарваш повече, когато продаваш повече</li>
+            <li>Имаш лаптоп, тихо място и добър интернет</li>
+          </ul>
+        </div>
+        <div class="card no">
+          <h3>Не кандидатствай, ако:</h3>
+          <ul>
+            <li>Искаш еднаква заплата всеки месец, каквото и да правиш</li>
+            <li>Продаваш с натиск, страх или чувство за вина</li>
+            <li>Би обещал резултат, само за да продадеш</li>
+            <li>Искаш „да пробваш една седмица“ и после да видиш</li>
+            <li>Спираш, когато майката каже „ще помисля“</li>
+            <li>Отговаряш на съобщения след няколко дни</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="section" style="padding-top:0">
+    <div class="wrap narrow">
+      <div class="section-head">
+        <div class="eyebrow">Въпроси</div>
+        <h2>Често задавани въпроси</h2>
+      </div>
+      <div class="faq">
+        <details><summary>Трябва ли да съм работил в продажби?</summary><p>Да. Търсим хора, които вече са продавали: по телефона, на живо, в магазин или онлайн. Как продаваме ние и какво казваме на срещата, ще те научим.</p></details>
+        <details><summary>Аз ли продавам програмата?</summary><p>Да. Сетърите записват срещата, а ти я провеждаш и продаваш.</p></details>
+        <details><summary>Има ли заплата всеки месец?</summary><p>Няма фиксирана заплата. Получаваш 10% от всяка продажба. Програмата струва 1500&nbsp;€, значи 150&nbsp;€ за всяка майка, която купи.</p></details>
+        <details><summary>С кого ще говоря?</summary><p>С майки на момчета между 12 и 18 години, които сами са поискали помощ. Изтеглили са безплатната книга и са гледали видеото на Велизар. Те вече знаят кои сме.</p></details>
+        <details><summary>Мога ли да работя, докато имам друга работа?</summary><p>Да, ако имаш 4 свободни часа между 10:00 и 19:00, поне 5 дни в седмицата. В тези часове сетърите записват срещите ти.</p></details>
+        <details><summary>На колко години трябва да съм?</summary><p>На 18 или повече години.</p></details>
+        <details><summary>Какво ми трябва, за да започна?</summary><p>Лаптоп или компютър с камера, добър интернет и тихо място. Слушалки с микрофон много помагат.</p></details>
+        <details><summary>Ще ме обучите ли?</summary><p>Да. Получаваш структура на срещата, отговори на най-честите въпроси и записи от наши срещи. Първите ти срещи преглеждаме заедно.</p></details>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= ФОРМА ================= -->
+  <section class="section apply" id="apply">
+    <div class="wrap">
+      <div class="section-head" style="margin-inline:auto;max-width:820px">
+        <div class="eyebrow">Кандидатствай</div>
+        <h2>Кандидатствай за едно от 3-те места</h2>
+        <p class="lead">Има 5 кратки стъпки. Отнема около 5 минути. Когато питаме за теб, няма грешни отговори. Пиши честно и с твои думи. Четем всичко внимателно.</p>
+      </div>
+
+      <div class="form-shell">
+        <div class="progress" id="progress">
+          <div class="progress-top"><span id="stepName">За теб</span><span id="stepCount">Стъпка 1 от 5</span></div>
+          <div class="progress-track"><div class="progress-fill" id="progressFill"></div></div>
+        </div>
+
+        <form id="applyForm" novalidate>
+          <div class="hp" aria-hidden="true"><label for="website">Уебсайт</label><input type="text" id="website" name="website" tabindex="-1" autocomplete="off"></div>
+
+          <!-- СТЪПКА 1 -->
+          <fieldset data-step="1" data-name="За теб">
+            <legend><div class="legend-title">За теб</div><div class="legend-sub">Кажи ни кой си и как да се свържем с теб.</div></legend>
+            <div class="grid-2">
+              <div class="q" data-q="name"><label class="q-label" for="f_name">Име и фамилия <span class="req">*</span></label><input type="text" id="f_name" name="name" autocomplete="name" required></div>
+              <div class="q" data-q="age"><label class="q-label" for="f_age">На колко години си? <span class="req">*</span></label><input type="number" id="f_age" name="age" min="10" max="99" inputmode="numeric" required></div>
+              <div class="q" data-q="phone"><label class="q-label" for="f_phone">Телефон <span class="req">*</span></label><input type="tel" id="f_phone" name="phone" autocomplete="tel" placeholder="08X XXX XXXX" required></div>
+              <div class="q" data-q="email"><label class="q-label" for="f_email">Имейл <span class="req">*</span></label><input type="email" id="f_email" name="email" autocomplete="email" required></div>
+              <div class="q" data-q="city"><label class="q-label" for="f_city">От кой град си? <span class="req">*</span></label><input type="text" id="f_city" name="city" autocomplete="address-level2" required></div>
+              <div class="q" data-q="profile"><label class="q-label" for="f_profile">Instagram, Facebook или LinkedIn (ако искаш)</label><input type="text" id="f_profile" name="profile" placeholder="@profil или линк"></div>
+            </div>
+          </fieldset>
+
+          <!-- СТЪПКА 2 -->
+          <fieldset data-step="2" data-name="Кога си свободен" hidden>
+            <legend><div class="legend-title">Кога си свободен</div><div class="legend-sub">Това е най-важната стъпка. Пиши истината, а не това, което мислиш, че искаме да чуем.</div></legend>
+
+            <div class="q" data-q="hours" role="radiogroup" aria-labelledby="l_hours">
+              <span class="q-label" id="l_hours">Колко часа на ден си свободен между 10:00 и 19:00? <span class="req">*</span></span>
+              <div class="opts cols-2">
+                <label class="opt"><input type="radio" name="hours" value="lt4"><span>По-малко от 4 часа</span></label>
+                <label class="opt"><input type="radio" name="hours" value="4"><span>4 часа</span></label>
+                <label class="opt"><input type="radio" name="hours" value="5-6"><span>5 или 6 часа</span></label>
+                <label class="opt"><input type="radio" name="hours" value="7+"><span>7 часа или повече</span></label>
+              </div>
+            </div>
+
+            <div class="q" data-q="days" role="radiogroup" aria-labelledby="l_days">
+              <span class="q-label" id="l_days">Колко дни в седмицата можеш да работиш? <span class="req">*</span></span>
+              <div class="opts cols-2">
+                <label class="opt"><input type="radio" name="days" value="lt5"><span>По-малко от 5 дни</span></label>
+                <label class="opt"><input type="radio" name="days" value="5"><span>5 дни</span></label>
+                <label class="opt"><input type="radio" name="days" value="6"><span>6 дни</span></label>
+                <label class="opt"><input type="radio" name="days" value="7"><span>7 дни</span></label>
+              </div>
+            </div>
+
+            <div class="q" data-q="slots" aria-labelledby="l_slots">
+              <span class="q-label" id="l_slots">В кои часове можеш да водиш срещи? <span class="req">*</span></span>
+              <span class="q-hint">Можеш да избереш повече от едно.</span>
+              <div class="opts cols-2">
+                <label class="opt"><input type="checkbox" name="slots" value="10–13"><span>Сутрин: 10:00 – 13:00</span></label>
+                <label class="opt"><input type="checkbox" name="slots" value="13–16"><span>Обед: 13:00 – 16:00</span></label>
+                <label class="opt"><input type="checkbox" name="slots" value="16–19"><span>Следобед: 16:00 – 19:00</span></label>
+                <label class="opt"><input type="checkbox" name="slots" value="варира"><span>Всеки ден е различно</span></label>
+              </div>
+            </div>
+
+            <div class="q" data-q="occupation" role="radiogroup" aria-labelledby="l_occ">
+              <span class="q-label" id="l_occ">Какво правиш сега? <span class="req">*</span></span>
+              <div class="opts">
+                <label class="opt"><input type="radio" name="occupation" value="none"><span>Не работя и имам много свободно време</span></label>
+                <label class="opt"><input type="radio" name="occupation" value="student"><span>Уча (в университет)</span></label>
+                <label class="opt"><input type="radio" name="occupation" value="parttime"><span>Работя по няколко часа на ден или сам за себе си</span></label>
+                <label class="opt"><input type="radio" name="occupation" value="fulltime"><span>Работя на пълен работен ден (8 часа)</span></label>
+              </div>
+            </div>
+
+            <div class="q" data-q="start" role="radiogroup" aria-labelledby="l_start">
+              <span class="q-label" id="l_start">Кога можеш да започнеш? <span class="req">*</span></span>
+              <div class="opts cols-2">
+                <label class="opt"><input type="radio" name="start" value="now"><span>Веднага</span></label>
+                <label class="opt"><input type="radio" name="start" value="week"><span>До 1 седмица</span></label>
+                <label class="opt"><input type="radio" name="start" value="month"><span>До 1 месец</span></label>
+                <label class="opt"><input type="radio" name="start" value="unknown"><span>Още не знам</span></label>
+              </div>
+            </div>
+
+            <div class="q" data-q="equipment" aria-labelledby="l_eq">
+              <span class="q-label" id="l_eq">Какво имаш?</span>
+              <span class="q-hint">Избери всичко, което имаш.</span>
+              <div class="opts cols-2">
+                <label class="opt"><input type="checkbox" name="equipment" value="компютър"><span>Лаптоп или компютър с камера</span></label>
+                <label class="opt"><input type="checkbox" name="equipment" value="интернет"><span>Добър интернет</span></label>
+                <label class="opt"><input type="checkbox" name="equipment" value="тихо място"><span>Тихо място, където да говоря</span></label>
+                <label class="opt"><input type="checkbox" name="equipment" value="слушалки"><span>Слушалки с микрофон</span></label>
+              </div>
+            </div>
+          </fieldset>
+
+          <!-- СТЪПКА 3 -->
+          <fieldset data-step="3" data-name="Опит" hidden>
+            <legend><div class="legend-title">Твоят опит</div><div class="legend-sub">Искаме да знаем какво си продавал и как реагираш, когато някой каже „не“.</div></legend>
+
+            <div class="q" data-q="experience" role="radiogroup" aria-labelledby="l_exp">
+              <span class="q-label" id="l_exp">Продавал ли си досега? <span class="req">*</span></span>
+              <div class="opts">
+                <label class="opt"><input type="radio" name="experience" value="none"><span>Не, това ще ми е първата такава работа</span></label>
+                <label class="opt"><input type="radio" name="experience" value="service"><span>Работил съм с клиенти (в магазин, заведение или кол център)</span></label>
+                <label class="opt"><input type="radio" name="experience" value="sales_lt1"><span>Да, в продажби, по-малко от 1 година</span></label>
+                <label class="opt"><input type="radio" name="experience" value="sales_1plus"><span>Да, в продажби, повече от 1 година</span></label>
+              </div>
+            </div>
+
+            <div class="q" data-q="phoneComfort" role="radiogroup" aria-labelledby="l_pc">
+              <span class="q-label" id="l_pc">Колко лесно ти е да поискаш от човек решение и плащане в края на разговора? <span class="req">*</span></span>
+              <div class="scale">
+                <label><input type="radio" name="phoneComfort" value="1">1</label>
+                <label><input type="radio" name="phoneComfort" value="2">2</label>
+                <label><input type="radio" name="phoneComfort" value="3">3</label>
+                <label><input type="radio" name="phoneComfort" value="4">4</label>
+                <label><input type="radio" name="phoneComfort" value="5">5</label>
+              </div>
+              <div class="scale-ends"><span>1 = много ми е трудно</span><span>5 = много ми е лесно</span></div>
+            </div>
+
+            <div class="q" data-q="rejection" role="radiogroup" aria-labelledby="l_rej">
+              <span class="q-label" id="l_rej">Провеждаш 5 срещи. Никой не купува. Какво правиш? <span class="req">*</span></span>
+              <div class="opts">
+                <label class="opt"><input type="radio" name="rejection" value="a"><span>Разстройвам се и спирам за днес</span></label>
+                <label class="opt"><input type="radio" name="rejection" value="b"><span>Не ми е приятно, но влизам в следващата среща</span></label>
+                <label class="opt"><input type="radio" name="rejection" value="c"><span>Влизам в следващата и мисля как да говоря по-добре</span></label>
+                <label class="opt"><input type="radio" name="rejection" value="d"><span>Спирам и питам някой от екипа какво правя грешно</span></label>
+              </div>
+            </div>
+
+          </fieldset>
+
+          <!-- СТЪПКА 4 -->
+          <fieldset data-step="4" data-name="Пари и желание" hidden>
+            <legend><div class="legend-title">Пари и желание</div><div class="legend-sub">Искаме да сме сигурни, че условията ти харесват, преди да започнем обучението.</div></legend>
+
+            <div class="q" data-q="payModel" role="radiogroup" aria-labelledby="l_pay">
+              <span class="q-label" id="l_pay">Тук няма фиксирана заплата. Получаваш 10% от всяка продажба, или 150 € за всяка майка, която купи. Това устройва ли те? <span class="req">*</span></span>
+              <div class="opts">
+                <label class="opt"><input type="radio" name="payModel" value="ok"><span>Да. Искам да изкарвам според това колко продавам.</span></label>
+                <label class="opt"><input type="radio" name="payModel" value="try"><span>Бих предпочел заплата, но ще опитам.</span></label>
+                <label class="opt"><input type="radio" name="payModel" value="fixed"><span>Не. Търся само работа с фиксирана заплата.</span></label>
+              </div>
+            </div>
+
+            <div class="q" data-q="income" role="radiogroup" aria-labelledby="l_inc">
+              <span class="q-label" id="l_inc">Колко искаш да изкарваш на месец след първите 2 месеца? <span class="req">*</span></span>
+              <div class="opts cols-2">
+                <label class="opt"><input type="radio" name="income" value="до 1000 €"><span>До 1000 €</span></label>
+                <label class="opt"><input type="radio" name="income" value="1000–2000 €"><span>От 1000 до 2000 €</span></label>
+                <label class="opt"><input type="radio" name="income" value="2000–4000 €"><span>От 2000 до 4000 €</span></label>
+                <label class="opt"><input type="radio" name="income" value="над 4000 €"><span>Над 4000 €</span></label>
+              </div>
+            </div>
+
+            <div class="q" data-q="why">
+              <label class="q-label" for="f_why">Защо искаш тази работа? Какво ще промени в живота ти? <span class="req">*</span></label>
+              <span class="q-hint">Бъди конкретен. Напиши поне 3–4 изречения.</span>
+              <textarea id="f_why" name="why" data-min="100"></textarea>
+              <div class="counter" data-for="f_why"></div>
+            </div>
+
+            <div class="q" data-q="seriousness" role="radiogroup" aria-labelledby="l_ser">
+              <span class="q-label" id="l_ser">Колко си сигурен, че ще работиш по 4 часа на ден, 5 дни в седмицата, през следващите 3 месеца? <span class="req">*</span></span>
+              <div class="scale ten">
+                <label><input type="radio" name="seriousness" value="1">1</label><label><input type="radio" name="seriousness" value="2">2</label><label><input type="radio" name="seriousness" value="3">3</label><label><input type="radio" name="seriousness" value="4">4</label><label><input type="radio" name="seriousness" value="5">5</label><label><input type="radio" name="seriousness" value="6">6</label><label><input type="radio" name="seriousness" value="7">7</label><label><input type="radio" name="seriousness" value="8">8</label><label><input type="radio" name="seriousness" value="9">9</label><label><input type="radio" name="seriousness" value="10">10</label>
+              </div>
+              <div class="scale-ends"><span>1 = не съм сигурен</span><span>10 = сигурен съм на 100%</span></div>
+            </div>
+
+          </fieldset>
+
+          <!-- СТЪПКА 5 -->
+          <fieldset data-step="5" data-name="Последна стъпка" hidden>
+            <legend><div class="legend-title">Последна стъпка</div><div class="legend-sub">Остава само една отметка.</div></legend>
+            <div class="q" data-q="confirm">
+              <div class="opts">
+                <label class="opt"><input type="checkbox" name="confirm" value="ok"><span>Прочетох условията и съм съгласен.</span></label>
+              </div>
+            </div>
+            <div class="notice bad" id="submitError" hidden></div>
+          </fieldset>
+
+          <div class="form-nav" id="formNav">
+            <button type="button" class="btn btn-ghost" id="prevBtn" hidden>Назад</button>
+            <span></span>
+            <button type="button" class="btn btn-primary" id="nextBtn">Напред</button>
+            <button type="submit" class="btn btn-primary" id="submitBtn" hidden>Изпрати</button>
+          </div>
+        </form>
+
+        <div class="done" id="doneView" hidden>
+          <div class="big" aria-hidden="true"><svg width="28" height="28" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <h3>Готово. Получихме кандидатурата ти.</h3>
+          <p class="lead">Ще прочетем всичко лично. Ако си подходящ, ще ти се обадим на телефона, който написа. Дръж телефона си наблизо и вдигай на непознати номера.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>© MindParent · Велизар и Марина Панайотова</span>
+    <span>Плащаме за резултат. Сумите на тази страница са примери, а не обещание.</span>
+  </div>
+</footer>
+</div>
+
+<!-- =====================================================================
+     АДМИН ПАНЕЛ  (отваря се с #admin в края на адреса)
+     ===================================================================== -->
+<div id="adminView" class="admin" hidden>
+  <div class="wrap">
+    <div class="login" id="loginBox">
+      <div class="eyebrow">Само за екипа</div>
+      <h2 style="font-size:28px">Кандидати за sales</h2>
+      <div class="q"><label class="q-label" for="adminKey">Парола</label><input type="password" id="adminKey" autocomplete="current-password"></div>
+      <div class="err" id="loginErr" hidden></div>
+      <button class="btn btn-primary" id="loginBtn" type="button">Влез</button>
+    </div>
+
+    <div id="adminApp" hidden>
+      <div class="admin-top">
+        <div style="display:flex;align-items:center;gap:12px;flex-wrap:wrap"><h1>Кандидати за sales</h1><span class="demo-badge" id="demoBadge" hidden>ПРИМЕРНИ ДАННИ</span></div>
+        <div style="display:flex;gap:8px;flex-wrap:wrap">
+          <button class="btn btn-ghost" type="button" id="refreshBtn" style="padding:10px 16px;font-size:14px">Обнови</button>
+          <button class="btn btn-ghost" type="button" id="logoutBtn" style="padding:10px 16px;font-size:14px">Изход</button>
+        </div>
+      </div>
+
+      <div class="stats" id="stats"></div>
+
+      <div class="toolbar">
+        <input type="text" id="search" placeholder="Търси по име, телефон, град…">
+        <div class="chips" id="tierChips">
+          <button class="chip" type="button" data-tier="all" aria-pressed="true">Всички</button>
+          <button class="chip" type="button" data-tier="A" aria-pressed="false">A</button>
+          <button class="chip" type="button" data-tier="B" aria-pressed="false">B</button>
+          <button class="chip" type="button" data-tier="C" aria-pressed="false">C</button>
+          <button class="chip" type="button" data-tier="X" aria-pressed="false">Отпада</button>
+        </div>
+        <select id="statusFilter"><option value="all">Всеки статус</option></select>
+      </div>
+
+      <div class="table-wrap">
+        <table>
+          <thead><tr>
+            <th data-sort="Категория">Кат.</th>
+            <th data-sort="Точки">Точки ↓</th>
+            <th data-sort="Име">Име</th>
+            <th data-sort="Възраст">Възр.</th>
+            <th>Телефон</th>
+            <th data-sort="Опит">Опит</th>
+            <th data-sort="Часове на ден">Часове</th>
+            <th data-sort="Дни седмично">Дни</th>
+            <th data-sort="Старт">Старт</th>
+            <th>Флагове</th>
+            <th data-sort="Статус">Статус</th>
+            <th data-sort="Дата">Дата</th>
+          </tr></thead>
+          <tbody id="rows"></tbody>
+        </table>
+      </div>
+      <p id="emptyMsg" style="padding:24px 4px;color:var(--muted)" hidden>Няма кандидати по този филтър.</p>
+    </div>
+  </div>
+</div>
+
+<div class="drawer-bg" id="drawerBg" hidden></div>
+<aside class="drawer" id="drawer" hidden aria-modal="true" role="dialog" aria-labelledby="dName">
+  <div class="drawer-head">
+    <div><div id="dTier"></div><h2 id="dName" style="margin-top:8px"></h2></div>
+    <button class="close-x" type="button" id="dClose" aria-label="Затвори">×</button>
+  </div>
+  <div class="drawer-actions">
+    <label class="q-label" for="dStatus" style="font-weight:700">Статус</label>
+    <select id="dStatus"></select>
+    <label class="q-label" for="dNote" style="font-weight:700">Бележка</label>
+    <textarea id="dNote" style="min-height:80px"></textarea>
+    <button class="btn btn-primary" type="button" id="dSave" style="padding:12px 18px">Запази</button>
+    <span id="dSaved" style="font-size:13.5px;color:var(--good);font-weight:600" hidden>Запазено</span>
+  </div>
+  <dl class="kv" id="dKv"></dl>
+</aside>
+
+<script>
+/* =====================================================================
+   НАСТРОЙКА: адрес на функцията в Supabase (проект mindparent),
+   където се записват кандидатурите. Ако е празно, формата работи
+   в тестов режим и таблицата показва примерни данни.
+   ===================================================================== */
+const SCRIPT_URL = "https://bwdgjmqkmgmmjskwlkjp.supabase.co/functions/v1/sales-apply";
+
+const PRICE = 1500;        // цена на програмата, €
+const RATE = 0.10;         // комисионна
+const PER_SALE = PRICE * RATE;
+
+const STATUSES = ["Нов","Обаден","Не вдига","Разговор насрочен","Приет","Отказан"];
+
+/* ---------------- помощни ---------------- */
+const $ = (s, r=document) => r.querySelector(s);
+const $$ = (s, r=document) => Array.from(r.querySelectorAll(s));
+const store = {
+  get(k){ try{ return JSON.parse(localStorage.getItem(k)); }catch(e){ return null; } },
+  set(k,v){ try{ localStorage.setItem(k, JSON.stringify(v)); }catch(e){} },
+  del(k){ try{ localStorage.removeItem(k); }catch(e){} },
+  sget(k){ try{ return sessionStorage.getItem(k); }catch(e){ return null; } },
+  sset(k,v){ try{ sessionStorage.setItem(k,v); }catch(e){} },
+  sdel(k){ try{ sessionStorage.removeItem(k); }catch(e){} }
+};
+const fmtEUR = n => new Intl.NumberFormat("bg-BG",{maximumFractionDigits:0}).format(Math.round(n)) + " €";
+const esc = s => String(s ?? "").replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+async function api(body){
+  const res = await fetch(SCRIPT_URL, { method:"POST", headers:{"Content-Type":"application/json"}, body: JSON.stringify(body) });
+  return res.json().catch(()=>({ok:false}));
+}
+
+/* ---------------- калкулатор ---------------- */
+function calc(){
+  const sales = +$("#cSales").value;
+  const total = sales * 4.33 * PER_SALE;
+  $("#cSalesOut").textContent = sales;
+  $("#cTotal").textContent = fmtEUR(total);
+  $("#cExplain").textContent = `${sales} ${sales===1?"продажба":"продажби"} на седмица × ${fmtEUR(PER_SALE)} × 4 седмици и малко. Пример, а не обещание.`;
+}
+["input","change"].forEach(ev => $("#cSales").addEventListener(ev, calc));
+calc();
+
+/* =====================================================================
+   ФОРМА
+   ===================================================================== */
+const form = $("#applyForm");
+const steps = $$("fieldset[data-step]", form);
+let current = 0;
+const startedAt = Date.now();
+
+const LABELS = {
+  hours:{lt4:"По-малко от 4", "4":"4", "5-6":"5–6", "7+":"7+"},
+  days:{lt5:"По-малко от 5", "5":"5", "6":"6", "7":"7"},
+  occupation:{none:"Без работа", student:"Учи", parttime:"Непълен ден / свободна практика", fulltime:"Пълен работен ден"},
+  start:{now:"Веднага", week:"До 7 дни", month:"До месец", unknown:"Не знае"},
+  experience:{none:"Без опит", service:"Работа с клиенти", sales_lt1:"Продажби до 1 г.", sales_1plus:"Продажби 1+ г."},
+  rejection:{a:"Приема го лично, спира", b:"Продължава", c:"Продължава и се коригира", d:"Спира и пита екипа"},
+  payModel:{ok:"Устройва го", try:"Предпочита фиксирана, ще пробва", fixed:"Само фиксирана заплата"}
+};
+
+function val(name){
+  const els = form.elements[name];
+  if(!els) return "";
+  if(els instanceof RadioNodeList || els.length !== undefined && els.tagName === undefined){
+    const list = Array.from(els);
+    if(list[0] && list[0].type === "checkbox") return list.filter(e=>e.checked).map(e=>e.value);
+    return (list.find(e=>e.checked)||{}).value || "";
+  }
+  if(els.type === "checkbox") return els.checked ? [els.value] : [];
+  return (els.value || "").trim();
+}
+
+/* ---------- валидация ---------- */
+const REQUIRED = {
+  1:["name","age","phone","email","city"],
+  2:["hours","days","slots","occupation","start"],
+  3:["experience","phoneComfort","rejection"],
+  4:["payModel","income","why","seriousness"],
+  5:["confirm"]
+};
+function setErr(q, msg){
+  if(!q) return;
+  q.classList.toggle("invalid", !!msg);
+  let e = $(".err", q);
+  if(msg){ if(!e){ e = document.createElement("div"); e.className="err"; q.appendChild(e);} e.textContent = msg; }
+  else if(e){ e.remove(); }
+}
+function validateStep(n){
+  let firstBad = null;
+  for(const name of REQUIRED[n]){
+    const q = $(`[data-q="${name}"]`, form);
+    const v = val(name);
+    let msg = "";
+    if(Array.isArray(v) ? v.length===0 : !v) msg = "Попълни това поле.";
+    if(!msg && name==="email" && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v)) msg = "Провери имейла. Изглежда, че нещо липсва.";
+    if(!msg && name==="phone" && v.replace(/\D/g,"").length < 9) msg = "Телефонът трябва да има поне 9 цифри.";
+    if(!msg && name==="age" && (+v<10 || +v>99)) msg = "Напиши възрастта си с цифри.";
+    if(!msg && name==="confirm" && v.length < 1) msg = "Отбележи, че си съгласен, за да изпратиш.";
+    const ta = q && $("textarea[data-min]", q);
+    if(!msg && ta && v.length < +ta.dataset.min) msg = `Напиши малко повече. Трябват поне ${ta.dataset.min} букви, сега имаш ${v.length}.`;
+    setErr(q, msg);
+    if(msg && !firstBad) firstBad = q;
+  }
+  if(firstBad){ firstBad.scrollIntoView({behavior:"smooth", block:"center"}); const f = $("input,textarea,select", firstBad); f && f.focus({preventScroll:true}); }
+  return !firstBad;
+}
+form.addEventListener("input", e => {
+  const q = e.target.closest(".q");
+  if(q && q.classList.contains("invalid")) setErr(q, "");
+  saveDraft();
+});
+form.addEventListener("change", saveDraft);
+
+/* ---------- броячи на символи ---------- */
+$$("textarea[data-min]", form).forEach(ta => {
+  const c = $(`.counter[data-for="${ta.id}"]`);
+  const upd = () => { const n = ta.value.trim().length, m = +ta.dataset.min; c.textContent = n >= m ? `${n} букви ✓` : `${n} от поне ${m} букви`; c.classList.toggle("ok", n>=m); };
+  ta.addEventListener("input", upd); upd();
+});
+
+/* ---------- навигация ---------- */
+function show(i){
+  current = i;
+  steps.forEach((s,k) => s.hidden = k!==i);
+  $("#prevBtn").hidden = i===0;
+  $("#nextBtn").hidden = i===steps.length-1;
+  $("#submitBtn").hidden = i!==steps.length-1;
+  $("#stepName").textContent = steps[i].dataset.name;
+  $("#stepCount").textContent = `Стъпка ${i+1} от ${steps.length}`;
+  $("#progressFill").style.width = `${(i)/(steps.length)*100 + 100/steps.length/2}%`;
+}
+let pixStarted = false;
+$("#nextBtn").addEventListener("click", () => {
+  if(!validateStep(current+1)) return;
+  if(!pixStarted){ pixStarted = true; try{ window.fbq && fbq('trackCustom','SalesStartApplication'); }catch(e){} }
+  show(current+1);
+  $("#apply").scrollIntoView({behavior:"smooth"});
+});
+$("#prevBtn").addEventListener("click", () => { show(current-1); $("#apply").scrollIntoView({behavior:"smooth"}); });
+
+/* ---------- чернова (само в браузъра на кандидата) ---------- */
+function saveDraft(){
+  const d = {};
+  Array.from(form.elements).forEach(el => {
+    if(!el.name || el.name==="website") return;
+    if(el.type==="radio"){ if(el.checked) d[el.name]=el.value; }
+    else if(el.type==="checkbox"){ d[el.name] = d[el.name]||[]; if(el.checked) d[el.name].push(el.value); }
+    else d[el.name] = el.value;
+  });
+  store.set("sales_draft", d);
+}
+function loadDraft(){
+  const d = store.get("sales_draft"); if(!d) return;
+  Array.from(form.elements).forEach(el => {
+    if(!el.name || !(el.name in d)) return;
+    if(el.type==="radio") el.checked = d[el.name]===el.value;
+    else if(el.type==="checkbox") el.checked = (d[el.name]||[]).includes(el.value);
+    else el.value = d[el.name];
+  });
+  $$("textarea[data-min]", form).forEach(t => t.dispatchEvent(new Event("input")));
+}
+
+/* =====================================================================
+   ТОЧКУВАНЕ
+   Всяка кандидатура получава точки от 0 до 100, категория и флагове.
+   Твърди флагове (⛔) = кандидатът отпада автоматично.
+   ===================================================================== */
+function scoreApplication(){
+  let pts = 0, max = 0;
+  const flags = [], hard = [];
+  const add = (p, m) => { pts += p; max += m; };
+
+  const age = +val("age");
+  if(age < 18) hard.push(`Възраст ${age} (под 18)`);
+
+  const h = val("hours");
+  if(h==="lt4") hard.push("Под 4 часа на ден");
+  add({lt4:0,"4":10,"5-6":13,"7+":15}[h]||0, 15);
+
+  const d = val("days");
+  if(d==="lt5") hard.push("Под 5 дни седмично");
+  add({lt5:0,"5":8,"6":10,"7":10}[d]||0, 10);
+
+  const slots = val("slots");
+  add(Math.min(5, slots.filter(s=>s!=="варира").length*2 + (slots.includes("варира")?1:0)), 5);
+
+  const occ = val("occupation");
+  add({none:5,student:4,parttime:4,fulltime:1}[occ]||0, 5);
+  if(occ==="fulltime") flags.push("Пълен работен ден: провери дали реално има 4 ч между 10 и 19");
+
+  add({now:5,week:4,month:2,unknown:0}[val("start")]||0, 5);
+  if(val("start")==="unknown") flags.push("Не знае кога може да започне");
+
+  const eq = val("equipment");
+  add((eq.includes("компютър")?3:0)+(eq.includes("интернет")?3:0)+(eq.includes("тихо място")?2:0)+(eq.includes("слушалки")?2:0), 10);
+  if(!eq.includes("компютър")) flags.push("Няма компютър с камера");
+  if(!eq.includes("тихо място")) flags.push("Няма тихо място за срещи");
+
+  const exp = val("experience");
+  add({none:0,service:3,sales_lt1:6,sales_1plus:8}[exp]||0, 8);
+  if(exp==="none") hard.push("Няма опит в продажбите");
+  if(exp==="service") flags.push("Опит само с клиенти, не в продажби");
+
+  const pc = +val("phoneComfort");
+  add(pc, 5);
+  if(pc && pc<=2) flags.push("Трудно му е да поиска решение и плащане");
+
+  const rej = val("rejection");
+  add({a:0,b:3,c:5,d:3}[rej]||0, 5);
+  if(rej==="a") flags.push("Отказът го спира");
+
+  const pm = val("payModel");
+  add({ok:8,try:3,fixed:0}[pm]||0, 8);
+  if(pm==="fixed") hard.push("Търси само фиксирана заплата");
+  if(pm==="try") flags.push("Предпочита фиксирана заплата");
+
+  add({"до 1000 €":1,"1000–2000 €":3,"2000–4000 €":3,"над 4000 €":2}[val("income")]||0, 3);
+
+  const ser = +val("seriousness");
+  add(ser>=9?3:ser>=7?2:0, 3);
+  if(ser && ser<=5) flags.push(`Сам се оценява ${ser}/10 за сериозност`);
+
+  const lenPts = (t, hi, mid, pHi, pMid) => t.length>=hi ? pHi : t.length>=mid ? pMid : 0;
+  add(lenPts(val("why"), 250, 100, 5, 3), 5);
+
+  const mins = Math.round((Date.now()-startedAt)/60000);
+  if(mins < 2) flags.push(`Попълнил анкетата за ${mins} мин`);
+
+  const score = Math.round(pts/max*100);
+  let tier = hard.length ? "X" : score>=75 ? "A" : score>=55 ? "B" : "C";
+  return { score, tier, flags:[...hard.map(f=>"⛔ "+f), ...flags], mins };
+}
+
+const TIER_TEXT = {A:"A · обади се първо", B:"B · резерва", C:"C · слаб", X:"Отпада"};
+
+function buildRow(){
+  const s = scoreApplication();
+  const L = (k) => LABELS[k][val(k)] || val(k);
+  return {
+    "Точки": s.score,
+    "Категория": TIER_TEXT[s.tier],
+    "Флагове": s.flags.join(" | "),
+    "Име": val("name"),
+    "Възраст": +val("age"),
+    "Телефон": val("phone"),
+    "Имейл": val("email"),
+    "Град": val("city"),
+    "Профил": val("profile"),
+    "Часове на ден": L("hours"),
+    "Дни седмично": L("days"),
+    "Часови диапазони": val("slots").join(", "),
+    "Заетост": L("occupation"),
+    "Старт": L("start"),
+    "Техника": val("equipment").join(", ") || "нищо от изброеното",
+    "Опит": L("experience"),
+    "Лекота да поиска плащане (1–5)": +val("phoneComfort"),
+    "Реакция на отказ": L("rejection"),
+    "Модел на заплащане": L("payModel"),
+    "Желан доход": val("income"),
+    "Защо тази работа": val("why"),
+    "Сериозност (1–10)": +val("seriousness"),
+    "Минути за попълване": s.mins
+  };
+}
+
+form.addEventListener("submit", async e => {
+  e.preventDefault();
+  if(val("website")) return; // спам
+  if(!validateStep(5)) return;
+  const btn = $("#submitBtn"), err = $("#submitError");
+  err.hidden = true;
+  btn.disabled = true; btn.textContent = "Изпращаме…";
+  const row = buildRow();
+  try{
+    if(SCRIPT_URL){
+      const out = await api({ action:"apply", data: row, page_url: location.href });
+      if(!out.ok) throw new Error(out.error || "save_failed");
+    } else {
+      console.info("Тестов режим, кандидатурата не е записана:", row);
+    }
+    try{
+      if(window.fbq){
+        if(row["Категория"] === "Отпада") fbq('trackCustom','SalesApplicationDisqualified');
+        else fbq('trackCustom','SalesApplication',{content_category: row["Категория"]});
+      }
+    }catch(e){}
+    store.del("sales_draft");
+    form.hidden = true; $("#progress").hidden = true; $("#doneView").hidden = false;
+    $("#apply").scrollIntoView({behavior:"smooth"});
+  }catch(ex){
+    err.textContent = "Кандидатурата не се изпрати. Провери интернета и натисни „Изпрати“ пак. Отговорите ти са запазени.";
+    err.hidden = false;
+    btn.disabled = false; btn.textContent = "Изпрати";
+  }
+});
+
+loadDraft();
+show(0);
+
+/* =====================================================================
+   АДМИН ПАНЕЛ
+   ===================================================================== */
+let ROWS = [], DEMO = false, sortKey = "Точки", sortDir = -1, tierFilter = "all";
+
+const SAMPLE = [
+  {id:"demo1","Дата":"2026-10-22 11:04","Статус":"Нов","Точки":88,"Категория":"A · обади се първо","Флагове":"","Име":"Примерен Кандидат 1","Възраст":31,"Телефон":"0888 000 001","Имейл":"primer1@example.com","Град":"София","Часове на ден":"5–6","Дни седмично":"5","Старт":"Веднага","Заетост":"Непълен ден / свободна практика","Техника":"компютър, интернет, тихо място, слушалки","Опит":"Продажби 1+ г.","Желан доход":"2000–4000 €","Сериозност (1–10)":9,"Защо тази работа":"Примерен отговор, за да видиш как изглежда детайлният изглед.","Бележка":""},
+  {id:"demo2","Дата":"2026-10-22 12:30","Статус":"Обаден","Точки":67,"Категория":"B · резерва","Флагове":"Пълен работен ден: провери дали реално има 4 ч между 10 и 19","Име":"Примерен Кандидат 2","Възраст":27,"Телефон":"0888 000 002","Имейл":"primer2@example.com","Град":"Пловдив","Часове на ден":"4","Дни седмично":"5","Старт":"До 7 дни","Заетост":"Пълен работен ден","Техника":"компютър, интернет","Опит":"Продажби до 1 г.","Желан доход":"1000–2000 €","Сериозност (1–10)":8,"Бележка":""},
+  {id:"demo3","Дата":"2026-10-22 14:12","Статус":"Нов","Точки":41,"Категория":"C · слаб","Флагове":"Опит само с клиенти, не в продажби | Попълнил анкетата за 3 мин","Име":"Примерен Кандидат 3","Възраст":23,"Телефон":"0888 000 003","Имейл":"primer3@example.com","Град":"Варна","Часове на ден":"4","Дни седмично":"5","Старт":"Не знае","Заетост":"Учи","Техника":"интернет","Опит":"Работа с клиенти","Желан доход":"над 4000 €","Сериозност (1–10)":6,"Бележка":""},
+  {id:"demo4","Дата":"2026-10-22 15:47","Статус":"Отказан","Точки":38,"Категория":"Отпада","Флагове":"⛔ Търси само фиксирана заплата | ⛔ Няма опит в продажбите","Име":"Примерен Кандидат 4","Възраст":24,"Телефон":"0888 000 004","Имейл":"primer4@example.com","Град":"Бургас","Часове на ден":"4","Дни седмично":"5","Старт":"До месец","Заетост":"Пълен работен ден","Техника":"компютър","Опит":"Без опит","Желан доход":"1000–2000 €","Сериозност (1–10)":5,"Бележка":""}
+];
+
+const tierOf = r => { const c = String(r["Категория"]||""); return c.startsWith("A")?"A":c.startsWith("B")?"B":c.startsWith("C")?"C":"X"; };
+
+function adminMode(){
+  const on = location.hash === "#admin";
+  $("#publicView").hidden = on;
+  $("#adminView").hidden = !on;
+  if(on){
+    document.title = "Кандидати · админ";
+    const k = store.sget("sales_admin_key");
+    if(k || !SCRIPT_URL) loadRows(k || "");
+  }
+}
+window.addEventListener("hashchange", adminMode);
+
+async function loadRows(key){
+  $("#loginErr").hidden = true;
+  if(!SCRIPT_URL){
+    DEMO = true; ROWS = SAMPLE.map(r=>({...r}));
+    return openApp();
+  }
+  try{
+    const out = await api({ action:"list", key });
+    if(!out.ok){ store.sdel("sales_admin_key"); throw new Error(out.error==="unauthorized" ? "Грешна парола." : "Таблицата не се зареди."); }
+    store.sset("sales_admin_key", key);
+    DEMO = false; ROWS = out.rows || [];
+    openApp();
+  }catch(ex){
+    $("#loginBox").hidden = false; $("#adminApp").hidden = true;
+    $("#loginErr").textContent = ex.message.includes("парола") ? ex.message : "Таблицата не се зареди. Провери връзката.";
+    $("#loginErr").hidden = false;
+  }
+}
+function openApp(){
+  $("#loginBox").hidden = true; $("#adminApp").hidden = false;
+  $("#demoBadge").hidden = !DEMO;
+  const sf = $("#statusFilter");
+  if(sf.options.length === 1) STATUSES.forEach(s => sf.add(new Option(s, s)));
+  renderAdmin();
+}
+$("#loginBtn").addEventListener("click", () => loadRows($("#adminKey").value));
+$("#adminKey").addEventListener("keydown", e => { if(e.key==="Enter") loadRows(e.target.value); });
+$("#logoutBtn").addEventListener("click", () => { store.sdel("sales_admin_key"); ROWS=[]; $("#adminApp").hidden=true; $("#loginBox").hidden=false; $("#adminKey").value=""; });
+$("#refreshBtn").addEventListener("click", () => loadRows(store.sget("sales_admin_key")||""));
+
+function renderAdmin(){
+  const q = $("#search").value.trim().toLowerCase();
+  const st = $("#statusFilter").value;
+  let list = ROWS.filter(r =>
+    (tierFilter==="all" || tierOf(r)===tierFilter) &&
+    (st==="all" || (r["Статус"]||"Нов")===st) &&
+    (!q || [r["Име"],r["Телефон"],r["Град"],r["Имейл"]].join(" ").toLowerCase().includes(q))
+  );
+  list.sort((a,b) => {
+    let x=a[sortKey], y=b[sortKey];
+    if(sortKey==="Категория"){ x="AB CX".indexOf(tierOf(a)); y="AB CX".indexOf(tierOf(b)); }
+    if(typeof x==="number" || typeof y==="number"){ return ((+x||0)-(+y||0))*sortDir; }
+    return String(x||"").localeCompare(String(y||""),"bg")*sortDir;
+  });
+
+  const count = t => ROWS.filter(r=>tierOf(r)===t).length;
+  $("#stats").innerHTML = [
+    ["Общо", ROWS.length], ["A · обади се първо", count("A")], ["B · резерва", count("B")], ["C · слаб", count("C")], ["Отпадат", count("X")]
+  ].map(([l,v]) => `<div class="stat"><span>${l}</span><b class="tnum">${v}</b></div>`).join("");
+
+  $("#rows").innerHTML = list.map(r => {
+    const t = tierOf(r);
+    return `<tr data-id="${esc(r.id)}" tabindex="0">
+      <td><span class="tier tier-${t}">${t==="X"?"ОТПАДА":t}</span></td>
+      <td class="score tnum">${esc(r["Точки"])}</td>
+      <td><b>${esc(r["Име"])}</b><div style="font-size:12.5px;color:var(--muted)">${esc(r["Град"])}</div></td>
+      <td class="tnum">${esc(r["Възраст"])}</td>
+      <td class="tnum" style="white-space:nowrap">${esc(r["Телефон"])}</td>
+      <td>${esc(r["Опит"])}</td>
+      <td>${esc(r["Часове на ден"])}</td>
+      <td>${esc(r["Дни седмично"])}</td>
+      <td>${esc(r["Старт"])}</td>
+      <td class="flags">${esc(r["Флагове"]).split(" | ").filter(Boolean).join("<br>")}</td>
+      <td><span class="status-pill">${esc(r["Статус"]||"Нов")}</span></td>
+      <td class="tnum" style="white-space:nowrap;color:var(--muted);font-size:13px">${esc(r["Дата"])}</td>
+    </tr>`;
+  }).join("");
+  $("#emptyMsg").hidden = list.length>0;
+  $$("th[data-sort]").forEach(th => {
+    const base = th.textContent.replace(/ [↑↓]$/,"");
+    th.textContent = base + (th.dataset.sort===sortKey ? (sortDir<0?" ↓":" ↑") : "");
+  });
+}
+$("#search").addEventListener("input", renderAdmin);
+$("#statusFilter").addEventListener("change", renderAdmin);
+$$("#tierChips .chip").forEach(c => c.addEventListener("click", () => {
+  tierFilter = c.dataset.tier;
+  $$("#tierChips .chip").forEach(x => x.setAttribute("aria-pressed", x===c));
+  renderAdmin();
+}));
+$$("th[data-sort]").forEach(th => th.addEventListener("click", () => {
+  const k = th.dataset.sort;
+  sortDir = k===sortKey ? -sortDir : (k==="Точки"||k==="Дата" ? -1 : 1);
+  sortKey = k; renderAdmin();
+}));
+
+/* ---------- детайлен изглед ---------- */
+let openId = null;
+function openDrawer(id){
+  const r = ROWS.find(x => String(x.id)===String(id)); if(!r) return;
+  openId = id;
+  const t = tierOf(r);
+  $("#dTier").innerHTML = `<span class="tier tier-${t}">${esc(r["Категория"])}</span> <span class="score tnum" style="margin-left:8px">${esc(r["Точки"])} т.</span>`;
+  $("#dName").textContent = r["Име"];
+  const ds = $("#dStatus"); ds.innerHTML = STATUSES.map(s=>`<option ${s===(r["Статус"]||"Нов")?"selected":""}>${s}</option>`).join("");
+  $("#dNote").value = r["Бележка"] || "";
+  $("#dSaved").hidden = true;
+  const skip = new Set(["id","Име","Категория","Точки","Статус","Бележка"]);
+  const ORDER = ["Дата","Флагове","Възраст","Телефон","Имейл","Град","Профил","Часове на ден","Дни седмично","Часови диапазони","Заетост","Старт","Техника","Опит","Лекота да поиска плащане (1–5)","Реакция на отказ","Модел на заплащане","Желан доход","Защо тази работа","Сериозност (1–10)","Минути за попълване"];
+  const rank = k => { const i = ORDER.indexOf(k); return i<0 ? 999 : i; };
+  $("#dKv").innerHTML = Object.entries(r).filter(([k])=>!skip.has(k)).sort((a,b)=>rank(a[0])-rank(b[0])).map(([k,v]) => `<div><dt>${esc(k)}</dt><dd>${esc(v)}</dd></div>`).join("");
+  $("#drawer").hidden = false; $("#drawerBg").hidden = false;
+  $("#dClose").focus();
+}
+function closeDrawer(){ $("#drawer").hidden = true; $("#drawerBg").hidden = true; openId = null; }
+$("#rows").addEventListener("click", e => { const tr = e.target.closest("tr[data-id]"); tr && openDrawer(tr.dataset.id); });
+$("#rows").addEventListener("keydown", e => { if(e.key==="Enter"){ const tr = e.target.closest("tr[data-id]"); tr && openDrawer(tr.dataset.id); }});
+$("#dClose").addEventListener("click", closeDrawer);
+$("#drawerBg").addEventListener("click", closeDrawer);
+document.addEventListener("keydown", e => { if(e.key==="Escape" && !$("#drawer").hidden) closeDrawer(); });
+
+$("#dSave").addEventListener("click", async () => {
+  const r = ROWS.find(x => String(x.id)===String(openId)); if(!r) return;
+  const status = $("#dStatus").value, note = $("#dNote").value;
+  const btn = $("#dSave"); btn.disabled = true; btn.textContent = "Запазване…";
+  try{
+    if(!DEMO){
+      const out = await api({ action:"status", key: store.sget("sales_admin_key"), id: r.id, status, note });
+      if(!out.ok) throw new Error();
+    }
+    r["Статус"] = status; r["Бележка"] = note;
+    $("#dSaved").textContent = DEMO ? "Запазено (само в тестов режим)" : "Запазено";
+    $("#dSaved").style.color = "var(--good)";
+    $("#dSaved").hidden = false; renderAdmin();
+  }catch(ex){
+    $("#dSaved").textContent = "Не се запази. Опитай пак."; $("#dSaved").style.color = "var(--bad)"; $("#dSaved").hidden = false;
+  }
+  btn.disabled = false; btn.textContent = "Запази";
+});
+
+adminMode();
+</script>
+</body>
+</html>
